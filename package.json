@@ -19,6 +19,7 @@
   "homepage": "https://github.com/rjhenry3/aws-ssm-params-to-env#readme",
   "dependencies": {
     "@actions/core": "^1.2.4",
-    "aws-sdk": "^2.717.0"
+    "aws-sdk": "^2.717.0",
+    "shelljs": "^0.8.4"
   }
 }

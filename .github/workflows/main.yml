@@ -18,11 +18,13 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
 
-    - name: Test env variable(s) are set
+    - name: Test ssm-to-env local
       uses: ./
       id: ssm-to-env-local
       with:
         ssm-path: /actions-testing/test-parameter
+
+    - name: Test for Env Variables
       run: |
         echo "Testing if parameter values get set properly:"
         printenv $test2
