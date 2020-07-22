@@ -15,13 +15,16 @@ async function run_action()
         parsedValue = parseValue(paramValue);
         if (typeof(parsedValue) === 'string')
         {
+            core.debug(`parsedValue: ${parsedValue}`);
             // Set environment variable with ssmPath name as the env variable
             var split = ssmPath.split('/');
             var envVarName = prefix + split[split.length - 1];
+            core.debug(`Using prefix + end of ssmPath for env var name: ${envVarName}`);
             setEnvironmentVar(envVarName, parsedValue);
         }
-        else
+        else // assuming JSON object
         {
+            core.debug(`parsedValue: ${JSON.stringify(parsedValue)}`);
             // Assume basic JSON structure
             for (var key in parsedValue)
             {
@@ -44,6 +47,7 @@ function parseValue(val)
     }
     catch
     {
+        core.debug('JSON parse failed - assuming parameter is to be taken as a string literal');
         return val;
     }
 }
@@ -51,6 +55,7 @@ function parseValue(val)
 function setEnvironmentVar(key, value)
 {
     cmdString = `echo "::set-env name=${key}::${value}`;
+    core.debug(`Running cmd: ${cmdString}`);
     exec(cmdString);
 }
 
