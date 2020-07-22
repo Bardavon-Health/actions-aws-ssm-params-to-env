@@ -1,6 +1,8 @@
 # actions-aws-ssm-params-to-env
-This is a github action to Convert SSM parameters to environment variables. It will handle
-simple JSON structures, or string literal values.
+This is a github action to convert SSM parameters to environment variables. It will handle
+simple JSON structures, or literal values. If you utilize the AWS action for setting
+your credentials or assume a role, you will not need to explicitly include the AWS environment
+variables in this action's step.
 
 
 ## Usage:
