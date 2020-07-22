@@ -1,5 +1,6 @@
 # actions-aws-ssm-params-to-env
-A github action to Convert SSM parameters to environment variables with support for JSON parameters
+This is a github action to Convert SSM parameters to environment variables. It will handle
+simple JSON structures, or string literal values.
 
 
 ## Usage:
@@ -28,6 +29,12 @@ add prefix in front of environment variable name
 
 ### decryption(optional)
 Boolean which indicates whether the parameter should be decrypted or not
+
+### **Note on decryption:**
+You should take care in utilizing encrypted values as GitHub actions will not automatically redact
+the value of such parameters from your logs. Further, do not perform debugging of this action
+(e.g. set the `ACTIONS_STEP_DEBUG` to true in your repository) while using an encrypted parameter
+that has truly private data. This will print out the unencrypted value in the logs.
 
 ---
 ## Example output:

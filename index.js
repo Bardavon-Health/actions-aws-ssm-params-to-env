@@ -13,16 +13,7 @@ async function run_action()
 
         paramValue = await ssm.getParameter(ssmPath, decryption, region);
         parsedValue = parseValue(paramValue);
-        if (typeof(parsedValue) === 'string')
-        {
-            core.debug(`parsedValue: ${parsedValue}`);
-            // Set environment variable with ssmPath name as the env variable
-            var split = ssmPath.split('/');
-            var envVarName = prefix + split[split.length - 1];
-            core.debug(`Using prefix + end of ssmPath for env var name: ${envVarName}`);
-            setEnvironmentVar(envVarName, parsedValue);
-        }
-        else // assuming JSON object
+        if (typeof(parsedValue) === 'object') // Assume JSON object
         {
             core.debug(`parsedValue: ${JSON.stringify(parsedValue)}`);
             // Assume basic JSON structure
@@ -30,6 +21,15 @@ async function run_action()
             {
                 setEnvironmentVar(prefix + key, parsedValue[key])
             }
+        }
+        else
+        {
+            core.debug(`parsedValue: ${parsedValue}`);
+            // Set environment variable with ssmPath name as the env variable
+            var split = ssmPath.split('/');
+            var envVarName = prefix + split[split.length - 1];
+            core.debug(`Using prefix + end of ssmPath for env var name: ${envVarName}`);
+            setEnvironmentVar(envVarName, parsedValue);
         }
     }
     catch (e)
