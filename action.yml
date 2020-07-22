@@ -1,0 +1,19 @@
+name: 'AWS SSM parameters to environment variables'
+description: 'load AWS SSM Parameters into environment variables'
+author: 'Bardavon Health Innovations'
+branding:
+  icon: 'cloud'
+  color: 'orange'
+inputs:
+  ssm-path:
+    description: 'AWS SSM path for parameter (eg. `/ssm/parameter`)'
+    required: true
+  prefix:
+    description: 'Set a prefix on the environment variable'
+    required: false
+  decryption:
+    description: 'Whether the parameter must be decrypted or not'
+    required: false
+runs:
+  using: 'node12'
+  main: 'index.js'
