@@ -1,4 +1,4 @@
-const shell = require('shelljs');
+const execSync = require('child_process').execSync;
 const core = require('@actions/core');
 const ssm = require('./ssm-helper');
 
@@ -56,7 +56,7 @@ function setEnvironmentVar(key, value)
 {
     cmdString = `echo "::set-env name=${key}::${value}"`;
     core.debug(`Running cmd: ${cmdString}`);
-    shell.exec(cmdString);
+    execSync(cmdString, {stdio: 'inherit'});
 }
 
 run_action();
