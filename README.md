@@ -2,7 +2,7 @@
 A github action to Convert SSM parameters to environment variables with support for JSON parameters
 
 
-## Usage
+## Usage:
 
 ```yaml
 - uses: Bardavon-Health/actions-aws-ssm-params-to-env@v1.0
@@ -15,8 +15,8 @@ A github action to Convert SSM parameters to environment variables with support 
     prefix: SSM_ # optional
     decryption: true # optional, default false
 ```
-
-## Options
+---
+## Options:
 
 ### ssm-path(required)
 AWS Systems Manager Parameter Store path to the parameter
@@ -28,6 +28,26 @@ add prefix in front of environment variable name
 
 ### decryption(optional)
 Boolean which indicates whether the parameter should be decrypted or not
+
+---
+## Example output:
+
+### JSON data as the parameter value
+if you have an ssm parameter path of `/application/staging/parameter` with the following value:
+``` JSON
+{
+  "APPLICATION_URL": "https://api.com",
+  "DB_NAME": "somedbname"
+}
+```
+the action will set environment variables for you for each key/value pair of the JSON.
+`$APPLICATION_URL` will be set to `https://api.com` and
+`$DB_NAME` will be set to `somedbname`.
+
+### String data
+if you have an ssm parameter path of `/application/staging/parameter` with the value:
+`ParameterValue`, the action will set an environment variable you such that `echo $parameter`
+will output `ParameterValue`.
 
 ---
 ### License
