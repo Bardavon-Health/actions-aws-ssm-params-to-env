@@ -54,7 +54,7 @@ function parseValue(val)
 
 function setEnvironmentVar(key, value)
 {
-    cmdString = `echo "::set-env name=${key}::${value}`;
+    cmdString = `echo "::set-env name=${key}::${value}"`;
     core.debug(`Running cmd: ${cmdString}`);
     exec(cmdString);
 }
