@@ -14,7 +14,7 @@ variables in this action's step.
     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # required
     AWS_DEFAULT_REGION: ap-northeast-2 # required
   with:
-    ssm-path: /opensource/action-aws-ssm-to-dotenv # required
+    ssm-path: /path/to/parameter # required
     prefix: SSM_ # optional
     decryption: true # optional, default false
 ```
