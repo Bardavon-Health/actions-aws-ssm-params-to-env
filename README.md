@@ -33,10 +33,8 @@ add prefix in front of environment variable name
 Boolean which indicates whether the parameter should be decrypted or not
 
 ### **Note on decryption:**
-You should take care in utilizing encrypted values as GitHub actions will not automatically redact
-the value of such parameters from your logs. Further, do not perform debugging of this action
-(e.g. set the `ACTIONS_STEP_DEBUG` to true in your repository) while using an encrypted parameter
-that has truly private data. This will print out the unencrypted value in the logs.
+You should take care in utilizing encrypted values, as GitHub actions will not automatically redact
+the value of such parameters from your logs.
 
 ---
 ## Example output:
