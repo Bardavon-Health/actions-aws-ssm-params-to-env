@@ -26,7 +26,7 @@ AWS Systems Manager Parameter Store path to the parameter
 (e.g. `/path/to/parameter`)
 
 ### prefix(optional)
-add prefix in front of environment variable name
+Add prefix in front of environment variable name
 (e.g. `prefix: SSM_VAR_` will export `SSM_VAR_ENV_VAR="value"`)
 
 ### decryption(optional)
@@ -40,7 +40,7 @@ the value of such parameters from your logs.
 ## Example output:
 
 ### JSON data as the parameter value
-if you have an ssm parameter path of `/application/staging/parameter` with the following value:
+If you have an ssm parameter path of `/application/staging/parameter` with the following value:
 ``` JSON
 {
   "APPLICATION_URL": "https://api.com",
@@ -52,8 +52,8 @@ the action will set environment variables for you for each key/value pair of the
 `$DB_NAME` will be set to `somedbname`.
 
 ### String data
-if you have an ssm parameter path of `/application/staging/parameter` with the value:
-`ParameterValue`, the action will set an environment variable you such that `echo $parameter`
+If you have an ssm parameter path of `/application/staging/parameter` with the value:
+`ParameterValue`, the action will set an environment variable for you such that `echo $parameter`
 will output `ParameterValue`.
 
 ---
