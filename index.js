@@ -1,4 +1,4 @@
-const { exec } = require('child_process');
+const execSync = require('child_process').execSync;
 const core = require('@actions/core');
 const ssm = require('./ssm-helper');
 
@@ -13,20 +13,23 @@ async function run_action()
 
         paramValue = await ssm.getParameter(ssmPath, decryption, region);
         parsedValue = parseValue(paramValue);
-        if (typeof(parsedValue) === 'string')
+        if (typeof(parsedValue) === 'object') // Assume JSON object
         {
-            // Set environment variable with ssmPath name as the env variable
-            var split = ssmPath.split('/');
-            var envVarName = prefix + split[split.length - 1];
-            setEnvironmentVar(envVarName, parsedValue);
-        }
-        else
-        {
+            core.debug(`parsedValue: ${JSON.stringify(parsedValue)}`);
             // Assume basic JSON structure
             for (var key in parsedValue)
             {
                 setEnvironmentVar(prefix + key, parsedValue[key])
             }
+        }
+        else
+        {
+            core.debug(`parsedValue: ${parsedValue}`);
+            // Set environment variable with ssmPath name as the env variable
+            var split = ssmPath.split('/');
+            var envVarName = prefix + split[split.length - 1];
+            core.debug(`Using prefix + end of ssmPath for env var name: ${envVarName}`);
+            setEnvironmentVar(envVarName, parsedValue);
         }
     }
     catch (e)
@@ -44,14 +47,16 @@ function parseValue(val)
     }
     catch
     {
+        core.debug('JSON parse failed - assuming parameter is to be taken as a string literal');
         return val;
     }
 }
 
 function setEnvironmentVar(key, value)
 {
-    cmdString = `echo "::set-env name=${key}::${value}`;
-    exec(cmdString);
+    cmdString = `echo "::set-env name=${key}::${value}"`;
+    core.debug(`Running cmd: ${cmdString}`);
+    execSync(cmdString, {stdio: 'inherit'});
 }
 
 run_action();
