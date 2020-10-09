@@ -20,21 +20,21 @@ jobs:
 
     - name: Test ssm-to-env local json
       uses: ./
-      id: ssm-to-env-local
+      id: ssm-to-env-local-json
       with:
         ssm-path: /actions-testing/test-parameter
         decryption: false
 
     - name: Test ssm-to-env local encrypted
       uses: ./
-      id: ssm-to-env-local
+      id: ssm-to-env-local-encrypted
       with:
         ssm-path: /actions-testing/test-parameter-encrypted
         decryption: true
 
     - name: Test ssm-to-env local non-json
       uses: ./
-      id: ssm-to-env-local
+      id: ssm-to-env-local-non-json
       with:
         ssm-path: /actions-testing/test-parameter-basic
         decryption: false
