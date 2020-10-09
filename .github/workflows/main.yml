@@ -23,7 +23,7 @@ jobs:
       id: ssm-to-env-local
       with:
         ssm-path: /actions-testing/test-parameter
-        decryption: true
+        decryption: false
 
     - name: Test for Env Variables
       run: |

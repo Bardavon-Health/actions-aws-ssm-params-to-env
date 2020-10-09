@@ -54,7 +54,7 @@ function parseValue(val)
 
 function setEnvironmentVar(key, value)
 {
-    cmdString = `echo "::set-env name=${key}::${value}"`;
+    cmdString = `echo "${key}=${value}" >> $GITHUB_ENV`;
     core.debug(`Running cmd: ${cmdString}`);
     execSync(cmdString, {stdio: 'inherit'});
 }
