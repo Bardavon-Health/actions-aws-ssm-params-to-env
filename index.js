@@ -11,8 +11,8 @@ async function run_action()
         const region = process.env.AWS_DEFAULT_REGION;
         const decryption = core.getInput('decryption') === 'true';
 
-        paramValue = await ssm.getParameter(ssmPath, decryption, region);
-        parsedValue = parseValue(paramValue);
+        const param = await ssm.getParameter(ssmPath, decryption, region);
+        const parsedValue = parseValue(param.Value);
         if (typeof(parsedValue) === 'object') // Assume JSON object
         {
             core.debug(`parsedValue: ${JSON.stringify(parsedValue)}`);
@@ -26,7 +26,7 @@ async function run_action()
         {
             core.debug(`parsedValue: ${parsedValue}`);
             // Set environment variable with ssmPath name as the env variable
-            var split = ssmPath.split('/');
+            var split = param.Name.split('/');
             var envVarName = prefix + split[split.length - 1];
             core.debug(`Using prefix + end of ssmPath for env var name: ${envVarName}`);
             setEnvironmentVar(envVarName, parsedValue);

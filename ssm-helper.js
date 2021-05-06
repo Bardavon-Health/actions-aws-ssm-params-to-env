@@ -9,7 +9,7 @@ const getParameter = async (ssmPath, decryption, region) => {
         WithDecryption: decryption
     };
     const result = await ssm.getParameter(params).promise();
-    return result.Parameter.Value;
+    return result.Parameter;
 }
 
 module.exports = {getParameter};
