@@ -11,25 +11,28 @@ async function run_action()
         const region = process.env.AWS_DEFAULT_REGION;
         const decryption = core.getInput('decryption') === 'true';
 
-        const param = await ssm.getParameter(ssmPath, decryption, region);
-        const parsedValue = parseValue(param.Value);
-        if (typeof(parsedValue) === 'object') // Assume JSON object
+        const params = await ssm.getParameters(ssmPath, decryption, region);
+        for (let param of params)
         {
-            core.debug(`parsedValue: ${JSON.stringify(parsedValue)}`);
-            // Assume basic JSON structure
-            for (var key in parsedValue)
+            const parsedValue = parseValue(param.Value);
+            if (typeof(parsedValue) === 'object') // Assume JSON object
             {
-                setEnvironmentVar(prefix + key, parsedValue[key])
+                core.debug(`parsedValue: ${JSON.stringify(parsedValue)}`);
+                // Assume basic JSON structure
+                for (var key in parsedValue)
+                {
+                    setEnvironmentVar(prefix + key, parsedValue[key])
+                }
             }
-        }
-        else
-        {
-            core.debug(`parsedValue: ${parsedValue}`);
-            // Set environment variable with ssmPath name as the env variable
-            var split = param.Name.split('/');
-            var envVarName = prefix + split[split.length - 1];
-            core.debug(`Using prefix + end of ssmPath for env var name: ${envVarName}`);
-            setEnvironmentVar(envVarName, parsedValue);
+            else
+            {
+                core.debug(`parsedValue: ${parsedValue}`);
+                // Set environment variable with ssmPath name as the env variable
+                var split = param.Name.split('/');
+                var envVarName = prefix + split[split.length - 1];
+                core.debug(`Using prefix + end of ssmPath for env var name: ${envVarName}`);
+                setEnvironmentVar(envVarName, parsedValue);
+            }
         }
     }
     catch (e)
