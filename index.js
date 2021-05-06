@@ -7,11 +7,12 @@ async function run_action()
     try
     {
         const ssmPath = core.getInput('ssm-path', { required: true });
+        const getChildren = core.getInput('get-children') === 'true';
         const prefix = core.getInput('prefix');
         const region = process.env.AWS_DEFAULT_REGION;
         const decryption = core.getInput('decryption') === 'true';
 
-        const params = await ssm.getParameters(ssmPath, decryption, region);
+        const params = await ssm.getParameters(ssmPath, getChildren, decryption, region);
         for (let param of params)
         {
             const parsedValue = parseValue(param.Value);
