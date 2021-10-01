@@ -8,6 +8,9 @@ inputs:
   ssm-path:
     description: 'AWS SSM path for parameter (eg. `/ssm/parameter`)'
     required: true
+  get-children:
+    description: 'Define to get parameters by path, retrieving all children values'
+    required: false
   prefix:
     description: 'Set a prefix on the environment variable'
     required: false

@@ -15,6 +15,7 @@ variables in this action's step.
     AWS_DEFAULT_REGION: ap-northeast-2 # required
   with:
     ssm-path: /path/to/parameter # required
+    get-children: true # optional, default false
     prefix: SSM_ # optional
     decryption: true # optional, default false
 ```
@@ -24,6 +25,9 @@ variables in this action's step.
 ### ssm-path(required)
 AWS Systems Manager Parameter Store path to the parameter
 (e.g. `/path/to/parameter`)
+
+### get-children(optional)
+Boolean wich imposes to get parameters by path, retrieving all children values
 
 ### prefix(optional)
 Add prefix in front of environment variable name
