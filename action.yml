@@ -17,6 +17,9 @@ inputs:
   decryption:
     description: 'Whether the parameter must be decrypted or not'
     required: false
+  mask-values:
+    description: 'Indicates if extracted values should be masked in GitHub action logs'
+    required: false
 runs:
   using: 'node12'
   main: 'index.js'
