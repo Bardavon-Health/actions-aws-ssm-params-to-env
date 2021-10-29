@@ -1,4 +1,3 @@
-const execSync = require('child_process').execSync;
 const core = require('@actions/core');
 const ssm = require('./ssm-helper');
 
@@ -59,12 +58,10 @@ function parseValue(val)
 
 function setEnvironmentVar(key, value, maskValue)
 {
-    cmdString = `echo "${key}=${value}" >> $GITHUB_ENV`;
-    core.debug(`Running cmd: ${cmdString}`);
-    execSync(cmdString, {stdio: 'inherit'});
     if (maskValue) {
-        execSync(`echo "::add-mask::${value}"`);
+        core.setSecret(value);
     }
+    core.exportVariable(key, value);
 }
 
 run_action();
