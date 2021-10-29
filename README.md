@@ -21,6 +21,7 @@ variables in this action's step.
     get-children: true # optional, default false
     prefix: SSM_ # optional
     decryption: true # optional, default false
+    mask-values: true # optional, default false
 ```
 ---
 ## Options:
@@ -38,6 +39,10 @@ Add prefix in front of environment variable name
 
 ### decryption(optional)
 Boolean which indicates whether the parameter should be decrypted or not
+
+### mask-values(optional)
+Boolean which indicates if extracted values should be masked in
+GitHub action logs
 
 ### **Note on decryption:**
 You should take care in utilizing encrypted values, as GitHub actions will not automatically redact
