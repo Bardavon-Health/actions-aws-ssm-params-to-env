@@ -2,7 +2,9 @@ name: Local-Action-Test
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ develop, main ]
+  pull_request:
+    types: [opened, reopened, synchronize, edited]
 
 jobs:
   test:
