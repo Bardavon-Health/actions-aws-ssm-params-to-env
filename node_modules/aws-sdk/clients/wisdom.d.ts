@@ -188,6 +188,14 @@ declare class Wisdom extends Service {
    */
   notifyRecommendationsReceived(callback?: (err: AWSError, data: Wisdom.Types.NotifyRecommendationsReceivedResponse) => void): Request<Wisdom.Types.NotifyRecommendationsReceivedResponse, AWSError>;
   /**
+   * Submits feedback to Wisdom. The feedback is used to improve future recommendations from GetRecommendations or results from QueryAssistant. Feedback can be resubmitted up to 6 hours after submission. 
+   */
+  putFeedback(params: Wisdom.Types.PutFeedbackRequest, callback?: (err: AWSError, data: Wisdom.Types.PutFeedbackResponse) => void): Request<Wisdom.Types.PutFeedbackResponse, AWSError>;
+  /**
+   * Submits feedback to Wisdom. The feedback is used to improve future recommendations from GetRecommendations or results from QueryAssistant. Feedback can be resubmitted up to 6 hours after submission. 
+   */
+  putFeedback(callback?: (err: AWSError, data: Wisdom.Types.PutFeedbackResponse) => void): Request<Wisdom.Types.PutFeedbackResponse, AWSError>;
+  /**
    * Performs a manual search against the specified assistant. To retrieve recommendations for an assistant, use GetRecommendations. 
    */
   queryAssistant(params: Wisdom.Types.QueryAssistantRequest, callback?: (err: AWSError, data: Wisdom.Types.QueryAssistantResponse) => void): Request<Wisdom.Types.QueryAssistantResponse, AWSError>;
@@ -267,14 +275,14 @@ declare namespace Wisdom {
      */
     appIntegrationArn: GenericArn;
     /**
-     * The fields from the source that are made available to your agents in Wisdom.     For  Salesforce, you must include at least Id, ArticleNumber, VersionNumber, Title, PublishStatus, and IsDeleted.    For  ServiceNow, you must include at least number, short_description, sys_mod_count, workflow_state, and active.    Make sure to include additional field(s); these are indexed and used to source recommendations. 
+     * The fields from the source that are made available to your agents in Wisdom.     For  Salesforce, you must include at least Id, ArticleNumber, VersionNumber, Title, PublishStatus, and IsDeleted.    For  ServiceNow, you must include at least number, short_description, sys_mod_count, workflow_state, and active.    Make sure to include additional fields. These fields are indexed and used to source recommendations. 
      */
     objectFields: ObjectFieldsList;
   }
   export type Arn = string;
   export interface AssistantAssociationData {
     /**
-     * The Amazon Resource Name (ARN) of the Wisdom assistant
+     * The Amazon Resource Name (ARN) of the Wisdom assistant.
      */
     assistantArn: Arn;
     /**
@@ -304,7 +312,7 @@ declare namespace Wisdom {
   }
   export interface AssistantAssociationInputData {
     /**
-     * The the identifier of the knowledge base.
+     * The identifier of the knowledge base.
      */
     knowledgeBaseId?: Uuid;
   }
@@ -316,7 +324,7 @@ declare namespace Wisdom {
   }
   export interface AssistantAssociationSummary {
     /**
-     * The Amazon Resource Name (ARN) of the Wisdom assistant
+     * The Amazon Resource Name (ARN) of the Wisdom assistant.
      */
     assistantArn: Arn;
     /**
@@ -347,7 +355,7 @@ declare namespace Wisdom {
   export type AssistantAssociationSummaryList = AssistantAssociationSummary[];
   export interface AssistantData {
     /**
-     * The Amazon Resource Name (ARN) of the Wisdom assistant
+     * The Amazon Resource Name (ARN) of the Wisdom assistant.
      */
     assistantArn: Arn;
     /**
@@ -383,7 +391,7 @@ declare namespace Wisdom {
   export type AssistantStatus = "CREATE_IN_PROGRESS"|"CREATE_FAILED"|"ACTIVE"|"DELETE_IN_PROGRESS"|"DELETE_FAILED"|"DELETED"|string;
   export interface AssistantSummary {
     /**
-     * The Amazon Resource Name (ARN) of the Wisdom assistant
+     * The Amazon Resource Name (ARN) of the Wisdom assistant.
      */
     assistantArn: Arn;
     /**
@@ -437,7 +445,7 @@ declare namespace Wisdom {
      */
     knowledgeBaseArn: Arn;
     /**
-     * The the identifier of the knowledge base.
+     * The identifier of the knowledge base.
      */
     knowledgeBaseId: Uuid;
     /**
@@ -471,7 +479,7 @@ declare namespace Wisdom {
     /**
      * The URL of the content.
      */
-    url: SyntheticContentDataUrl;
+    url: Url;
     /**
      * The expiration time of the URL as an epoch timestamp.
      */
@@ -492,7 +500,7 @@ declare namespace Wisdom {
      */
     knowledgeBaseArn?: Arn;
     /**
-     * The the identifier of the knowledge base.
+     * The identifier of the knowledge base.
      */
     knowledgeBaseId?: Uuid;
   }
@@ -515,7 +523,7 @@ declare namespace Wisdom {
      */
     knowledgeBaseArn: Arn;
     /**
-     * The the identifier of the knowledge base.
+     * The identifier of the knowledge base.
      */
     knowledgeBaseId: Uuid;
     /**
@@ -612,7 +620,7 @@ declare namespace Wisdom {
      */
     clientToken?: NonEmptyString;
     /**
-     * The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
      */
     knowledgeBaseId: UuidOrArn;
     /**
@@ -740,7 +748,7 @@ declare namespace Wisdom {
      */
     contentId: UuidOrArn;
     /**
-     * The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
      */
     knowledgeBaseId: UuidOrArn;
   }
@@ -777,7 +785,13 @@ declare namespace Wisdom {
     /**
      * Text in the document.
      */
-    text?: SyntheticDocumentTextString;
+    text?: SensitiveString;
+  }
+  export interface FeedbackData {
+    /**
+     * The relevance of the target this feedback is for.
+     */
+    relevance: Relevance;
   }
   export interface Filter {
     /**
@@ -831,7 +845,7 @@ declare namespace Wisdom {
      */
     contentId: UuidOrArn;
     /**
-     * The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
      */
     knowledgeBaseId: UuidOrArn;
   }
@@ -847,7 +861,7 @@ declare namespace Wisdom {
      */
     contentId: UuidOrArn;
     /**
-     * The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
      */
     knowledgeBaseId: UuidOrArn;
   }
@@ -859,7 +873,7 @@ declare namespace Wisdom {
   }
   export interface GetKnowledgeBaseRequest {
     /**
-     * The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
      */
     knowledgeBaseId: UuidOrArn;
   }
@@ -892,6 +906,10 @@ declare namespace Wisdom {
      * The recommendations.
      */
     recommendations: RecommendationList;
+    /**
+     * The triggers corresponding to recommendations.
+     */
+    triggers?: RecommendationTriggerList;
   }
   export interface GetSessionRequest {
     /**
@@ -928,7 +946,7 @@ declare namespace Wisdom {
      */
     knowledgeBaseArn?: Arn;
     /**
-     * The the identifier of the knowledge base.
+     * The identifier of the knowledge base.
      */
     knowledgeBaseId?: Uuid;
   }
@@ -942,7 +960,7 @@ declare namespace Wisdom {
      */
     knowledgeBaseArn: Arn;
     /**
-     * The the identifier of the knowledge base.
+     * The identifier of the knowledge base.
      */
     knowledgeBaseId: Uuid;
     /**
@@ -990,7 +1008,7 @@ declare namespace Wisdom {
      */
     knowledgeBaseArn: Arn;
     /**
-     * The the identifier of the knowledge base.
+     * The identifier of the knowledge base.
      */
     knowledgeBaseId: Uuid;
     /**
@@ -1010,7 +1028,7 @@ declare namespace Wisdom {
      */
     serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
     /**
-     * [KEVIN]
+     * Configuration information about the external data source.
      */
     sourceConfiguration?: SourceConfiguration;
     /**
@@ -1069,7 +1087,7 @@ declare namespace Wisdom {
   }
   export interface ListContentsRequest {
     /**
-     * The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
      */
     knowledgeBaseId: UuidOrArn;
     /**
@@ -1164,6 +1182,46 @@ declare namespace Wisdom {
     recommendationIds?: RecommendationIdList;
   }
   export type ObjectFieldsList = NonEmptyString[];
+  export interface PutFeedbackRequest {
+    /**
+     * The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     */
+    assistantId: UuidOrArn;
+    /**
+     * The feedback.
+     */
+    feedback: FeedbackData;
+    /**
+     * The identifier of a recommendation. or The identifier of the result data.
+     */
+    targetId: String;
+    /**
+     * The type of the targetId for which The feedback. is targeted.
+     */
+    targetType: TargetType;
+  }
+  export interface PutFeedbackResponse {
+    /**
+     * The Amazon Resource Name (ARN) of the Wisdom assistant.
+     */
+    assistantArn: UuidOrArn;
+    /**
+     * The identifier of the Wisdom assistant.
+     */
+    assistantId: Uuid;
+    /**
+     * The feedback.
+     */
+    feedback: FeedbackData;
+    /**
+     * The identifier of a recommendation. or The identifier of the result data.
+     */
+    targetId: Uuid;
+    /**
+     * The type of the targetId for which The feedback. is targeted.
+     */
+    targetType: TargetType;
+  }
   export interface QueryAssistantRequest {
     /**
      * The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
@@ -1192,6 +1250,12 @@ declare namespace Wisdom {
      */
     results: QueryResultsList;
   }
+  export interface QueryRecommendationTriggerData {
+    /**
+     * The text associated with the recommendation trigger.
+     */
+    text?: QueryText;
+  }
   export type QueryResultsList = ResultData[];
   export type QueryText = string;
   export interface RecommendationData {
@@ -1211,14 +1275,51 @@ declare namespace Wisdom {
      * The relevance score of the recommendation.
      */
     relevanceScore?: RelevanceScore;
+    /**
+     * The type of recommendation.
+     */
+    type?: RecommendationType;
   }
   export type RecommendationIdList = String[];
   export type RecommendationList = RecommendationData[];
+  export type RecommendationSourceType = "ISSUE_DETECTION"|"RULE_EVALUATION"|"OTHER"|string;
+  export interface RecommendationTrigger {
+    /**
+     * A union type containing information related to the trigger.
+     */
+    data: RecommendationTriggerData;
+    /**
+     * The identifier of the recommendation trigger.
+     */
+    id: Uuid;
+    /**
+     * The identifiers of the recommendations.
+     */
+    recommendationIds: RecommendationIdList;
+    /**
+     * The source of the recommendation trigger.   ISSUE_DETECTION: The corresponding recommendations were triggered by a Contact Lens issue.   RULE_EVALUATION: The corresponding recommendations were triggered by a Contact Lens rule.  
+     */
+    source: RecommendationSourceType;
+    /**
+     * The type of recommendation trigger.
+     */
+    type: RecommendationTriggerType;
+  }
+  export interface RecommendationTriggerData {
+    /**
+     * Data associated with the QUERY RecommendationTriggerType.
+     */
+    query?: QueryRecommendationTriggerData;
+  }
+  export type RecommendationTriggerList = RecommendationTrigger[];
+  export type RecommendationTriggerType = "QUERY"|string;
+  export type RecommendationType = "KNOWLEDGE_CONTENT"|string;
+  export type Relevance = "HELPFUL"|"NOT_HELPFUL"|string;
   export type RelevanceLevel = "HIGH"|"MEDIUM"|"LOW"|string;
   export type RelevanceScore = number;
   export interface RemoveKnowledgeBaseTemplateUriRequest {
     /**
-     * The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
      */
     knowledgeBaseId: UuidOrArn;
   }
@@ -1246,7 +1347,7 @@ declare namespace Wisdom {
   }
   export interface SearchContentRequest {
     /**
-     * The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
      */
     knowledgeBaseId: UuidOrArn;
     /**
@@ -1306,9 +1407,10 @@ declare namespace Wisdom {
      */
     sessionSummaries: SessionSummaries;
   }
+  export type SensitiveString = string;
   export interface ServerSideEncryptionConfiguration {
     /**
-     * The KMS key. For information about valid ID values, see Key identifiers (KeyId) in the AWS Key Management Service Developer Guide. 
+     * The KMS key. For information about valid ID values, see Key identifiers (KeyId).
      */
     kmsKeyId?: NonEmptyString;
   }
@@ -1337,7 +1439,7 @@ declare namespace Wisdom {
   export type SessionSummaries = SessionSummary[];
   export interface SessionSummary {
     /**
-     * The Amazon Resource Name (ARN) of the Wisdom assistant
+     * The Amazon Resource Name (ARN) of the Wisdom assistant.
      */
     assistantArn: Arn;
     /**
@@ -1365,7 +1467,7 @@ declare namespace Wisdom {
      */
     contentType: ContentType;
     /**
-     * The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
      */
     knowledgeBaseId: UuidOrArn;
   }
@@ -1381,16 +1483,13 @@ declare namespace Wisdom {
     /**
      * The URL of the upload.
      */
-    url: SyntheticStartContentUploadResponseUrl;
+    url: Url;
     /**
      * The expiration time of the URL as an epoch timestamp.
      */
     urlExpiry: SyntheticTimestamp_epoch_seconds;
   }
   export type String = string;
-  export type SyntheticContentDataUrl = string;
-  export type SyntheticDocumentTextString = string;
-  export type SyntheticStartContentUploadResponseUrl = string;
   export type SyntheticTimestamp_epoch_seconds = Date;
   export type TagKey = string;
   export type TagKeyList = TagKey[];
@@ -1408,6 +1507,7 @@ declare namespace Wisdom {
   }
   export type TagValue = string;
   export type Tags = {[key: string]: TagValue};
+  export type TargetType = "RECOMMENDATION"|"RESULT"|string;
   export interface UntagResourceRequest {
     /**
      * The Amazon Resource Name (ARN) of the resource.
@@ -1426,7 +1526,7 @@ declare namespace Wisdom {
      */
     contentId: UuidOrArn;
     /**
-     * The the identifier of the knowledge base. Can be either the ID or the ARN
+     * The identifier of the knowledge base. Can be either the ID or the ARN
      */
     knowledgeBaseId: UuidOrArn;
     /**
@@ -1462,7 +1562,7 @@ declare namespace Wisdom {
   }
   export interface UpdateKnowledgeBaseTemplateUriRequest {
     /**
-     * The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
      */
     knowledgeBaseId: UuidOrArn;
     /**
@@ -1477,6 +1577,7 @@ declare namespace Wisdom {
     knowledgeBase?: KnowledgeBaseData;
   }
   export type Uri = string;
+  export type Url = string;
   export type Uuid = string;
   export type UuidOrArn = string;
   export type WaitTimeSeconds = number;
