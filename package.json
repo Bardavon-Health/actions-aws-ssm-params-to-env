@@ -1,6 +1,6 @@
 {
   "name": "aws-ssm-params-to-env",
-  "version": "1.3.3",
+  "version": "1.4.0",
   "description": "A github action to Convert SSM parameters to environment variables with support for JSON parameters",
   "main": "index.js",
   "scripts": {
