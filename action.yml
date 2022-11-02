@@ -15,5 +15,5 @@ inputs:
     description: 'Whether the parameter must be decrypted or not'
     required: false
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'index.js'
