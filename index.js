@@ -1,4 +1,3 @@
-const execSync = require('child_process').execSync;
 const core = require('@actions/core');
 const ssm = require('./ssm-helper');
 
@@ -7,29 +6,34 @@ async function run_action()
     try
     {
         const ssmPath = core.getInput('ssm-path', { required: true });
+        const getChildren = core.getInput('get-children') === 'true';
         const prefix = core.getInput('prefix');
         const region = process.env.AWS_DEFAULT_REGION;
         const decryption = core.getInput('decryption') === 'true';
+        const maskValues = core.getInput('mask-values') === 'true';
 
-        paramValue = await ssm.getParameter(ssmPath, decryption, region);
-        parsedValue = parseValue(paramValue);
-        if (typeof(parsedValue) === 'object') // Assume JSON object
+        const params = await ssm.getParameters(ssmPath, getChildren, decryption, region);
+        for (let param of params)
         {
-            core.debug(`parsedValue: ${JSON.stringify(parsedValue)}`);
-            // Assume basic JSON structure
-            for (var key in parsedValue)
+            const parsedValue = parseValue(param.Value);
+            if (typeof(parsedValue) === 'object') // Assume JSON object
             {
-                setEnvironmentVar(prefix + key, parsedValue[key])
+                core.debug(`parsedValue: ${JSON.stringify(parsedValue)}`);
+                // Assume basic JSON structure
+                for (var key in parsedValue)
+                {
+                    setEnvironmentVar(prefix + key, parsedValue[key], maskValues);
+                }
             }
-        }
-        else
-        {
-            core.debug(`parsedValue: ${parsedValue}`);
-            // Set environment variable with ssmPath name as the env variable
-            var split = ssmPath.split('/');
-            var envVarName = prefix + split[split.length - 1];
-            core.debug(`Using prefix + end of ssmPath for env var name: ${envVarName}`);
-            setEnvironmentVar(envVarName, parsedValue);
+            else
+            {
+                core.debug(`parsedValue: ${parsedValue}`);
+                // Set environment variable with ssmPath name as the env variable
+                var split = param.Name.split('/');
+                var envVarName = prefix + split[split.length - 1];
+                core.debug(`Using prefix + end of ssmPath for env var name: ${envVarName}`);
+                setEnvironmentVar(envVarName, parsedValue, maskValues);
+            }
         }
     }
     catch (e)
@@ -52,11 +56,12 @@ function parseValue(val)
     }
 }
 
-function setEnvironmentVar(key, value)
+function setEnvironmentVar(key, value, maskValue)
 {
-    cmdString = `echo "${key}=${value}" >> $GITHUB_ENV`;
-    core.debug(`Running cmd: ${cmdString}`);
-    execSync(cmdString, {stdio: 'inherit'});
+    if (maskValue) {
+        core.setSecret(value);
+    }
+    core.exportVariable(key, value);
 }
 
 run_action();

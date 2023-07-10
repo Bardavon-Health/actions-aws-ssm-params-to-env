@@ -4,6 +4,18 @@ var Json = require('./json');
 var JsonBuilder = require('../json/builder');
 var JsonParser = require('../json/parser');
 
+var METHODS_WITHOUT_BODY = ['GET', 'HEAD', 'DELETE'];
+
+function unsetContentLength(req) {
+  var payloadMember = util.getRequestPayloadShape(req);
+  if (
+    payloadMember === undefined &&
+    METHODS_WITHOUT_BODY.indexOf(req.httpRequest.method) >= 0
+  ) {
+    delete req.httpRequest.headers['Content-Length'];
+  }
+}
+
 function populateBody(req) {
   var builder = new JsonBuilder();
   var input = req.service.api.operations[req.operation].input;
@@ -12,30 +24,24 @@ function populateBody(req) {
     var params = {};
     var payloadShape = input.members[input.payload];
     params = req.params[input.payload];
-    if (params === undefined) return;
 
     if (payloadShape.type === 'structure') {
-      req.httpRequest.body = builder.build(params, payloadShape);
+      req.httpRequest.body = builder.build(params || {}, payloadShape);
       applyContentTypeHeader(req);
-    } else { // non-JSON payload
+    } else if (params !== undefined) {
+      // non-JSON payload
       req.httpRequest.body = params;
       if (payloadShape.type === 'binary' || payloadShape.isStreaming) {
         applyContentTypeHeader(req, true);
       }
     }
   } else {
-    var body = builder.build(req.params, input);
-    if (body !== '{}' || req.httpRequest.method !== 'GET') { //don't send empty body for GET method
-      req.httpRequest.body = body;
-    }
+    req.httpRequest.body = builder.build(req.params, input);
     applyContentTypeHeader(req);
   }
 }
 
 function applyContentTypeHeader(req, isBinary) {
-  var operation = req.service.api.operations[req.operation];
-  var input = operation.input;
-
   if (!req.httpRequest.headers['Content-Type']) {
     var type = isBinary ? 'binary/octet-stream' : 'application/json';
     req.httpRequest.headers['Content-Type'] = type;
@@ -45,8 +51,8 @@ function applyContentTypeHeader(req, isBinary) {
 function buildRequest(req) {
   Rest.buildRequest(req);
 
-  // never send body payload on HEAD/DELETE
-  if (['HEAD', 'DELETE'].indexOf(req.httpRequest.method) < 0) {
+  // never send body payload on GET/HEAD/DELETE
+  if (METHODS_WITHOUT_BODY.indexOf(req.httpRequest.method) < 0) {
     populateBody(req);
   }
 }
@@ -95,5 +101,6 @@ function extractData(resp) {
 module.exports = {
   buildRequest: buildRequest,
   extractError: extractError,
-  extractData: extractData
+  extractData: extractData,
+  unsetContentLength: unsetContentLength
 };

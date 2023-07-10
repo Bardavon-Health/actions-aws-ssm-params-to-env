@@ -1,6 +1,6 @@
 {
   "name": "aws-ssm-params-to-env",
-  "version": "1.0.0",
+  "version": "1.4.0",
   "description": "A github action to Convert SSM parameters to environment variables with support for JSON parameters",
   "main": "index.js",
   "scripts": {
@@ -8,17 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rjhenry3/aws-ssm-params-to-env.git"
+    "url": "git+https://github.com/IP-Sentinel/actions-aws-ssm-params-to-env.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rjhenry3/aws-ssm-params-to-env/issues"
+    "url": "https://github.com/IP-Sentinel/actions-aws-ssm-params-to-env/issues"
   },
-  "homepage": "https://github.com/rjhenry3/aws-ssm-params-to-env#readme",
+  "homepage": "https://github.com/IP-Sentinel/actions-aws-ssm-params-to-env#readme",
   "dependencies": {
-    "@actions/core": "^1.2.6",
-    "aws-sdk": "^2.770.0"
+    "@actions/core": "^1.10.0",
+    "aws-sdk": "^2.1229.0"
   }
 }
