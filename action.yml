@@ -1,6 +1,6 @@
 name: 'AWS SSM parameters to environment variables'
 description: 'load AWS SSM Parameters into environment variables'
-author: 'Denny Biasiolli at IP Sentinel'
+author: 'Bardavon Health Innovations and Denny Biasiolli at IP Sentinel'
 branding:
   icon: 'cloud'
   color: 'orange'
