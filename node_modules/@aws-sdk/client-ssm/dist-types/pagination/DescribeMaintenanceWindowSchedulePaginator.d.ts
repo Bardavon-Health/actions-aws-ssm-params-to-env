@@ -1,0 +1,7 @@
+import { Paginator } from "@smithy/types";
+import { DescribeMaintenanceWindowScheduleCommandInput, DescribeMaintenanceWindowScheduleCommandOutput } from "../commands/DescribeMaintenanceWindowScheduleCommand";
+import { SSMPaginationConfiguration } from "./Interfaces";
+/**
+ * @public
+ */
+export declare function paginateDescribeMaintenanceWindowSchedule(config: SSMPaginationConfiguration, input: DescribeMaintenanceWindowScheduleCommandInput, ...additionalArguments: any): Paginator<DescribeMaintenanceWindowScheduleCommandOutput>;

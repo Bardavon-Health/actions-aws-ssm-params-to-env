@@ -1,0 +1,157 @@
+import { SENSITIVE_STRING } from "@smithy/smithy-client";
+import { AssociationDescriptionFilterSensitiveLog, PatchSourceFilterSensitiveLog, } from "./models_0";
+import { MaintenanceWindowTaskInvocationParametersFilterSensitiveLog, } from "./models_1";
+import { SSMServiceException as __BaseException } from "./SSMServiceException";
+export class InvalidUpdate extends __BaseException {
+    constructor(opts) {
+        super({
+            name: "InvalidUpdate",
+            $fault: "client",
+            ...opts,
+        });
+        this.name = "InvalidUpdate";
+        this.$fault = "client";
+        Object.setPrototypeOf(this, InvalidUpdate.prototype);
+        this.Message = opts.Message;
+    }
+}
+export class StatusUnchanged extends __BaseException {
+    constructor(opts) {
+        super({
+            name: "StatusUnchanged",
+            $fault: "client",
+            ...opts,
+        });
+        this.name = "StatusUnchanged";
+        this.$fault = "client";
+        Object.setPrototypeOf(this, StatusUnchanged.prototype);
+    }
+}
+export class DocumentVersionLimitExceeded extends __BaseException {
+    constructor(opts) {
+        super({
+            name: "DocumentVersionLimitExceeded",
+            $fault: "client",
+            ...opts,
+        });
+        this.name = "DocumentVersionLimitExceeded";
+        this.$fault = "client";
+        Object.setPrototypeOf(this, DocumentVersionLimitExceeded.prototype);
+        this.Message = opts.Message;
+    }
+}
+export class DuplicateDocumentContent extends __BaseException {
+    constructor(opts) {
+        super({
+            name: "DuplicateDocumentContent",
+            $fault: "client",
+            ...opts,
+        });
+        this.name = "DuplicateDocumentContent";
+        this.$fault = "client";
+        Object.setPrototypeOf(this, DuplicateDocumentContent.prototype);
+        this.Message = opts.Message;
+    }
+}
+export class DuplicateDocumentVersionName extends __BaseException {
+    constructor(opts) {
+        super({
+            name: "DuplicateDocumentVersionName",
+            $fault: "client",
+            ...opts,
+        });
+        this.name = "DuplicateDocumentVersionName";
+        this.$fault = "client";
+        Object.setPrototypeOf(this, DuplicateDocumentVersionName.prototype);
+        this.Message = opts.Message;
+    }
+}
+export const DocumentReviewAction = {
+    Approve: "Approve",
+    Reject: "Reject",
+    SendForReview: "SendForReview",
+    UpdateReview: "UpdateReview",
+};
+export class OpsMetadataKeyLimitExceededException extends __BaseException {
+    constructor(opts) {
+        super({
+            name: "OpsMetadataKeyLimitExceededException",
+            $fault: "client",
+            ...opts,
+        });
+        this.name = "OpsMetadataKeyLimitExceededException";
+        this.$fault = "client";
+        Object.setPrototypeOf(this, OpsMetadataKeyLimitExceededException.prototype);
+    }
+}
+export class ResourceDataSyncConflictException extends __BaseException {
+    constructor(opts) {
+        super({
+            name: "ResourceDataSyncConflictException",
+            $fault: "client",
+            ...opts,
+        });
+        this.name = "ResourceDataSyncConflictException";
+        this.$fault = "client";
+        Object.setPrototypeOf(this, ResourceDataSyncConflictException.prototype);
+        this.Message = opts.Message;
+    }
+}
+export const UpdateAssociationRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
+});
+export const UpdateAssociationResultFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.AssociationDescription && {
+        AssociationDescription: AssociationDescriptionFilterSensitiveLog(obj.AssociationDescription),
+    }),
+});
+export const UpdateAssociationStatusResultFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.AssociationDescription && {
+        AssociationDescription: AssociationDescriptionFilterSensitiveLog(obj.AssociationDescription),
+    }),
+});
+export const UpdateMaintenanceWindowRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+export const UpdateMaintenanceWindowResultFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+export const UpdateMaintenanceWindowTargetRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
+    ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+export const UpdateMaintenanceWindowTargetResultFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
+    ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+export const UpdateMaintenanceWindowTaskRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
+    ...(obj.TaskInvocationParameters && {
+        TaskInvocationParameters: MaintenanceWindowTaskInvocationParametersFilterSensitiveLog(obj.TaskInvocationParameters),
+    }),
+    ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+export const UpdateMaintenanceWindowTaskResultFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
+    ...(obj.TaskInvocationParameters && {
+        TaskInvocationParameters: MaintenanceWindowTaskInvocationParametersFilterSensitiveLog(obj.TaskInvocationParameters),
+    }),
+    ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+export const UpdatePatchBaselineRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSourceFilterSensitiveLog(item)) }),
+});
+export const UpdatePatchBaselineResultFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSourceFilterSensitiveLog(item)) }),
+});

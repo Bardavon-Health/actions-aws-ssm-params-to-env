@@ -1,0 +1,95 @@
+import { EndpointParameterInstructions } from "@smithy/middleware-endpoint";
+import { Command as $Command } from "@smithy/smithy-client";
+import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MetadataBearer as __MetadataBearer, MiddlewareStack } from "@smithy/types";
+import { UnlabelParameterVersionRequest, UnlabelParameterVersionResult } from "../models/models_1";
+import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UnlabelParameterVersionCommand}.
+ */
+export interface UnlabelParameterVersionCommandInput extends UnlabelParameterVersionRequest {
+}
+/**
+ * @public
+ *
+ * The output of {@link UnlabelParameterVersionCommand}.
+ */
+export interface UnlabelParameterVersionCommandOutput extends UnlabelParameterVersionResult, __MetadataBearer {
+}
+/**
+ * @public
+ * <p>Remove a label or labels from a parameter.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, UnlabelParameterVersionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, UnlabelParameterVersionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const input = { // UnlabelParameterVersionRequest
+ *   Name: "STRING_VALUE", // required
+ *   ParameterVersion: Number("long"), // required
+ *   Labels: [ // ParameterLabelList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ * const command = new UnlabelParameterVersionCommand(input);
+ * const response = await client.send(command);
+ * // { // UnlabelParameterVersionResult
+ * //   RemovedLabels: [ // ParameterLabelList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   InvalidLabels: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
+ * ```
+ *
+ * @param UnlabelParameterVersionCommandInput - {@link UnlabelParameterVersionCommandInput}
+ * @returns {@link UnlabelParameterVersionCommandOutput}
+ * @see {@link UnlabelParameterVersionCommandInput} for command's `input` shape.
+ * @see {@link UnlabelParameterVersionCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ParameterNotFound} (client fault)
+ *  <p>The parameter couldn't be found. Verify the name and try again.</p>
+ *
+ * @throws {@link ParameterVersionNotFound} (client fault)
+ *  <p>The specified parameter version wasn't found. Verify the parameter name and version, and try
+ *    again.</p>
+ *
+ * @throws {@link TooManyUpdates} (client fault)
+ *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
+ *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
+ *
+ */
+export declare class UnlabelParameterVersionCommand extends $Command<UnlabelParameterVersionCommandInput, UnlabelParameterVersionCommandOutput, SSMClientResolvedConfig> {
+    readonly input: UnlabelParameterVersionCommandInput;
+    static getEndpointParameterInstructions(): EndpointParameterInstructions;
+    /**
+     * @public
+     */
+    constructor(input: UnlabelParameterVersionCommandInput);
+    /**
+     * @internal
+     */
+    resolveMiddleware(clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>, configuration: SSMClientResolvedConfig, options?: __HttpHandlerOptions): Handler<UnlabelParameterVersionCommandInput, UnlabelParameterVersionCommandOutput>;
+    /**
+     * @internal
+     */
+    private serialize;
+    /**
+     * @internal
+     */
+    private deserialize;
+}

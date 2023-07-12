@@ -1,0 +1,1661 @@
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse,
+} from "@smithy/protocol-http";
+import { SerdeContext as __SerdeContext } from "@smithy/types";
+import {
+  AddTagsToResourceCommandInput,
+  AddTagsToResourceCommandOutput,
+} from "../commands/AddTagsToResourceCommand";
+import {
+  AssociateOpsItemRelatedItemCommandInput,
+  AssociateOpsItemRelatedItemCommandOutput,
+} from "../commands/AssociateOpsItemRelatedItemCommand";
+import {
+  CancelCommandCommandInput,
+  CancelCommandCommandOutput,
+} from "../commands/CancelCommandCommand";
+import {
+  CancelMaintenanceWindowExecutionCommandInput,
+  CancelMaintenanceWindowExecutionCommandOutput,
+} from "../commands/CancelMaintenanceWindowExecutionCommand";
+import {
+  CreateActivationCommandInput,
+  CreateActivationCommandOutput,
+} from "../commands/CreateActivationCommand";
+import {
+  CreateAssociationBatchCommandInput,
+  CreateAssociationBatchCommandOutput,
+} from "../commands/CreateAssociationBatchCommand";
+import {
+  CreateAssociationCommandInput,
+  CreateAssociationCommandOutput,
+} from "../commands/CreateAssociationCommand";
+import {
+  CreateDocumentCommandInput,
+  CreateDocumentCommandOutput,
+} from "../commands/CreateDocumentCommand";
+import {
+  CreateMaintenanceWindowCommandInput,
+  CreateMaintenanceWindowCommandOutput,
+} from "../commands/CreateMaintenanceWindowCommand";
+import {
+  CreateOpsItemCommandInput,
+  CreateOpsItemCommandOutput,
+} from "../commands/CreateOpsItemCommand";
+import {
+  CreateOpsMetadataCommandInput,
+  CreateOpsMetadataCommandOutput,
+} from "../commands/CreateOpsMetadataCommand";
+import {
+  CreatePatchBaselineCommandInput,
+  CreatePatchBaselineCommandOutput,
+} from "../commands/CreatePatchBaselineCommand";
+import {
+  CreateResourceDataSyncCommandInput,
+  CreateResourceDataSyncCommandOutput,
+} from "../commands/CreateResourceDataSyncCommand";
+import {
+  DeleteActivationCommandInput,
+  DeleteActivationCommandOutput,
+} from "../commands/DeleteActivationCommand";
+import {
+  DeleteAssociationCommandInput,
+  DeleteAssociationCommandOutput,
+} from "../commands/DeleteAssociationCommand";
+import {
+  DeleteDocumentCommandInput,
+  DeleteDocumentCommandOutput,
+} from "../commands/DeleteDocumentCommand";
+import {
+  DeleteInventoryCommandInput,
+  DeleteInventoryCommandOutput,
+} from "../commands/DeleteInventoryCommand";
+import {
+  DeleteMaintenanceWindowCommandInput,
+  DeleteMaintenanceWindowCommandOutput,
+} from "../commands/DeleteMaintenanceWindowCommand";
+import {
+  DeleteOpsMetadataCommandInput,
+  DeleteOpsMetadataCommandOutput,
+} from "../commands/DeleteOpsMetadataCommand";
+import {
+  DeleteParameterCommandInput,
+  DeleteParameterCommandOutput,
+} from "../commands/DeleteParameterCommand";
+import {
+  DeleteParametersCommandInput,
+  DeleteParametersCommandOutput,
+} from "../commands/DeleteParametersCommand";
+import {
+  DeletePatchBaselineCommandInput,
+  DeletePatchBaselineCommandOutput,
+} from "../commands/DeletePatchBaselineCommand";
+import {
+  DeleteResourceDataSyncCommandInput,
+  DeleteResourceDataSyncCommandOutput,
+} from "../commands/DeleteResourceDataSyncCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
+import {
+  DeregisterManagedInstanceCommandInput,
+  DeregisterManagedInstanceCommandOutput,
+} from "../commands/DeregisterManagedInstanceCommand";
+import {
+  DeregisterPatchBaselineForPatchGroupCommandInput,
+  DeregisterPatchBaselineForPatchGroupCommandOutput,
+} from "../commands/DeregisterPatchBaselineForPatchGroupCommand";
+import {
+  DeregisterTargetFromMaintenanceWindowCommandInput,
+  DeregisterTargetFromMaintenanceWindowCommandOutput,
+} from "../commands/DeregisterTargetFromMaintenanceWindowCommand";
+import {
+  DeregisterTaskFromMaintenanceWindowCommandInput,
+  DeregisterTaskFromMaintenanceWindowCommandOutput,
+} from "../commands/DeregisterTaskFromMaintenanceWindowCommand";
+import {
+  DescribeActivationsCommandInput,
+  DescribeActivationsCommandOutput,
+} from "../commands/DescribeActivationsCommand";
+import {
+  DescribeAssociationCommandInput,
+  DescribeAssociationCommandOutput,
+} from "../commands/DescribeAssociationCommand";
+import {
+  DescribeAssociationExecutionsCommandInput,
+  DescribeAssociationExecutionsCommandOutput,
+} from "../commands/DescribeAssociationExecutionsCommand";
+import {
+  DescribeAssociationExecutionTargetsCommandInput,
+  DescribeAssociationExecutionTargetsCommandOutput,
+} from "../commands/DescribeAssociationExecutionTargetsCommand";
+import {
+  DescribeAutomationExecutionsCommandInput,
+  DescribeAutomationExecutionsCommandOutput,
+} from "../commands/DescribeAutomationExecutionsCommand";
+import {
+  DescribeAutomationStepExecutionsCommandInput,
+  DescribeAutomationStepExecutionsCommandOutput,
+} from "../commands/DescribeAutomationStepExecutionsCommand";
+import {
+  DescribeAvailablePatchesCommandInput,
+  DescribeAvailablePatchesCommandOutput,
+} from "../commands/DescribeAvailablePatchesCommand";
+import {
+  DescribeDocumentCommandInput,
+  DescribeDocumentCommandOutput,
+} from "../commands/DescribeDocumentCommand";
+import {
+  DescribeDocumentPermissionCommandInput,
+  DescribeDocumentPermissionCommandOutput,
+} from "../commands/DescribeDocumentPermissionCommand";
+import {
+  DescribeEffectiveInstanceAssociationsCommandInput,
+  DescribeEffectiveInstanceAssociationsCommandOutput,
+} from "../commands/DescribeEffectiveInstanceAssociationsCommand";
+import {
+  DescribeEffectivePatchesForPatchBaselineCommandInput,
+  DescribeEffectivePatchesForPatchBaselineCommandOutput,
+} from "../commands/DescribeEffectivePatchesForPatchBaselineCommand";
+import {
+  DescribeInstanceAssociationsStatusCommandInput,
+  DescribeInstanceAssociationsStatusCommandOutput,
+} from "../commands/DescribeInstanceAssociationsStatusCommand";
+import {
+  DescribeInstanceInformationCommandInput,
+  DescribeInstanceInformationCommandOutput,
+} from "../commands/DescribeInstanceInformationCommand";
+import {
+  DescribeInstancePatchesCommandInput,
+  DescribeInstancePatchesCommandOutput,
+} from "../commands/DescribeInstancePatchesCommand";
+import {
+  DescribeInstancePatchStatesCommandInput,
+  DescribeInstancePatchStatesCommandOutput,
+} from "../commands/DescribeInstancePatchStatesCommand";
+import {
+  DescribeInstancePatchStatesForPatchGroupCommandInput,
+  DescribeInstancePatchStatesForPatchGroupCommandOutput,
+} from "../commands/DescribeInstancePatchStatesForPatchGroupCommand";
+import {
+  DescribeInventoryDeletionsCommandInput,
+  DescribeInventoryDeletionsCommandOutput,
+} from "../commands/DescribeInventoryDeletionsCommand";
+import {
+  DescribeMaintenanceWindowExecutionsCommandInput,
+  DescribeMaintenanceWindowExecutionsCommandOutput,
+} from "../commands/DescribeMaintenanceWindowExecutionsCommand";
+import {
+  DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
+  DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput,
+} from "../commands/DescribeMaintenanceWindowExecutionTaskInvocationsCommand";
+import {
+  DescribeMaintenanceWindowExecutionTasksCommandInput,
+  DescribeMaintenanceWindowExecutionTasksCommandOutput,
+} from "../commands/DescribeMaintenanceWindowExecutionTasksCommand";
+import {
+  DescribeMaintenanceWindowScheduleCommandInput,
+  DescribeMaintenanceWindowScheduleCommandOutput,
+} from "../commands/DescribeMaintenanceWindowScheduleCommand";
+import {
+  DescribeMaintenanceWindowsCommandInput,
+  DescribeMaintenanceWindowsCommandOutput,
+} from "../commands/DescribeMaintenanceWindowsCommand";
+import {
+  DescribeMaintenanceWindowsForTargetCommandInput,
+  DescribeMaintenanceWindowsForTargetCommandOutput,
+} from "../commands/DescribeMaintenanceWindowsForTargetCommand";
+import {
+  DescribeMaintenanceWindowTargetsCommandInput,
+  DescribeMaintenanceWindowTargetsCommandOutput,
+} from "../commands/DescribeMaintenanceWindowTargetsCommand";
+import {
+  DescribeMaintenanceWindowTasksCommandInput,
+  DescribeMaintenanceWindowTasksCommandOutput,
+} from "../commands/DescribeMaintenanceWindowTasksCommand";
+import {
+  DescribeOpsItemsCommandInput,
+  DescribeOpsItemsCommandOutput,
+} from "../commands/DescribeOpsItemsCommand";
+import {
+  DescribeParametersCommandInput,
+  DescribeParametersCommandOutput,
+} from "../commands/DescribeParametersCommand";
+import {
+  DescribePatchBaselinesCommandInput,
+  DescribePatchBaselinesCommandOutput,
+} from "../commands/DescribePatchBaselinesCommand";
+import {
+  DescribePatchGroupsCommandInput,
+  DescribePatchGroupsCommandOutput,
+} from "../commands/DescribePatchGroupsCommand";
+import {
+  DescribePatchGroupStateCommandInput,
+  DescribePatchGroupStateCommandOutput,
+} from "../commands/DescribePatchGroupStateCommand";
+import {
+  DescribePatchPropertiesCommandInput,
+  DescribePatchPropertiesCommandOutput,
+} from "../commands/DescribePatchPropertiesCommand";
+import {
+  DescribeSessionsCommandInput,
+  DescribeSessionsCommandOutput,
+} from "../commands/DescribeSessionsCommand";
+import {
+  DisassociateOpsItemRelatedItemCommandInput,
+  DisassociateOpsItemRelatedItemCommandOutput,
+} from "../commands/DisassociateOpsItemRelatedItemCommand";
+import {
+  GetAutomationExecutionCommandInput,
+  GetAutomationExecutionCommandOutput,
+} from "../commands/GetAutomationExecutionCommand";
+import {
+  GetCalendarStateCommandInput,
+  GetCalendarStateCommandOutput,
+} from "../commands/GetCalendarStateCommand";
+import {
+  GetCommandInvocationCommandInput,
+  GetCommandInvocationCommandOutput,
+} from "../commands/GetCommandInvocationCommand";
+import {
+  GetConnectionStatusCommandInput,
+  GetConnectionStatusCommandOutput,
+} from "../commands/GetConnectionStatusCommand";
+import {
+  GetDefaultPatchBaselineCommandInput,
+  GetDefaultPatchBaselineCommandOutput,
+} from "../commands/GetDefaultPatchBaselineCommand";
+import {
+  GetDeployablePatchSnapshotForInstanceCommandInput,
+  GetDeployablePatchSnapshotForInstanceCommandOutput,
+} from "../commands/GetDeployablePatchSnapshotForInstanceCommand";
+import {
+  GetDocumentCommandInput,
+  GetDocumentCommandOutput,
+} from "../commands/GetDocumentCommand";
+import {
+  GetInventoryCommandInput,
+  GetInventoryCommandOutput,
+} from "../commands/GetInventoryCommand";
+import {
+  GetInventorySchemaCommandInput,
+  GetInventorySchemaCommandOutput,
+} from "../commands/GetInventorySchemaCommand";
+import {
+  GetMaintenanceWindowCommandInput,
+  GetMaintenanceWindowCommandOutput,
+} from "../commands/GetMaintenanceWindowCommand";
+import {
+  GetMaintenanceWindowExecutionCommandInput,
+  GetMaintenanceWindowExecutionCommandOutput,
+} from "../commands/GetMaintenanceWindowExecutionCommand";
+import {
+  GetMaintenanceWindowExecutionTaskCommandInput,
+  GetMaintenanceWindowExecutionTaskCommandOutput,
+} from "../commands/GetMaintenanceWindowExecutionTaskCommand";
+import {
+  GetMaintenanceWindowExecutionTaskInvocationCommandInput,
+  GetMaintenanceWindowExecutionTaskInvocationCommandOutput,
+} from "../commands/GetMaintenanceWindowExecutionTaskInvocationCommand";
+import {
+  GetMaintenanceWindowTaskCommandInput,
+  GetMaintenanceWindowTaskCommandOutput,
+} from "../commands/GetMaintenanceWindowTaskCommand";
+import {
+  GetOpsItemCommandInput,
+  GetOpsItemCommandOutput,
+} from "../commands/GetOpsItemCommand";
+import {
+  GetOpsMetadataCommandInput,
+  GetOpsMetadataCommandOutput,
+} from "../commands/GetOpsMetadataCommand";
+import {
+  GetOpsSummaryCommandInput,
+  GetOpsSummaryCommandOutput,
+} from "../commands/GetOpsSummaryCommand";
+import {
+  GetParameterCommandInput,
+  GetParameterCommandOutput,
+} from "../commands/GetParameterCommand";
+import {
+  GetParameterHistoryCommandInput,
+  GetParameterHistoryCommandOutput,
+} from "../commands/GetParameterHistoryCommand";
+import {
+  GetParametersByPathCommandInput,
+  GetParametersByPathCommandOutput,
+} from "../commands/GetParametersByPathCommand";
+import {
+  GetParametersCommandInput,
+  GetParametersCommandOutput,
+} from "../commands/GetParametersCommand";
+import {
+  GetPatchBaselineCommandInput,
+  GetPatchBaselineCommandOutput,
+} from "../commands/GetPatchBaselineCommand";
+import {
+  GetPatchBaselineForPatchGroupCommandInput,
+  GetPatchBaselineForPatchGroupCommandOutput,
+} from "../commands/GetPatchBaselineForPatchGroupCommand";
+import {
+  GetResourcePoliciesCommandInput,
+  GetResourcePoliciesCommandOutput,
+} from "../commands/GetResourcePoliciesCommand";
+import {
+  GetServiceSettingCommandInput,
+  GetServiceSettingCommandOutput,
+} from "../commands/GetServiceSettingCommand";
+import {
+  LabelParameterVersionCommandInput,
+  LabelParameterVersionCommandOutput,
+} from "../commands/LabelParameterVersionCommand";
+import {
+  ListAssociationsCommandInput,
+  ListAssociationsCommandOutput,
+} from "../commands/ListAssociationsCommand";
+import {
+  ListAssociationVersionsCommandInput,
+  ListAssociationVersionsCommandOutput,
+} from "../commands/ListAssociationVersionsCommand";
+import {
+  ListCommandInvocationsCommandInput,
+  ListCommandInvocationsCommandOutput,
+} from "../commands/ListCommandInvocationsCommand";
+import {
+  ListCommandsCommandInput,
+  ListCommandsCommandOutput,
+} from "../commands/ListCommandsCommand";
+import {
+  ListComplianceItemsCommandInput,
+  ListComplianceItemsCommandOutput,
+} from "../commands/ListComplianceItemsCommand";
+import {
+  ListComplianceSummariesCommandInput,
+  ListComplianceSummariesCommandOutput,
+} from "../commands/ListComplianceSummariesCommand";
+import {
+  ListDocumentMetadataHistoryCommandInput,
+  ListDocumentMetadataHistoryCommandOutput,
+} from "../commands/ListDocumentMetadataHistoryCommand";
+import {
+  ListDocumentsCommandInput,
+  ListDocumentsCommandOutput,
+} from "../commands/ListDocumentsCommand";
+import {
+  ListDocumentVersionsCommandInput,
+  ListDocumentVersionsCommandOutput,
+} from "../commands/ListDocumentVersionsCommand";
+import {
+  ListInventoryEntriesCommandInput,
+  ListInventoryEntriesCommandOutput,
+} from "../commands/ListInventoryEntriesCommand";
+import {
+  ListOpsItemEventsCommandInput,
+  ListOpsItemEventsCommandOutput,
+} from "../commands/ListOpsItemEventsCommand";
+import {
+  ListOpsItemRelatedItemsCommandInput,
+  ListOpsItemRelatedItemsCommandOutput,
+} from "../commands/ListOpsItemRelatedItemsCommand";
+import {
+  ListOpsMetadataCommandInput,
+  ListOpsMetadataCommandOutput,
+} from "../commands/ListOpsMetadataCommand";
+import {
+  ListResourceComplianceSummariesCommandInput,
+  ListResourceComplianceSummariesCommandOutput,
+} from "../commands/ListResourceComplianceSummariesCommand";
+import {
+  ListResourceDataSyncCommandInput,
+  ListResourceDataSyncCommandOutput,
+} from "../commands/ListResourceDataSyncCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import {
+  ModifyDocumentPermissionCommandInput,
+  ModifyDocumentPermissionCommandOutput,
+} from "../commands/ModifyDocumentPermissionCommand";
+import {
+  PutComplianceItemsCommandInput,
+  PutComplianceItemsCommandOutput,
+} from "../commands/PutComplianceItemsCommand";
+import {
+  PutInventoryCommandInput,
+  PutInventoryCommandOutput,
+} from "../commands/PutInventoryCommand";
+import {
+  PutParameterCommandInput,
+  PutParameterCommandOutput,
+} from "../commands/PutParameterCommand";
+import {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "../commands/PutResourcePolicyCommand";
+import {
+  RegisterDefaultPatchBaselineCommandInput,
+  RegisterDefaultPatchBaselineCommandOutput,
+} from "../commands/RegisterDefaultPatchBaselineCommand";
+import {
+  RegisterPatchBaselineForPatchGroupCommandInput,
+  RegisterPatchBaselineForPatchGroupCommandOutput,
+} from "../commands/RegisterPatchBaselineForPatchGroupCommand";
+import {
+  RegisterTargetWithMaintenanceWindowCommandInput,
+  RegisterTargetWithMaintenanceWindowCommandOutput,
+} from "../commands/RegisterTargetWithMaintenanceWindowCommand";
+import {
+  RegisterTaskWithMaintenanceWindowCommandInput,
+  RegisterTaskWithMaintenanceWindowCommandOutput,
+} from "../commands/RegisterTaskWithMaintenanceWindowCommand";
+import {
+  RemoveTagsFromResourceCommandInput,
+  RemoveTagsFromResourceCommandOutput,
+} from "../commands/RemoveTagsFromResourceCommand";
+import {
+  ResetServiceSettingCommandInput,
+  ResetServiceSettingCommandOutput,
+} from "../commands/ResetServiceSettingCommand";
+import {
+  ResumeSessionCommandInput,
+  ResumeSessionCommandOutput,
+} from "../commands/ResumeSessionCommand";
+import {
+  SendAutomationSignalCommandInput,
+  SendAutomationSignalCommandOutput,
+} from "../commands/SendAutomationSignalCommand";
+import {
+  SendCommandCommandInput,
+  SendCommandCommandOutput,
+} from "../commands/SendCommandCommand";
+import {
+  StartAssociationsOnceCommandInput,
+  StartAssociationsOnceCommandOutput,
+} from "../commands/StartAssociationsOnceCommand";
+import {
+  StartAutomationExecutionCommandInput,
+  StartAutomationExecutionCommandOutput,
+} from "../commands/StartAutomationExecutionCommand";
+import {
+  StartChangeRequestExecutionCommandInput,
+  StartChangeRequestExecutionCommandOutput,
+} from "../commands/StartChangeRequestExecutionCommand";
+import {
+  StartSessionCommandInput,
+  StartSessionCommandOutput,
+} from "../commands/StartSessionCommand";
+import {
+  StopAutomationExecutionCommandInput,
+  StopAutomationExecutionCommandOutput,
+} from "../commands/StopAutomationExecutionCommand";
+import {
+  TerminateSessionCommandInput,
+  TerminateSessionCommandOutput,
+} from "../commands/TerminateSessionCommand";
+import {
+  UnlabelParameterVersionCommandInput,
+  UnlabelParameterVersionCommandOutput,
+} from "../commands/UnlabelParameterVersionCommand";
+import {
+  UpdateAssociationCommandInput,
+  UpdateAssociationCommandOutput,
+} from "../commands/UpdateAssociationCommand";
+import {
+  UpdateAssociationStatusCommandInput,
+  UpdateAssociationStatusCommandOutput,
+} from "../commands/UpdateAssociationStatusCommand";
+import {
+  UpdateDocumentCommandInput,
+  UpdateDocumentCommandOutput,
+} from "../commands/UpdateDocumentCommand";
+import {
+  UpdateDocumentDefaultVersionCommandInput,
+  UpdateDocumentDefaultVersionCommandOutput,
+} from "../commands/UpdateDocumentDefaultVersionCommand";
+import {
+  UpdateDocumentMetadataCommandInput,
+  UpdateDocumentMetadataCommandOutput,
+} from "../commands/UpdateDocumentMetadataCommand";
+import {
+  UpdateMaintenanceWindowCommandInput,
+  UpdateMaintenanceWindowCommandOutput,
+} from "../commands/UpdateMaintenanceWindowCommand";
+import {
+  UpdateMaintenanceWindowTargetCommandInput,
+  UpdateMaintenanceWindowTargetCommandOutput,
+} from "../commands/UpdateMaintenanceWindowTargetCommand";
+import {
+  UpdateMaintenanceWindowTaskCommandInput,
+  UpdateMaintenanceWindowTaskCommandOutput,
+} from "../commands/UpdateMaintenanceWindowTaskCommand";
+import {
+  UpdateManagedInstanceRoleCommandInput,
+  UpdateManagedInstanceRoleCommandOutput,
+} from "../commands/UpdateManagedInstanceRoleCommand";
+import {
+  UpdateOpsItemCommandInput,
+  UpdateOpsItemCommandOutput,
+} from "../commands/UpdateOpsItemCommand";
+import {
+  UpdateOpsMetadataCommandInput,
+  UpdateOpsMetadataCommandOutput,
+} from "../commands/UpdateOpsMetadataCommand";
+import {
+  UpdatePatchBaselineCommandInput,
+  UpdatePatchBaselineCommandOutput,
+} from "../commands/UpdatePatchBaselineCommand";
+import {
+  UpdateResourceDataSyncCommandInput,
+  UpdateResourceDataSyncCommandOutput,
+} from "../commands/UpdateResourceDataSyncCommand";
+import {
+  UpdateServiceSettingCommandInput,
+  UpdateServiceSettingCommandOutput,
+} from "../commands/UpdateServiceSettingCommand";
+export declare const se_AddTagsToResourceCommand: (
+  input: AddTagsToResourceCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_AssociateOpsItemRelatedItemCommand: (
+  input: AssociateOpsItemRelatedItemCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_CancelCommandCommand: (
+  input: CancelCommandCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_CancelMaintenanceWindowExecutionCommand: (
+  input: CancelMaintenanceWindowExecutionCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_CreateActivationCommand: (
+  input: CreateActivationCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_CreateAssociationCommand: (
+  input: CreateAssociationCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_CreateAssociationBatchCommand: (
+  input: CreateAssociationBatchCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_CreateDocumentCommand: (
+  input: CreateDocumentCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_CreateMaintenanceWindowCommand: (
+  input: CreateMaintenanceWindowCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_CreateOpsItemCommand: (
+  input: CreateOpsItemCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_CreateOpsMetadataCommand: (
+  input: CreateOpsMetadataCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_CreatePatchBaselineCommand: (
+  input: CreatePatchBaselineCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_CreateResourceDataSyncCommand: (
+  input: CreateResourceDataSyncCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DeleteActivationCommand: (
+  input: DeleteActivationCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DeleteAssociationCommand: (
+  input: DeleteAssociationCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DeleteDocumentCommand: (
+  input: DeleteDocumentCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DeleteInventoryCommand: (
+  input: DeleteInventoryCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DeleteMaintenanceWindowCommand: (
+  input: DeleteMaintenanceWindowCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DeleteOpsMetadataCommand: (
+  input: DeleteOpsMetadataCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DeleteParameterCommand: (
+  input: DeleteParameterCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DeleteParametersCommand: (
+  input: DeleteParametersCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DeletePatchBaselineCommand: (
+  input: DeletePatchBaselineCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DeleteResourceDataSyncCommand: (
+  input: DeleteResourceDataSyncCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DeleteResourcePolicyCommand: (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DeregisterManagedInstanceCommand: (
+  input: DeregisterManagedInstanceCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DeregisterPatchBaselineForPatchGroupCommand: (
+  input: DeregisterPatchBaselineForPatchGroupCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DeregisterTargetFromMaintenanceWindowCommand: (
+  input: DeregisterTargetFromMaintenanceWindowCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DeregisterTaskFromMaintenanceWindowCommand: (
+  input: DeregisterTaskFromMaintenanceWindowCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeActivationsCommand: (
+  input: DescribeActivationsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeAssociationCommand: (
+  input: DescribeAssociationCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeAssociationExecutionsCommand: (
+  input: DescribeAssociationExecutionsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeAssociationExecutionTargetsCommand: (
+  input: DescribeAssociationExecutionTargetsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeAutomationExecutionsCommand: (
+  input: DescribeAutomationExecutionsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeAutomationStepExecutionsCommand: (
+  input: DescribeAutomationStepExecutionsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeAvailablePatchesCommand: (
+  input: DescribeAvailablePatchesCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeDocumentCommand: (
+  input: DescribeDocumentCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeDocumentPermissionCommand: (
+  input: DescribeDocumentPermissionCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeEffectiveInstanceAssociationsCommand: (
+  input: DescribeEffectiveInstanceAssociationsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeEffectivePatchesForPatchBaselineCommand: (
+  input: DescribeEffectivePatchesForPatchBaselineCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeInstanceAssociationsStatusCommand: (
+  input: DescribeInstanceAssociationsStatusCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeInstanceInformationCommand: (
+  input: DescribeInstanceInformationCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeInstancePatchesCommand: (
+  input: DescribeInstancePatchesCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeInstancePatchStatesCommand: (
+  input: DescribeInstancePatchStatesCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeInstancePatchStatesForPatchGroupCommand: (
+  input: DescribeInstancePatchStatesForPatchGroupCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeInventoryDeletionsCommand: (
+  input: DescribeInventoryDeletionsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeMaintenanceWindowExecutionsCommand: (
+  input: DescribeMaintenanceWindowExecutionsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeMaintenanceWindowExecutionTaskInvocationsCommand: (
+  input: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeMaintenanceWindowExecutionTasksCommand: (
+  input: DescribeMaintenanceWindowExecutionTasksCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeMaintenanceWindowsCommand: (
+  input: DescribeMaintenanceWindowsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeMaintenanceWindowScheduleCommand: (
+  input: DescribeMaintenanceWindowScheduleCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeMaintenanceWindowsForTargetCommand: (
+  input: DescribeMaintenanceWindowsForTargetCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeMaintenanceWindowTargetsCommand: (
+  input: DescribeMaintenanceWindowTargetsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeMaintenanceWindowTasksCommand: (
+  input: DescribeMaintenanceWindowTasksCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeOpsItemsCommand: (
+  input: DescribeOpsItemsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeParametersCommand: (
+  input: DescribeParametersCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribePatchBaselinesCommand: (
+  input: DescribePatchBaselinesCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribePatchGroupsCommand: (
+  input: DescribePatchGroupsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribePatchGroupStateCommand: (
+  input: DescribePatchGroupStateCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribePatchPropertiesCommand: (
+  input: DescribePatchPropertiesCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DescribeSessionsCommand: (
+  input: DescribeSessionsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_DisassociateOpsItemRelatedItemCommand: (
+  input: DisassociateOpsItemRelatedItemCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetAutomationExecutionCommand: (
+  input: GetAutomationExecutionCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetCalendarStateCommand: (
+  input: GetCalendarStateCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetCommandInvocationCommand: (
+  input: GetCommandInvocationCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetConnectionStatusCommand: (
+  input: GetConnectionStatusCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetDefaultPatchBaselineCommand: (
+  input: GetDefaultPatchBaselineCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetDeployablePatchSnapshotForInstanceCommand: (
+  input: GetDeployablePatchSnapshotForInstanceCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetDocumentCommand: (
+  input: GetDocumentCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetInventoryCommand: (
+  input: GetInventoryCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetInventorySchemaCommand: (
+  input: GetInventorySchemaCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetMaintenanceWindowCommand: (
+  input: GetMaintenanceWindowCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetMaintenanceWindowExecutionCommand: (
+  input: GetMaintenanceWindowExecutionCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetMaintenanceWindowExecutionTaskCommand: (
+  input: GetMaintenanceWindowExecutionTaskCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetMaintenanceWindowExecutionTaskInvocationCommand: (
+  input: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetMaintenanceWindowTaskCommand: (
+  input: GetMaintenanceWindowTaskCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetOpsItemCommand: (
+  input: GetOpsItemCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetOpsMetadataCommand: (
+  input: GetOpsMetadataCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetOpsSummaryCommand: (
+  input: GetOpsSummaryCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetParameterCommand: (
+  input: GetParameterCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetParameterHistoryCommand: (
+  input: GetParameterHistoryCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetParametersCommand: (
+  input: GetParametersCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetParametersByPathCommand: (
+  input: GetParametersByPathCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetPatchBaselineCommand: (
+  input: GetPatchBaselineCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetPatchBaselineForPatchGroupCommand: (
+  input: GetPatchBaselineForPatchGroupCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetResourcePoliciesCommand: (
+  input: GetResourcePoliciesCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_GetServiceSettingCommand: (
+  input: GetServiceSettingCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_LabelParameterVersionCommand: (
+  input: LabelParameterVersionCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_ListAssociationsCommand: (
+  input: ListAssociationsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_ListAssociationVersionsCommand: (
+  input: ListAssociationVersionsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_ListCommandInvocationsCommand: (
+  input: ListCommandInvocationsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_ListCommandsCommand: (
+  input: ListCommandsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_ListComplianceItemsCommand: (
+  input: ListComplianceItemsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_ListComplianceSummariesCommand: (
+  input: ListComplianceSummariesCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_ListDocumentMetadataHistoryCommand: (
+  input: ListDocumentMetadataHistoryCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_ListDocumentsCommand: (
+  input: ListDocumentsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_ListDocumentVersionsCommand: (
+  input: ListDocumentVersionsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_ListInventoryEntriesCommand: (
+  input: ListInventoryEntriesCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_ListOpsItemEventsCommand: (
+  input: ListOpsItemEventsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_ListOpsItemRelatedItemsCommand: (
+  input: ListOpsItemRelatedItemsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_ListOpsMetadataCommand: (
+  input: ListOpsMetadataCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_ListResourceComplianceSummariesCommand: (
+  input: ListResourceComplianceSummariesCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_ListResourceDataSyncCommand: (
+  input: ListResourceDataSyncCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_ListTagsForResourceCommand: (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_ModifyDocumentPermissionCommand: (
+  input: ModifyDocumentPermissionCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_PutComplianceItemsCommand: (
+  input: PutComplianceItemsCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_PutInventoryCommand: (
+  input: PutInventoryCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_PutParameterCommand: (
+  input: PutParameterCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_PutResourcePolicyCommand: (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_RegisterDefaultPatchBaselineCommand: (
+  input: RegisterDefaultPatchBaselineCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_RegisterPatchBaselineForPatchGroupCommand: (
+  input: RegisterPatchBaselineForPatchGroupCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_RegisterTargetWithMaintenanceWindowCommand: (
+  input: RegisterTargetWithMaintenanceWindowCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_RegisterTaskWithMaintenanceWindowCommand: (
+  input: RegisterTaskWithMaintenanceWindowCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_RemoveTagsFromResourceCommand: (
+  input: RemoveTagsFromResourceCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_ResetServiceSettingCommand: (
+  input: ResetServiceSettingCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_ResumeSessionCommand: (
+  input: ResumeSessionCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_SendAutomationSignalCommand: (
+  input: SendAutomationSignalCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_SendCommandCommand: (
+  input: SendCommandCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_StartAssociationsOnceCommand: (
+  input: StartAssociationsOnceCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_StartAutomationExecutionCommand: (
+  input: StartAutomationExecutionCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_StartChangeRequestExecutionCommand: (
+  input: StartChangeRequestExecutionCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_StartSessionCommand: (
+  input: StartSessionCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_StopAutomationExecutionCommand: (
+  input: StopAutomationExecutionCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_TerminateSessionCommand: (
+  input: TerminateSessionCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_UnlabelParameterVersionCommand: (
+  input: UnlabelParameterVersionCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_UpdateAssociationCommand: (
+  input: UpdateAssociationCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_UpdateAssociationStatusCommand: (
+  input: UpdateAssociationStatusCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_UpdateDocumentCommand: (
+  input: UpdateDocumentCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_UpdateDocumentDefaultVersionCommand: (
+  input: UpdateDocumentDefaultVersionCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_UpdateDocumentMetadataCommand: (
+  input: UpdateDocumentMetadataCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_UpdateMaintenanceWindowCommand: (
+  input: UpdateMaintenanceWindowCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_UpdateMaintenanceWindowTargetCommand: (
+  input: UpdateMaintenanceWindowTargetCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_UpdateMaintenanceWindowTaskCommand: (
+  input: UpdateMaintenanceWindowTaskCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_UpdateManagedInstanceRoleCommand: (
+  input: UpdateManagedInstanceRoleCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_UpdateOpsItemCommand: (
+  input: UpdateOpsItemCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_UpdateOpsMetadataCommand: (
+  input: UpdateOpsMetadataCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_UpdatePatchBaselineCommand: (
+  input: UpdatePatchBaselineCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_UpdateResourceDataSyncCommand: (
+  input: UpdateResourceDataSyncCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const se_UpdateServiceSettingCommand: (
+  input: UpdateServiceSettingCommandInput,
+  context: __SerdeContext
+) => Promise<__HttpRequest>;
+export declare const de_AddTagsToResourceCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<AddTagsToResourceCommandOutput>;
+export declare const de_AssociateOpsItemRelatedItemCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<AssociateOpsItemRelatedItemCommandOutput>;
+export declare const de_CancelCommandCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<CancelCommandCommandOutput>;
+export declare const de_CancelMaintenanceWindowExecutionCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<CancelMaintenanceWindowExecutionCommandOutput>;
+export declare const de_CreateActivationCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<CreateActivationCommandOutput>;
+export declare const de_CreateAssociationCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<CreateAssociationCommandOutput>;
+export declare const de_CreateAssociationBatchCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<CreateAssociationBatchCommandOutput>;
+export declare const de_CreateDocumentCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<CreateDocumentCommandOutput>;
+export declare const de_CreateMaintenanceWindowCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<CreateMaintenanceWindowCommandOutput>;
+export declare const de_CreateOpsItemCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<CreateOpsItemCommandOutput>;
+export declare const de_CreateOpsMetadataCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<CreateOpsMetadataCommandOutput>;
+export declare const de_CreatePatchBaselineCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<CreatePatchBaselineCommandOutput>;
+export declare const de_CreateResourceDataSyncCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<CreateResourceDataSyncCommandOutput>;
+export declare const de_DeleteActivationCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DeleteActivationCommandOutput>;
+export declare const de_DeleteAssociationCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DeleteAssociationCommandOutput>;
+export declare const de_DeleteDocumentCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DeleteDocumentCommandOutput>;
+export declare const de_DeleteInventoryCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DeleteInventoryCommandOutput>;
+export declare const de_DeleteMaintenanceWindowCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DeleteMaintenanceWindowCommandOutput>;
+export declare const de_DeleteOpsMetadataCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DeleteOpsMetadataCommandOutput>;
+export declare const de_DeleteParameterCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DeleteParameterCommandOutput>;
+export declare const de_DeleteParametersCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DeleteParametersCommandOutput>;
+export declare const de_DeletePatchBaselineCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DeletePatchBaselineCommandOutput>;
+export declare const de_DeleteResourceDataSyncCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DeleteResourceDataSyncCommandOutput>;
+export declare const de_DeleteResourcePolicyCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DeleteResourcePolicyCommandOutput>;
+export declare const de_DeregisterManagedInstanceCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DeregisterManagedInstanceCommandOutput>;
+export declare const de_DeregisterPatchBaselineForPatchGroupCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DeregisterPatchBaselineForPatchGroupCommandOutput>;
+export declare const de_DeregisterTargetFromMaintenanceWindowCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DeregisterTargetFromMaintenanceWindowCommandOutput>;
+export declare const de_DeregisterTaskFromMaintenanceWindowCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DeregisterTaskFromMaintenanceWindowCommandOutput>;
+export declare const de_DescribeActivationsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeActivationsCommandOutput>;
+export declare const de_DescribeAssociationCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeAssociationCommandOutput>;
+export declare const de_DescribeAssociationExecutionsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeAssociationExecutionsCommandOutput>;
+export declare const de_DescribeAssociationExecutionTargetsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeAssociationExecutionTargetsCommandOutput>;
+export declare const de_DescribeAutomationExecutionsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeAutomationExecutionsCommandOutput>;
+export declare const de_DescribeAutomationStepExecutionsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeAutomationStepExecutionsCommandOutput>;
+export declare const de_DescribeAvailablePatchesCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeAvailablePatchesCommandOutput>;
+export declare const de_DescribeDocumentCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeDocumentCommandOutput>;
+export declare const de_DescribeDocumentPermissionCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeDocumentPermissionCommandOutput>;
+export declare const de_DescribeEffectiveInstanceAssociationsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeEffectiveInstanceAssociationsCommandOutput>;
+export declare const de_DescribeEffectivePatchesForPatchBaselineCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeEffectivePatchesForPatchBaselineCommandOutput>;
+export declare const de_DescribeInstanceAssociationsStatusCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeInstanceAssociationsStatusCommandOutput>;
+export declare const de_DescribeInstanceInformationCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeInstanceInformationCommandOutput>;
+export declare const de_DescribeInstancePatchesCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeInstancePatchesCommandOutput>;
+export declare const de_DescribeInstancePatchStatesCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeInstancePatchStatesCommandOutput>;
+export declare const de_DescribeInstancePatchStatesForPatchGroupCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeInstancePatchStatesForPatchGroupCommandOutput>;
+export declare const de_DescribeInventoryDeletionsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeInventoryDeletionsCommandOutput>;
+export declare const de_DescribeMaintenanceWindowExecutionsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeMaintenanceWindowExecutionsCommandOutput>;
+export declare const de_DescribeMaintenanceWindowExecutionTaskInvocationsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput>;
+export declare const de_DescribeMaintenanceWindowExecutionTasksCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeMaintenanceWindowExecutionTasksCommandOutput>;
+export declare const de_DescribeMaintenanceWindowsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeMaintenanceWindowsCommandOutput>;
+export declare const de_DescribeMaintenanceWindowScheduleCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeMaintenanceWindowScheduleCommandOutput>;
+export declare const de_DescribeMaintenanceWindowsForTargetCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeMaintenanceWindowsForTargetCommandOutput>;
+export declare const de_DescribeMaintenanceWindowTargetsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeMaintenanceWindowTargetsCommandOutput>;
+export declare const de_DescribeMaintenanceWindowTasksCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeMaintenanceWindowTasksCommandOutput>;
+export declare const de_DescribeOpsItemsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeOpsItemsCommandOutput>;
+export declare const de_DescribeParametersCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeParametersCommandOutput>;
+export declare const de_DescribePatchBaselinesCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribePatchBaselinesCommandOutput>;
+export declare const de_DescribePatchGroupsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribePatchGroupsCommandOutput>;
+export declare const de_DescribePatchGroupStateCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribePatchGroupStateCommandOutput>;
+export declare const de_DescribePatchPropertiesCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribePatchPropertiesCommandOutput>;
+export declare const de_DescribeSessionsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DescribeSessionsCommandOutput>;
+export declare const de_DisassociateOpsItemRelatedItemCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<DisassociateOpsItemRelatedItemCommandOutput>;
+export declare const de_GetAutomationExecutionCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetAutomationExecutionCommandOutput>;
+export declare const de_GetCalendarStateCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetCalendarStateCommandOutput>;
+export declare const de_GetCommandInvocationCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetCommandInvocationCommandOutput>;
+export declare const de_GetConnectionStatusCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetConnectionStatusCommandOutput>;
+export declare const de_GetDefaultPatchBaselineCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetDefaultPatchBaselineCommandOutput>;
+export declare const de_GetDeployablePatchSnapshotForInstanceCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetDeployablePatchSnapshotForInstanceCommandOutput>;
+export declare const de_GetDocumentCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetDocumentCommandOutput>;
+export declare const de_GetInventoryCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetInventoryCommandOutput>;
+export declare const de_GetInventorySchemaCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetInventorySchemaCommandOutput>;
+export declare const de_GetMaintenanceWindowCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetMaintenanceWindowCommandOutput>;
+export declare const de_GetMaintenanceWindowExecutionCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetMaintenanceWindowExecutionCommandOutput>;
+export declare const de_GetMaintenanceWindowExecutionTaskCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetMaintenanceWindowExecutionTaskCommandOutput>;
+export declare const de_GetMaintenanceWindowExecutionTaskInvocationCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetMaintenanceWindowExecutionTaskInvocationCommandOutput>;
+export declare const de_GetMaintenanceWindowTaskCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetMaintenanceWindowTaskCommandOutput>;
+export declare const de_GetOpsItemCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetOpsItemCommandOutput>;
+export declare const de_GetOpsMetadataCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetOpsMetadataCommandOutput>;
+export declare const de_GetOpsSummaryCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetOpsSummaryCommandOutput>;
+export declare const de_GetParameterCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetParameterCommandOutput>;
+export declare const de_GetParameterHistoryCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetParameterHistoryCommandOutput>;
+export declare const de_GetParametersCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetParametersCommandOutput>;
+export declare const de_GetParametersByPathCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetParametersByPathCommandOutput>;
+export declare const de_GetPatchBaselineCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetPatchBaselineCommandOutput>;
+export declare const de_GetPatchBaselineForPatchGroupCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetPatchBaselineForPatchGroupCommandOutput>;
+export declare const de_GetResourcePoliciesCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetResourcePoliciesCommandOutput>;
+export declare const de_GetServiceSettingCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<GetServiceSettingCommandOutput>;
+export declare const de_LabelParameterVersionCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<LabelParameterVersionCommandOutput>;
+export declare const de_ListAssociationsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<ListAssociationsCommandOutput>;
+export declare const de_ListAssociationVersionsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<ListAssociationVersionsCommandOutput>;
+export declare const de_ListCommandInvocationsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<ListCommandInvocationsCommandOutput>;
+export declare const de_ListCommandsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<ListCommandsCommandOutput>;
+export declare const de_ListComplianceItemsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<ListComplianceItemsCommandOutput>;
+export declare const de_ListComplianceSummariesCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<ListComplianceSummariesCommandOutput>;
+export declare const de_ListDocumentMetadataHistoryCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<ListDocumentMetadataHistoryCommandOutput>;
+export declare const de_ListDocumentsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<ListDocumentsCommandOutput>;
+export declare const de_ListDocumentVersionsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<ListDocumentVersionsCommandOutput>;
+export declare const de_ListInventoryEntriesCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<ListInventoryEntriesCommandOutput>;
+export declare const de_ListOpsItemEventsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<ListOpsItemEventsCommandOutput>;
+export declare const de_ListOpsItemRelatedItemsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<ListOpsItemRelatedItemsCommandOutput>;
+export declare const de_ListOpsMetadataCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<ListOpsMetadataCommandOutput>;
+export declare const de_ListResourceComplianceSummariesCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<ListResourceComplianceSummariesCommandOutput>;
+export declare const de_ListResourceDataSyncCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<ListResourceDataSyncCommandOutput>;
+export declare const de_ListTagsForResourceCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<ListTagsForResourceCommandOutput>;
+export declare const de_ModifyDocumentPermissionCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<ModifyDocumentPermissionCommandOutput>;
+export declare const de_PutComplianceItemsCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<PutComplianceItemsCommandOutput>;
+export declare const de_PutInventoryCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<PutInventoryCommandOutput>;
+export declare const de_PutParameterCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<PutParameterCommandOutput>;
+export declare const de_PutResourcePolicyCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<PutResourcePolicyCommandOutput>;
+export declare const de_RegisterDefaultPatchBaselineCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<RegisterDefaultPatchBaselineCommandOutput>;
+export declare const de_RegisterPatchBaselineForPatchGroupCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<RegisterPatchBaselineForPatchGroupCommandOutput>;
+export declare const de_RegisterTargetWithMaintenanceWindowCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<RegisterTargetWithMaintenanceWindowCommandOutput>;
+export declare const de_RegisterTaskWithMaintenanceWindowCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<RegisterTaskWithMaintenanceWindowCommandOutput>;
+export declare const de_RemoveTagsFromResourceCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<RemoveTagsFromResourceCommandOutput>;
+export declare const de_ResetServiceSettingCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<ResetServiceSettingCommandOutput>;
+export declare const de_ResumeSessionCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<ResumeSessionCommandOutput>;
+export declare const de_SendAutomationSignalCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<SendAutomationSignalCommandOutput>;
+export declare const de_SendCommandCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<SendCommandCommandOutput>;
+export declare const de_StartAssociationsOnceCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<StartAssociationsOnceCommandOutput>;
+export declare const de_StartAutomationExecutionCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<StartAutomationExecutionCommandOutput>;
+export declare const de_StartChangeRequestExecutionCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<StartChangeRequestExecutionCommandOutput>;
+export declare const de_StartSessionCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<StartSessionCommandOutput>;
+export declare const de_StopAutomationExecutionCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<StopAutomationExecutionCommandOutput>;
+export declare const de_TerminateSessionCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<TerminateSessionCommandOutput>;
+export declare const de_UnlabelParameterVersionCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<UnlabelParameterVersionCommandOutput>;
+export declare const de_UpdateAssociationCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<UpdateAssociationCommandOutput>;
+export declare const de_UpdateAssociationStatusCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<UpdateAssociationStatusCommandOutput>;
+export declare const de_UpdateDocumentCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<UpdateDocumentCommandOutput>;
+export declare const de_UpdateDocumentDefaultVersionCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<UpdateDocumentDefaultVersionCommandOutput>;
+export declare const de_UpdateDocumentMetadataCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<UpdateDocumentMetadataCommandOutput>;
+export declare const de_UpdateMaintenanceWindowCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<UpdateMaintenanceWindowCommandOutput>;
+export declare const de_UpdateMaintenanceWindowTargetCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<UpdateMaintenanceWindowTargetCommandOutput>;
+export declare const de_UpdateMaintenanceWindowTaskCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<UpdateMaintenanceWindowTaskCommandOutput>;
+export declare const de_UpdateManagedInstanceRoleCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<UpdateManagedInstanceRoleCommandOutput>;
+export declare const de_UpdateOpsItemCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<UpdateOpsItemCommandOutput>;
+export declare const de_UpdateOpsMetadataCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<UpdateOpsMetadataCommandOutput>;
+export declare const de_UpdatePatchBaselineCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<UpdatePatchBaselineCommandOutput>;
+export declare const de_UpdateResourceDataSyncCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<UpdateResourceDataSyncCommandOutput>;
+export declare const de_UpdateServiceSettingCommand: (
+  output: __HttpResponse,
+  context: __SerdeContext
+) => Promise<UpdateServiceSettingCommandOutput>;

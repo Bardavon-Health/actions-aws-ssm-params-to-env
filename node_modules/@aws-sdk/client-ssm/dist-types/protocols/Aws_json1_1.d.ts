@@ -1,0 +1,1244 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { SerdeContext as __SerdeContext } from "@smithy/types";
+import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "../commands/AddTagsToResourceCommand";
+import { AssociateOpsItemRelatedItemCommandInput, AssociateOpsItemRelatedItemCommandOutput } from "../commands/AssociateOpsItemRelatedItemCommand";
+import { CancelCommandCommandInput, CancelCommandCommandOutput } from "../commands/CancelCommandCommand";
+import { CancelMaintenanceWindowExecutionCommandInput, CancelMaintenanceWindowExecutionCommandOutput } from "../commands/CancelMaintenanceWindowExecutionCommand";
+import { CreateActivationCommandInput, CreateActivationCommandOutput } from "../commands/CreateActivationCommand";
+import { CreateAssociationBatchCommandInput, CreateAssociationBatchCommandOutput } from "../commands/CreateAssociationBatchCommand";
+import { CreateAssociationCommandInput, CreateAssociationCommandOutput } from "../commands/CreateAssociationCommand";
+import { CreateDocumentCommandInput, CreateDocumentCommandOutput } from "../commands/CreateDocumentCommand";
+import { CreateMaintenanceWindowCommandInput, CreateMaintenanceWindowCommandOutput } from "../commands/CreateMaintenanceWindowCommand";
+import { CreateOpsItemCommandInput, CreateOpsItemCommandOutput } from "../commands/CreateOpsItemCommand";
+import { CreateOpsMetadataCommandInput, CreateOpsMetadataCommandOutput } from "../commands/CreateOpsMetadataCommand";
+import { CreatePatchBaselineCommandInput, CreatePatchBaselineCommandOutput } from "../commands/CreatePatchBaselineCommand";
+import { CreateResourceDataSyncCommandInput, CreateResourceDataSyncCommandOutput } from "../commands/CreateResourceDataSyncCommand";
+import { DeleteActivationCommandInput, DeleteActivationCommandOutput } from "../commands/DeleteActivationCommand";
+import { DeleteAssociationCommandInput, DeleteAssociationCommandOutput } from "../commands/DeleteAssociationCommand";
+import { DeleteDocumentCommandInput, DeleteDocumentCommandOutput } from "../commands/DeleteDocumentCommand";
+import { DeleteInventoryCommandInput, DeleteInventoryCommandOutput } from "../commands/DeleteInventoryCommand";
+import { DeleteMaintenanceWindowCommandInput, DeleteMaintenanceWindowCommandOutput } from "../commands/DeleteMaintenanceWindowCommand";
+import { DeleteOpsMetadataCommandInput, DeleteOpsMetadataCommandOutput } from "../commands/DeleteOpsMetadataCommand";
+import { DeleteParameterCommandInput, DeleteParameterCommandOutput } from "../commands/DeleteParameterCommand";
+import { DeleteParametersCommandInput, DeleteParametersCommandOutput } from "../commands/DeleteParametersCommand";
+import { DeletePatchBaselineCommandInput, DeletePatchBaselineCommandOutput } from "../commands/DeletePatchBaselineCommand";
+import { DeleteResourceDataSyncCommandInput, DeleteResourceDataSyncCommandOutput } from "../commands/DeleteResourceDataSyncCommand";
+import { DeleteResourcePolicyCommandInput, DeleteResourcePolicyCommandOutput } from "../commands/DeleteResourcePolicyCommand";
+import { DeregisterManagedInstanceCommandInput, DeregisterManagedInstanceCommandOutput } from "../commands/DeregisterManagedInstanceCommand";
+import { DeregisterPatchBaselineForPatchGroupCommandInput, DeregisterPatchBaselineForPatchGroupCommandOutput } from "../commands/DeregisterPatchBaselineForPatchGroupCommand";
+import { DeregisterTargetFromMaintenanceWindowCommandInput, DeregisterTargetFromMaintenanceWindowCommandOutput } from "../commands/DeregisterTargetFromMaintenanceWindowCommand";
+import { DeregisterTaskFromMaintenanceWindowCommandInput, DeregisterTaskFromMaintenanceWindowCommandOutput } from "../commands/DeregisterTaskFromMaintenanceWindowCommand";
+import { DescribeActivationsCommandInput, DescribeActivationsCommandOutput } from "../commands/DescribeActivationsCommand";
+import { DescribeAssociationCommandInput, DescribeAssociationCommandOutput } from "../commands/DescribeAssociationCommand";
+import { DescribeAssociationExecutionsCommandInput, DescribeAssociationExecutionsCommandOutput } from "../commands/DescribeAssociationExecutionsCommand";
+import { DescribeAssociationExecutionTargetsCommandInput, DescribeAssociationExecutionTargetsCommandOutput } from "../commands/DescribeAssociationExecutionTargetsCommand";
+import { DescribeAutomationExecutionsCommandInput, DescribeAutomationExecutionsCommandOutput } from "../commands/DescribeAutomationExecutionsCommand";
+import { DescribeAutomationStepExecutionsCommandInput, DescribeAutomationStepExecutionsCommandOutput } from "../commands/DescribeAutomationStepExecutionsCommand";
+import { DescribeAvailablePatchesCommandInput, DescribeAvailablePatchesCommandOutput } from "../commands/DescribeAvailablePatchesCommand";
+import { DescribeDocumentCommandInput, DescribeDocumentCommandOutput } from "../commands/DescribeDocumentCommand";
+import { DescribeDocumentPermissionCommandInput, DescribeDocumentPermissionCommandOutput } from "../commands/DescribeDocumentPermissionCommand";
+import { DescribeEffectiveInstanceAssociationsCommandInput, DescribeEffectiveInstanceAssociationsCommandOutput } from "../commands/DescribeEffectiveInstanceAssociationsCommand";
+import { DescribeEffectivePatchesForPatchBaselineCommandInput, DescribeEffectivePatchesForPatchBaselineCommandOutput } from "../commands/DescribeEffectivePatchesForPatchBaselineCommand";
+import { DescribeInstanceAssociationsStatusCommandInput, DescribeInstanceAssociationsStatusCommandOutput } from "../commands/DescribeInstanceAssociationsStatusCommand";
+import { DescribeInstanceInformationCommandInput, DescribeInstanceInformationCommandOutput } from "../commands/DescribeInstanceInformationCommand";
+import { DescribeInstancePatchesCommandInput, DescribeInstancePatchesCommandOutput } from "../commands/DescribeInstancePatchesCommand";
+import { DescribeInstancePatchStatesCommandInput, DescribeInstancePatchStatesCommandOutput } from "../commands/DescribeInstancePatchStatesCommand";
+import { DescribeInstancePatchStatesForPatchGroupCommandInput, DescribeInstancePatchStatesForPatchGroupCommandOutput } from "../commands/DescribeInstancePatchStatesForPatchGroupCommand";
+import { DescribeInventoryDeletionsCommandInput, DescribeInventoryDeletionsCommandOutput } from "../commands/DescribeInventoryDeletionsCommand";
+import { DescribeMaintenanceWindowExecutionsCommandInput, DescribeMaintenanceWindowExecutionsCommandOutput } from "../commands/DescribeMaintenanceWindowExecutionsCommand";
+import { DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput, DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput } from "../commands/DescribeMaintenanceWindowExecutionTaskInvocationsCommand";
+import { DescribeMaintenanceWindowExecutionTasksCommandInput, DescribeMaintenanceWindowExecutionTasksCommandOutput } from "../commands/DescribeMaintenanceWindowExecutionTasksCommand";
+import { DescribeMaintenanceWindowScheduleCommandInput, DescribeMaintenanceWindowScheduleCommandOutput } from "../commands/DescribeMaintenanceWindowScheduleCommand";
+import { DescribeMaintenanceWindowsCommandInput, DescribeMaintenanceWindowsCommandOutput } from "../commands/DescribeMaintenanceWindowsCommand";
+import { DescribeMaintenanceWindowsForTargetCommandInput, DescribeMaintenanceWindowsForTargetCommandOutput } from "../commands/DescribeMaintenanceWindowsForTargetCommand";
+import { DescribeMaintenanceWindowTargetsCommandInput, DescribeMaintenanceWindowTargetsCommandOutput } from "../commands/DescribeMaintenanceWindowTargetsCommand";
+import { DescribeMaintenanceWindowTasksCommandInput, DescribeMaintenanceWindowTasksCommandOutput } from "../commands/DescribeMaintenanceWindowTasksCommand";
+import { DescribeOpsItemsCommandInput, DescribeOpsItemsCommandOutput } from "../commands/DescribeOpsItemsCommand";
+import { DescribeParametersCommandInput, DescribeParametersCommandOutput } from "../commands/DescribeParametersCommand";
+import { DescribePatchBaselinesCommandInput, DescribePatchBaselinesCommandOutput } from "../commands/DescribePatchBaselinesCommand";
+import { DescribePatchGroupsCommandInput, DescribePatchGroupsCommandOutput } from "../commands/DescribePatchGroupsCommand";
+import { DescribePatchGroupStateCommandInput, DescribePatchGroupStateCommandOutput } from "../commands/DescribePatchGroupStateCommand";
+import { DescribePatchPropertiesCommandInput, DescribePatchPropertiesCommandOutput } from "../commands/DescribePatchPropertiesCommand";
+import { DescribeSessionsCommandInput, DescribeSessionsCommandOutput } from "../commands/DescribeSessionsCommand";
+import { DisassociateOpsItemRelatedItemCommandInput, DisassociateOpsItemRelatedItemCommandOutput } from "../commands/DisassociateOpsItemRelatedItemCommand";
+import { GetAutomationExecutionCommandInput, GetAutomationExecutionCommandOutput } from "../commands/GetAutomationExecutionCommand";
+import { GetCalendarStateCommandInput, GetCalendarStateCommandOutput } from "../commands/GetCalendarStateCommand";
+import { GetCommandInvocationCommandInput, GetCommandInvocationCommandOutput } from "../commands/GetCommandInvocationCommand";
+import { GetConnectionStatusCommandInput, GetConnectionStatusCommandOutput } from "../commands/GetConnectionStatusCommand";
+import { GetDefaultPatchBaselineCommandInput, GetDefaultPatchBaselineCommandOutput } from "../commands/GetDefaultPatchBaselineCommand";
+import { GetDeployablePatchSnapshotForInstanceCommandInput, GetDeployablePatchSnapshotForInstanceCommandOutput } from "../commands/GetDeployablePatchSnapshotForInstanceCommand";
+import { GetDocumentCommandInput, GetDocumentCommandOutput } from "../commands/GetDocumentCommand";
+import { GetInventoryCommandInput, GetInventoryCommandOutput } from "../commands/GetInventoryCommand";
+import { GetInventorySchemaCommandInput, GetInventorySchemaCommandOutput } from "../commands/GetInventorySchemaCommand";
+import { GetMaintenanceWindowCommandInput, GetMaintenanceWindowCommandOutput } from "../commands/GetMaintenanceWindowCommand";
+import { GetMaintenanceWindowExecutionCommandInput, GetMaintenanceWindowExecutionCommandOutput } from "../commands/GetMaintenanceWindowExecutionCommand";
+import { GetMaintenanceWindowExecutionTaskCommandInput, GetMaintenanceWindowExecutionTaskCommandOutput } from "../commands/GetMaintenanceWindowExecutionTaskCommand";
+import { GetMaintenanceWindowExecutionTaskInvocationCommandInput, GetMaintenanceWindowExecutionTaskInvocationCommandOutput } from "../commands/GetMaintenanceWindowExecutionTaskInvocationCommand";
+import { GetMaintenanceWindowTaskCommandInput, GetMaintenanceWindowTaskCommandOutput } from "../commands/GetMaintenanceWindowTaskCommand";
+import { GetOpsItemCommandInput, GetOpsItemCommandOutput } from "../commands/GetOpsItemCommand";
+import { GetOpsMetadataCommandInput, GetOpsMetadataCommandOutput } from "../commands/GetOpsMetadataCommand";
+import { GetOpsSummaryCommandInput, GetOpsSummaryCommandOutput } from "../commands/GetOpsSummaryCommand";
+import { GetParameterCommandInput, GetParameterCommandOutput } from "../commands/GetParameterCommand";
+import { GetParameterHistoryCommandInput, GetParameterHistoryCommandOutput } from "../commands/GetParameterHistoryCommand";
+import { GetParametersByPathCommandInput, GetParametersByPathCommandOutput } from "../commands/GetParametersByPathCommand";
+import { GetParametersCommandInput, GetParametersCommandOutput } from "../commands/GetParametersCommand";
+import { GetPatchBaselineCommandInput, GetPatchBaselineCommandOutput } from "../commands/GetPatchBaselineCommand";
+import { GetPatchBaselineForPatchGroupCommandInput, GetPatchBaselineForPatchGroupCommandOutput } from "../commands/GetPatchBaselineForPatchGroupCommand";
+import { GetResourcePoliciesCommandInput, GetResourcePoliciesCommandOutput } from "../commands/GetResourcePoliciesCommand";
+import { GetServiceSettingCommandInput, GetServiceSettingCommandOutput } from "../commands/GetServiceSettingCommand";
+import { LabelParameterVersionCommandInput, LabelParameterVersionCommandOutput } from "../commands/LabelParameterVersionCommand";
+import { ListAssociationsCommandInput, ListAssociationsCommandOutput } from "../commands/ListAssociationsCommand";
+import { ListAssociationVersionsCommandInput, ListAssociationVersionsCommandOutput } from "../commands/ListAssociationVersionsCommand";
+import { ListCommandInvocationsCommandInput, ListCommandInvocationsCommandOutput } from "../commands/ListCommandInvocationsCommand";
+import { ListCommandsCommandInput, ListCommandsCommandOutput } from "../commands/ListCommandsCommand";
+import { ListComplianceItemsCommandInput, ListComplianceItemsCommandOutput } from "../commands/ListComplianceItemsCommand";
+import { ListComplianceSummariesCommandInput, ListComplianceSummariesCommandOutput } from "../commands/ListComplianceSummariesCommand";
+import { ListDocumentMetadataHistoryCommandInput, ListDocumentMetadataHistoryCommandOutput } from "../commands/ListDocumentMetadataHistoryCommand";
+import { ListDocumentsCommandInput, ListDocumentsCommandOutput } from "../commands/ListDocumentsCommand";
+import { ListDocumentVersionsCommandInput, ListDocumentVersionsCommandOutput } from "../commands/ListDocumentVersionsCommand";
+import { ListInventoryEntriesCommandInput, ListInventoryEntriesCommandOutput } from "../commands/ListInventoryEntriesCommand";
+import { ListOpsItemEventsCommandInput, ListOpsItemEventsCommandOutput } from "../commands/ListOpsItemEventsCommand";
+import { ListOpsItemRelatedItemsCommandInput, ListOpsItemRelatedItemsCommandOutput } from "../commands/ListOpsItemRelatedItemsCommand";
+import { ListOpsMetadataCommandInput, ListOpsMetadataCommandOutput } from "../commands/ListOpsMetadataCommand";
+import { ListResourceComplianceSummariesCommandInput, ListResourceComplianceSummariesCommandOutput } from "../commands/ListResourceComplianceSummariesCommand";
+import { ListResourceDataSyncCommandInput, ListResourceDataSyncCommandOutput } from "../commands/ListResourceDataSyncCommand";
+import { ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput } from "../commands/ListTagsForResourceCommand";
+import { ModifyDocumentPermissionCommandInput, ModifyDocumentPermissionCommandOutput } from "../commands/ModifyDocumentPermissionCommand";
+import { PutComplianceItemsCommandInput, PutComplianceItemsCommandOutput } from "../commands/PutComplianceItemsCommand";
+import { PutInventoryCommandInput, PutInventoryCommandOutput } from "../commands/PutInventoryCommand";
+import { PutParameterCommandInput, PutParameterCommandOutput } from "../commands/PutParameterCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
+import { RegisterDefaultPatchBaselineCommandInput, RegisterDefaultPatchBaselineCommandOutput } from "../commands/RegisterDefaultPatchBaselineCommand";
+import { RegisterPatchBaselineForPatchGroupCommandInput, RegisterPatchBaselineForPatchGroupCommandOutput } from "../commands/RegisterPatchBaselineForPatchGroupCommand";
+import { RegisterTargetWithMaintenanceWindowCommandInput, RegisterTargetWithMaintenanceWindowCommandOutput } from "../commands/RegisterTargetWithMaintenanceWindowCommand";
+import { RegisterTaskWithMaintenanceWindowCommandInput, RegisterTaskWithMaintenanceWindowCommandOutput } from "../commands/RegisterTaskWithMaintenanceWindowCommand";
+import { RemoveTagsFromResourceCommandInput, RemoveTagsFromResourceCommandOutput } from "../commands/RemoveTagsFromResourceCommand";
+import { ResetServiceSettingCommandInput, ResetServiceSettingCommandOutput } from "../commands/ResetServiceSettingCommand";
+import { ResumeSessionCommandInput, ResumeSessionCommandOutput } from "../commands/ResumeSessionCommand";
+import { SendAutomationSignalCommandInput, SendAutomationSignalCommandOutput } from "../commands/SendAutomationSignalCommand";
+import { SendCommandCommandInput, SendCommandCommandOutput } from "../commands/SendCommandCommand";
+import { StartAssociationsOnceCommandInput, StartAssociationsOnceCommandOutput } from "../commands/StartAssociationsOnceCommand";
+import { StartAutomationExecutionCommandInput, StartAutomationExecutionCommandOutput } from "../commands/StartAutomationExecutionCommand";
+import { StartChangeRequestExecutionCommandInput, StartChangeRequestExecutionCommandOutput } from "../commands/StartChangeRequestExecutionCommand";
+import { StartSessionCommandInput, StartSessionCommandOutput } from "../commands/StartSessionCommand";
+import { StopAutomationExecutionCommandInput, StopAutomationExecutionCommandOutput } from "../commands/StopAutomationExecutionCommand";
+import { TerminateSessionCommandInput, TerminateSessionCommandOutput } from "../commands/TerminateSessionCommand";
+import { UnlabelParameterVersionCommandInput, UnlabelParameterVersionCommandOutput } from "../commands/UnlabelParameterVersionCommand";
+import { UpdateAssociationCommandInput, UpdateAssociationCommandOutput } from "../commands/UpdateAssociationCommand";
+import { UpdateAssociationStatusCommandInput, UpdateAssociationStatusCommandOutput } from "../commands/UpdateAssociationStatusCommand";
+import { UpdateDocumentCommandInput, UpdateDocumentCommandOutput } from "../commands/UpdateDocumentCommand";
+import { UpdateDocumentDefaultVersionCommandInput, UpdateDocumentDefaultVersionCommandOutput } from "../commands/UpdateDocumentDefaultVersionCommand";
+import { UpdateDocumentMetadataCommandInput, UpdateDocumentMetadataCommandOutput } from "../commands/UpdateDocumentMetadataCommand";
+import { UpdateMaintenanceWindowCommandInput, UpdateMaintenanceWindowCommandOutput } from "../commands/UpdateMaintenanceWindowCommand";
+import { UpdateMaintenanceWindowTargetCommandInput, UpdateMaintenanceWindowTargetCommandOutput } from "../commands/UpdateMaintenanceWindowTargetCommand";
+import { UpdateMaintenanceWindowTaskCommandInput, UpdateMaintenanceWindowTaskCommandOutput } from "../commands/UpdateMaintenanceWindowTaskCommand";
+import { UpdateManagedInstanceRoleCommandInput, UpdateManagedInstanceRoleCommandOutput } from "../commands/UpdateManagedInstanceRoleCommand";
+import { UpdateOpsItemCommandInput, UpdateOpsItemCommandOutput } from "../commands/UpdateOpsItemCommand";
+import { UpdateOpsMetadataCommandInput, UpdateOpsMetadataCommandOutput } from "../commands/UpdateOpsMetadataCommand";
+import { UpdatePatchBaselineCommandInput, UpdatePatchBaselineCommandOutput } from "../commands/UpdatePatchBaselineCommand";
+import { UpdateResourceDataSyncCommandInput, UpdateResourceDataSyncCommandOutput } from "../commands/UpdateResourceDataSyncCommand";
+import { UpdateServiceSettingCommandInput, UpdateServiceSettingCommandOutput } from "../commands/UpdateServiceSettingCommand";
+/**
+ * serializeAws_json1_1AddTagsToResourceCommand
+ */
+export declare const se_AddTagsToResourceCommand: (input: AddTagsToResourceCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1AssociateOpsItemRelatedItemCommand
+ */
+export declare const se_AssociateOpsItemRelatedItemCommand: (input: AssociateOpsItemRelatedItemCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1CancelCommandCommand
+ */
+export declare const se_CancelCommandCommand: (input: CancelCommandCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1CancelMaintenanceWindowExecutionCommand
+ */
+export declare const se_CancelMaintenanceWindowExecutionCommand: (input: CancelMaintenanceWindowExecutionCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1CreateActivationCommand
+ */
+export declare const se_CreateActivationCommand: (input: CreateActivationCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1CreateAssociationCommand
+ */
+export declare const se_CreateAssociationCommand: (input: CreateAssociationCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1CreateAssociationBatchCommand
+ */
+export declare const se_CreateAssociationBatchCommand: (input: CreateAssociationBatchCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1CreateDocumentCommand
+ */
+export declare const se_CreateDocumentCommand: (input: CreateDocumentCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1CreateMaintenanceWindowCommand
+ */
+export declare const se_CreateMaintenanceWindowCommand: (input: CreateMaintenanceWindowCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1CreateOpsItemCommand
+ */
+export declare const se_CreateOpsItemCommand: (input: CreateOpsItemCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1CreateOpsMetadataCommand
+ */
+export declare const se_CreateOpsMetadataCommand: (input: CreateOpsMetadataCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1CreatePatchBaselineCommand
+ */
+export declare const se_CreatePatchBaselineCommand: (input: CreatePatchBaselineCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1CreateResourceDataSyncCommand
+ */
+export declare const se_CreateResourceDataSyncCommand: (input: CreateResourceDataSyncCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DeleteActivationCommand
+ */
+export declare const se_DeleteActivationCommand: (input: DeleteActivationCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DeleteAssociationCommand
+ */
+export declare const se_DeleteAssociationCommand: (input: DeleteAssociationCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DeleteDocumentCommand
+ */
+export declare const se_DeleteDocumentCommand: (input: DeleteDocumentCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DeleteInventoryCommand
+ */
+export declare const se_DeleteInventoryCommand: (input: DeleteInventoryCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DeleteMaintenanceWindowCommand
+ */
+export declare const se_DeleteMaintenanceWindowCommand: (input: DeleteMaintenanceWindowCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DeleteOpsMetadataCommand
+ */
+export declare const se_DeleteOpsMetadataCommand: (input: DeleteOpsMetadataCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DeleteParameterCommand
+ */
+export declare const se_DeleteParameterCommand: (input: DeleteParameterCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DeleteParametersCommand
+ */
+export declare const se_DeleteParametersCommand: (input: DeleteParametersCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DeletePatchBaselineCommand
+ */
+export declare const se_DeletePatchBaselineCommand: (input: DeletePatchBaselineCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DeleteResourceDataSyncCommand
+ */
+export declare const se_DeleteResourceDataSyncCommand: (input: DeleteResourceDataSyncCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DeleteResourcePolicyCommand
+ */
+export declare const se_DeleteResourcePolicyCommand: (input: DeleteResourcePolicyCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DeregisterManagedInstanceCommand
+ */
+export declare const se_DeregisterManagedInstanceCommand: (input: DeregisterManagedInstanceCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand
+ */
+export declare const se_DeregisterPatchBaselineForPatchGroupCommand: (input: DeregisterPatchBaselineForPatchGroupCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DeregisterTargetFromMaintenanceWindowCommand
+ */
+export declare const se_DeregisterTargetFromMaintenanceWindowCommand: (input: DeregisterTargetFromMaintenanceWindowCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DeregisterTaskFromMaintenanceWindowCommand
+ */
+export declare const se_DeregisterTaskFromMaintenanceWindowCommand: (input: DeregisterTaskFromMaintenanceWindowCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeActivationsCommand
+ */
+export declare const se_DescribeActivationsCommand: (input: DescribeActivationsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeAssociationCommand
+ */
+export declare const se_DescribeAssociationCommand: (input: DescribeAssociationCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeAssociationExecutionsCommand
+ */
+export declare const se_DescribeAssociationExecutionsCommand: (input: DescribeAssociationExecutionsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeAssociationExecutionTargetsCommand
+ */
+export declare const se_DescribeAssociationExecutionTargetsCommand: (input: DescribeAssociationExecutionTargetsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeAutomationExecutionsCommand
+ */
+export declare const se_DescribeAutomationExecutionsCommand: (input: DescribeAutomationExecutionsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeAutomationStepExecutionsCommand
+ */
+export declare const se_DescribeAutomationStepExecutionsCommand: (input: DescribeAutomationStepExecutionsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeAvailablePatchesCommand
+ */
+export declare const se_DescribeAvailablePatchesCommand: (input: DescribeAvailablePatchesCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeDocumentCommand
+ */
+export declare const se_DescribeDocumentCommand: (input: DescribeDocumentCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeDocumentPermissionCommand
+ */
+export declare const se_DescribeDocumentPermissionCommand: (input: DescribeDocumentPermissionCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand
+ */
+export declare const se_DescribeEffectiveInstanceAssociationsCommand: (input: DescribeEffectiveInstanceAssociationsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommand
+ */
+export declare const se_DescribeEffectivePatchesForPatchBaselineCommand: (input: DescribeEffectivePatchesForPatchBaselineCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeInstanceAssociationsStatusCommand
+ */
+export declare const se_DescribeInstanceAssociationsStatusCommand: (input: DescribeInstanceAssociationsStatusCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeInstanceInformationCommand
+ */
+export declare const se_DescribeInstanceInformationCommand: (input: DescribeInstanceInformationCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeInstancePatchesCommand
+ */
+export declare const se_DescribeInstancePatchesCommand: (input: DescribeInstancePatchesCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeInstancePatchStatesCommand
+ */
+export declare const se_DescribeInstancePatchStatesCommand: (input: DescribeInstancePatchStatesCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCommand
+ */
+export declare const se_DescribeInstancePatchStatesForPatchGroupCommand: (input: DescribeInstancePatchStatesForPatchGroupCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeInventoryDeletionsCommand
+ */
+export declare const se_DescribeInventoryDeletionsCommand: (input: DescribeInventoryDeletionsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand
+ */
+export declare const se_DescribeMaintenanceWindowExecutionsCommand: (input: DescribeMaintenanceWindowExecutionsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeMaintenanceWindowExecutionTaskInvocationsCommand
+ */
+export declare const se_DescribeMaintenanceWindowExecutionTaskInvocationsCommand: (input: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeMaintenanceWindowExecutionTasksCommand
+ */
+export declare const se_DescribeMaintenanceWindowExecutionTasksCommand: (input: DescribeMaintenanceWindowExecutionTasksCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeMaintenanceWindowsCommand
+ */
+export declare const se_DescribeMaintenanceWindowsCommand: (input: DescribeMaintenanceWindowsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeMaintenanceWindowScheduleCommand
+ */
+export declare const se_DescribeMaintenanceWindowScheduleCommand: (input: DescribeMaintenanceWindowScheduleCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand
+ */
+export declare const se_DescribeMaintenanceWindowsForTargetCommand: (input: DescribeMaintenanceWindowsForTargetCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeMaintenanceWindowTargetsCommand
+ */
+export declare const se_DescribeMaintenanceWindowTargetsCommand: (input: DescribeMaintenanceWindowTargetsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeMaintenanceWindowTasksCommand
+ */
+export declare const se_DescribeMaintenanceWindowTasksCommand: (input: DescribeMaintenanceWindowTasksCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeOpsItemsCommand
+ */
+export declare const se_DescribeOpsItemsCommand: (input: DescribeOpsItemsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeParametersCommand
+ */
+export declare const se_DescribeParametersCommand: (input: DescribeParametersCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribePatchBaselinesCommand
+ */
+export declare const se_DescribePatchBaselinesCommand: (input: DescribePatchBaselinesCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribePatchGroupsCommand
+ */
+export declare const se_DescribePatchGroupsCommand: (input: DescribePatchGroupsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribePatchGroupStateCommand
+ */
+export declare const se_DescribePatchGroupStateCommand: (input: DescribePatchGroupStateCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribePatchPropertiesCommand
+ */
+export declare const se_DescribePatchPropertiesCommand: (input: DescribePatchPropertiesCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DescribeSessionsCommand
+ */
+export declare const se_DescribeSessionsCommand: (input: DescribeSessionsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1DisassociateOpsItemRelatedItemCommand
+ */
+export declare const se_DisassociateOpsItemRelatedItemCommand: (input: DisassociateOpsItemRelatedItemCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetAutomationExecutionCommand
+ */
+export declare const se_GetAutomationExecutionCommand: (input: GetAutomationExecutionCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetCalendarStateCommand
+ */
+export declare const se_GetCalendarStateCommand: (input: GetCalendarStateCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetCommandInvocationCommand
+ */
+export declare const se_GetCommandInvocationCommand: (input: GetCommandInvocationCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetConnectionStatusCommand
+ */
+export declare const se_GetConnectionStatusCommand: (input: GetConnectionStatusCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetDefaultPatchBaselineCommand
+ */
+export declare const se_GetDefaultPatchBaselineCommand: (input: GetDefaultPatchBaselineCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand
+ */
+export declare const se_GetDeployablePatchSnapshotForInstanceCommand: (input: GetDeployablePatchSnapshotForInstanceCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetDocumentCommand
+ */
+export declare const se_GetDocumentCommand: (input: GetDocumentCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetInventoryCommand
+ */
+export declare const se_GetInventoryCommand: (input: GetInventoryCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetInventorySchemaCommand
+ */
+export declare const se_GetInventorySchemaCommand: (input: GetInventorySchemaCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetMaintenanceWindowCommand
+ */
+export declare const se_GetMaintenanceWindowCommand: (input: GetMaintenanceWindowCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetMaintenanceWindowExecutionCommand
+ */
+export declare const se_GetMaintenanceWindowExecutionCommand: (input: GetMaintenanceWindowExecutionCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetMaintenanceWindowExecutionTaskCommand
+ */
+export declare const se_GetMaintenanceWindowExecutionTaskCommand: (input: GetMaintenanceWindowExecutionTaskCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationCommand
+ */
+export declare const se_GetMaintenanceWindowExecutionTaskInvocationCommand: (input: GetMaintenanceWindowExecutionTaskInvocationCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetMaintenanceWindowTaskCommand
+ */
+export declare const se_GetMaintenanceWindowTaskCommand: (input: GetMaintenanceWindowTaskCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetOpsItemCommand
+ */
+export declare const se_GetOpsItemCommand: (input: GetOpsItemCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetOpsMetadataCommand
+ */
+export declare const se_GetOpsMetadataCommand: (input: GetOpsMetadataCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetOpsSummaryCommand
+ */
+export declare const se_GetOpsSummaryCommand: (input: GetOpsSummaryCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetParameterCommand
+ */
+export declare const se_GetParameterCommand: (input: GetParameterCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetParameterHistoryCommand
+ */
+export declare const se_GetParameterHistoryCommand: (input: GetParameterHistoryCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetParametersCommand
+ */
+export declare const se_GetParametersCommand: (input: GetParametersCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetParametersByPathCommand
+ */
+export declare const se_GetParametersByPathCommand: (input: GetParametersByPathCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetPatchBaselineCommand
+ */
+export declare const se_GetPatchBaselineCommand: (input: GetPatchBaselineCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetPatchBaselineForPatchGroupCommand
+ */
+export declare const se_GetPatchBaselineForPatchGroupCommand: (input: GetPatchBaselineForPatchGroupCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetResourcePoliciesCommand
+ */
+export declare const se_GetResourcePoliciesCommand: (input: GetResourcePoliciesCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1GetServiceSettingCommand
+ */
+export declare const se_GetServiceSettingCommand: (input: GetServiceSettingCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1LabelParameterVersionCommand
+ */
+export declare const se_LabelParameterVersionCommand: (input: LabelParameterVersionCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1ListAssociationsCommand
+ */
+export declare const se_ListAssociationsCommand: (input: ListAssociationsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1ListAssociationVersionsCommand
+ */
+export declare const se_ListAssociationVersionsCommand: (input: ListAssociationVersionsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1ListCommandInvocationsCommand
+ */
+export declare const se_ListCommandInvocationsCommand: (input: ListCommandInvocationsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1ListCommandsCommand
+ */
+export declare const se_ListCommandsCommand: (input: ListCommandsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1ListComplianceItemsCommand
+ */
+export declare const se_ListComplianceItemsCommand: (input: ListComplianceItemsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1ListComplianceSummariesCommand
+ */
+export declare const se_ListComplianceSummariesCommand: (input: ListComplianceSummariesCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1ListDocumentMetadataHistoryCommand
+ */
+export declare const se_ListDocumentMetadataHistoryCommand: (input: ListDocumentMetadataHistoryCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1ListDocumentsCommand
+ */
+export declare const se_ListDocumentsCommand: (input: ListDocumentsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1ListDocumentVersionsCommand
+ */
+export declare const se_ListDocumentVersionsCommand: (input: ListDocumentVersionsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1ListInventoryEntriesCommand
+ */
+export declare const se_ListInventoryEntriesCommand: (input: ListInventoryEntriesCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1ListOpsItemEventsCommand
+ */
+export declare const se_ListOpsItemEventsCommand: (input: ListOpsItemEventsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1ListOpsItemRelatedItemsCommand
+ */
+export declare const se_ListOpsItemRelatedItemsCommand: (input: ListOpsItemRelatedItemsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1ListOpsMetadataCommand
+ */
+export declare const se_ListOpsMetadataCommand: (input: ListOpsMetadataCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1ListResourceComplianceSummariesCommand
+ */
+export declare const se_ListResourceComplianceSummariesCommand: (input: ListResourceComplianceSummariesCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1ListResourceDataSyncCommand
+ */
+export declare const se_ListResourceDataSyncCommand: (input: ListResourceDataSyncCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export declare const se_ListTagsForResourceCommand: (input: ListTagsForResourceCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1ModifyDocumentPermissionCommand
+ */
+export declare const se_ModifyDocumentPermissionCommand: (input: ModifyDocumentPermissionCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1PutComplianceItemsCommand
+ */
+export declare const se_PutComplianceItemsCommand: (input: PutComplianceItemsCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1PutInventoryCommand
+ */
+export declare const se_PutInventoryCommand: (input: PutInventoryCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1PutParameterCommand
+ */
+export declare const se_PutParameterCommand: (input: PutParameterCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1PutResourcePolicyCommand
+ */
+export declare const se_PutResourcePolicyCommand: (input: PutResourcePolicyCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1RegisterDefaultPatchBaselineCommand
+ */
+export declare const se_RegisterDefaultPatchBaselineCommand: (input: RegisterDefaultPatchBaselineCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1RegisterPatchBaselineForPatchGroupCommand
+ */
+export declare const se_RegisterPatchBaselineForPatchGroupCommand: (input: RegisterPatchBaselineForPatchGroupCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1RegisterTargetWithMaintenanceWindowCommand
+ */
+export declare const se_RegisterTargetWithMaintenanceWindowCommand: (input: RegisterTargetWithMaintenanceWindowCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1RegisterTaskWithMaintenanceWindowCommand
+ */
+export declare const se_RegisterTaskWithMaintenanceWindowCommand: (input: RegisterTaskWithMaintenanceWindowCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1RemoveTagsFromResourceCommand
+ */
+export declare const se_RemoveTagsFromResourceCommand: (input: RemoveTagsFromResourceCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1ResetServiceSettingCommand
+ */
+export declare const se_ResetServiceSettingCommand: (input: ResetServiceSettingCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1ResumeSessionCommand
+ */
+export declare const se_ResumeSessionCommand: (input: ResumeSessionCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1SendAutomationSignalCommand
+ */
+export declare const se_SendAutomationSignalCommand: (input: SendAutomationSignalCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1SendCommandCommand
+ */
+export declare const se_SendCommandCommand: (input: SendCommandCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1StartAssociationsOnceCommand
+ */
+export declare const se_StartAssociationsOnceCommand: (input: StartAssociationsOnceCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1StartAutomationExecutionCommand
+ */
+export declare const se_StartAutomationExecutionCommand: (input: StartAutomationExecutionCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1StartChangeRequestExecutionCommand
+ */
+export declare const se_StartChangeRequestExecutionCommand: (input: StartChangeRequestExecutionCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1StartSessionCommand
+ */
+export declare const se_StartSessionCommand: (input: StartSessionCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1StopAutomationExecutionCommand
+ */
+export declare const se_StopAutomationExecutionCommand: (input: StopAutomationExecutionCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1TerminateSessionCommand
+ */
+export declare const se_TerminateSessionCommand: (input: TerminateSessionCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1UnlabelParameterVersionCommand
+ */
+export declare const se_UnlabelParameterVersionCommand: (input: UnlabelParameterVersionCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1UpdateAssociationCommand
+ */
+export declare const se_UpdateAssociationCommand: (input: UpdateAssociationCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1UpdateAssociationStatusCommand
+ */
+export declare const se_UpdateAssociationStatusCommand: (input: UpdateAssociationStatusCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1UpdateDocumentCommand
+ */
+export declare const se_UpdateDocumentCommand: (input: UpdateDocumentCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1UpdateDocumentDefaultVersionCommand
+ */
+export declare const se_UpdateDocumentDefaultVersionCommand: (input: UpdateDocumentDefaultVersionCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1UpdateDocumentMetadataCommand
+ */
+export declare const se_UpdateDocumentMetadataCommand: (input: UpdateDocumentMetadataCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1UpdateMaintenanceWindowCommand
+ */
+export declare const se_UpdateMaintenanceWindowCommand: (input: UpdateMaintenanceWindowCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1UpdateMaintenanceWindowTargetCommand
+ */
+export declare const se_UpdateMaintenanceWindowTargetCommand: (input: UpdateMaintenanceWindowTargetCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1UpdateMaintenanceWindowTaskCommand
+ */
+export declare const se_UpdateMaintenanceWindowTaskCommand: (input: UpdateMaintenanceWindowTaskCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1UpdateManagedInstanceRoleCommand
+ */
+export declare const se_UpdateManagedInstanceRoleCommand: (input: UpdateManagedInstanceRoleCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1UpdateOpsItemCommand
+ */
+export declare const se_UpdateOpsItemCommand: (input: UpdateOpsItemCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1UpdateOpsMetadataCommand
+ */
+export declare const se_UpdateOpsMetadataCommand: (input: UpdateOpsMetadataCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1UpdatePatchBaselineCommand
+ */
+export declare const se_UpdatePatchBaselineCommand: (input: UpdatePatchBaselineCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1UpdateResourceDataSyncCommand
+ */
+export declare const se_UpdateResourceDataSyncCommand: (input: UpdateResourceDataSyncCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * serializeAws_json1_1UpdateServiceSettingCommand
+ */
+export declare const se_UpdateServiceSettingCommand: (input: UpdateServiceSettingCommandInput, context: __SerdeContext) => Promise<__HttpRequest>;
+/**
+ * deserializeAws_json1_1AddTagsToResourceCommand
+ */
+export declare const de_AddTagsToResourceCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<AddTagsToResourceCommandOutput>;
+/**
+ * deserializeAws_json1_1AssociateOpsItemRelatedItemCommand
+ */
+export declare const de_AssociateOpsItemRelatedItemCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<AssociateOpsItemRelatedItemCommandOutput>;
+/**
+ * deserializeAws_json1_1CancelCommandCommand
+ */
+export declare const de_CancelCommandCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<CancelCommandCommandOutput>;
+/**
+ * deserializeAws_json1_1CancelMaintenanceWindowExecutionCommand
+ */
+export declare const de_CancelMaintenanceWindowExecutionCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<CancelMaintenanceWindowExecutionCommandOutput>;
+/**
+ * deserializeAws_json1_1CreateActivationCommand
+ */
+export declare const de_CreateActivationCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<CreateActivationCommandOutput>;
+/**
+ * deserializeAws_json1_1CreateAssociationCommand
+ */
+export declare const de_CreateAssociationCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<CreateAssociationCommandOutput>;
+/**
+ * deserializeAws_json1_1CreateAssociationBatchCommand
+ */
+export declare const de_CreateAssociationBatchCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<CreateAssociationBatchCommandOutput>;
+/**
+ * deserializeAws_json1_1CreateDocumentCommand
+ */
+export declare const de_CreateDocumentCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<CreateDocumentCommandOutput>;
+/**
+ * deserializeAws_json1_1CreateMaintenanceWindowCommand
+ */
+export declare const de_CreateMaintenanceWindowCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<CreateMaintenanceWindowCommandOutput>;
+/**
+ * deserializeAws_json1_1CreateOpsItemCommand
+ */
+export declare const de_CreateOpsItemCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<CreateOpsItemCommandOutput>;
+/**
+ * deserializeAws_json1_1CreateOpsMetadataCommand
+ */
+export declare const de_CreateOpsMetadataCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<CreateOpsMetadataCommandOutput>;
+/**
+ * deserializeAws_json1_1CreatePatchBaselineCommand
+ */
+export declare const de_CreatePatchBaselineCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<CreatePatchBaselineCommandOutput>;
+/**
+ * deserializeAws_json1_1CreateResourceDataSyncCommand
+ */
+export declare const de_CreateResourceDataSyncCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<CreateResourceDataSyncCommandOutput>;
+/**
+ * deserializeAws_json1_1DeleteActivationCommand
+ */
+export declare const de_DeleteActivationCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DeleteActivationCommandOutput>;
+/**
+ * deserializeAws_json1_1DeleteAssociationCommand
+ */
+export declare const de_DeleteAssociationCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DeleteAssociationCommandOutput>;
+/**
+ * deserializeAws_json1_1DeleteDocumentCommand
+ */
+export declare const de_DeleteDocumentCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DeleteDocumentCommandOutput>;
+/**
+ * deserializeAws_json1_1DeleteInventoryCommand
+ */
+export declare const de_DeleteInventoryCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DeleteInventoryCommandOutput>;
+/**
+ * deserializeAws_json1_1DeleteMaintenanceWindowCommand
+ */
+export declare const de_DeleteMaintenanceWindowCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DeleteMaintenanceWindowCommandOutput>;
+/**
+ * deserializeAws_json1_1DeleteOpsMetadataCommand
+ */
+export declare const de_DeleteOpsMetadataCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DeleteOpsMetadataCommandOutput>;
+/**
+ * deserializeAws_json1_1DeleteParameterCommand
+ */
+export declare const de_DeleteParameterCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DeleteParameterCommandOutput>;
+/**
+ * deserializeAws_json1_1DeleteParametersCommand
+ */
+export declare const de_DeleteParametersCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DeleteParametersCommandOutput>;
+/**
+ * deserializeAws_json1_1DeletePatchBaselineCommand
+ */
+export declare const de_DeletePatchBaselineCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DeletePatchBaselineCommandOutput>;
+/**
+ * deserializeAws_json1_1DeleteResourceDataSyncCommand
+ */
+export declare const de_DeleteResourceDataSyncCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DeleteResourceDataSyncCommandOutput>;
+/**
+ * deserializeAws_json1_1DeleteResourcePolicyCommand
+ */
+export declare const de_DeleteResourcePolicyCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DeleteResourcePolicyCommandOutput>;
+/**
+ * deserializeAws_json1_1DeregisterManagedInstanceCommand
+ */
+export declare const de_DeregisterManagedInstanceCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DeregisterManagedInstanceCommandOutput>;
+/**
+ * deserializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand
+ */
+export declare const de_DeregisterPatchBaselineForPatchGroupCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DeregisterPatchBaselineForPatchGroupCommandOutput>;
+/**
+ * deserializeAws_json1_1DeregisterTargetFromMaintenanceWindowCommand
+ */
+export declare const de_DeregisterTargetFromMaintenanceWindowCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DeregisterTargetFromMaintenanceWindowCommandOutput>;
+/**
+ * deserializeAws_json1_1DeregisterTaskFromMaintenanceWindowCommand
+ */
+export declare const de_DeregisterTaskFromMaintenanceWindowCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DeregisterTaskFromMaintenanceWindowCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeActivationsCommand
+ */
+export declare const de_DescribeActivationsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeActivationsCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeAssociationCommand
+ */
+export declare const de_DescribeAssociationCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeAssociationCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeAssociationExecutionsCommand
+ */
+export declare const de_DescribeAssociationExecutionsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeAssociationExecutionsCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeAssociationExecutionTargetsCommand
+ */
+export declare const de_DescribeAssociationExecutionTargetsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeAssociationExecutionTargetsCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeAutomationExecutionsCommand
+ */
+export declare const de_DescribeAutomationExecutionsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeAutomationExecutionsCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeAutomationStepExecutionsCommand
+ */
+export declare const de_DescribeAutomationStepExecutionsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeAutomationStepExecutionsCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeAvailablePatchesCommand
+ */
+export declare const de_DescribeAvailablePatchesCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeAvailablePatchesCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeDocumentCommand
+ */
+export declare const de_DescribeDocumentCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeDocumentCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeDocumentPermissionCommand
+ */
+export declare const de_DescribeDocumentPermissionCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeDocumentPermissionCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand
+ */
+export declare const de_DescribeEffectiveInstanceAssociationsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeEffectiveInstanceAssociationsCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommand
+ */
+export declare const de_DescribeEffectivePatchesForPatchBaselineCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeEffectivePatchesForPatchBaselineCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeInstanceAssociationsStatusCommand
+ */
+export declare const de_DescribeInstanceAssociationsStatusCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeInstanceAssociationsStatusCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeInstanceInformationCommand
+ */
+export declare const de_DescribeInstanceInformationCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeInstanceInformationCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeInstancePatchesCommand
+ */
+export declare const de_DescribeInstancePatchesCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeInstancePatchesCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeInstancePatchStatesCommand
+ */
+export declare const de_DescribeInstancePatchStatesCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeInstancePatchStatesCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCommand
+ */
+export declare const de_DescribeInstancePatchStatesForPatchGroupCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeInstancePatchStatesForPatchGroupCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeInventoryDeletionsCommand
+ */
+export declare const de_DescribeInventoryDeletionsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeInventoryDeletionsCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand
+ */
+export declare const de_DescribeMaintenanceWindowExecutionsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeMaintenanceWindowExecutionsCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeMaintenanceWindowExecutionTaskInvocationsCommand
+ */
+export declare const de_DescribeMaintenanceWindowExecutionTaskInvocationsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeMaintenanceWindowExecutionTasksCommand
+ */
+export declare const de_DescribeMaintenanceWindowExecutionTasksCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeMaintenanceWindowExecutionTasksCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeMaintenanceWindowsCommand
+ */
+export declare const de_DescribeMaintenanceWindowsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeMaintenanceWindowsCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeMaintenanceWindowScheduleCommand
+ */
+export declare const de_DescribeMaintenanceWindowScheduleCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeMaintenanceWindowScheduleCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand
+ */
+export declare const de_DescribeMaintenanceWindowsForTargetCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeMaintenanceWindowsForTargetCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeMaintenanceWindowTargetsCommand
+ */
+export declare const de_DescribeMaintenanceWindowTargetsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeMaintenanceWindowTargetsCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeMaintenanceWindowTasksCommand
+ */
+export declare const de_DescribeMaintenanceWindowTasksCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeMaintenanceWindowTasksCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeOpsItemsCommand
+ */
+export declare const de_DescribeOpsItemsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeOpsItemsCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeParametersCommand
+ */
+export declare const de_DescribeParametersCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeParametersCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribePatchBaselinesCommand
+ */
+export declare const de_DescribePatchBaselinesCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribePatchBaselinesCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribePatchGroupsCommand
+ */
+export declare const de_DescribePatchGroupsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribePatchGroupsCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribePatchGroupStateCommand
+ */
+export declare const de_DescribePatchGroupStateCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribePatchGroupStateCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribePatchPropertiesCommand
+ */
+export declare const de_DescribePatchPropertiesCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribePatchPropertiesCommandOutput>;
+/**
+ * deserializeAws_json1_1DescribeSessionsCommand
+ */
+export declare const de_DescribeSessionsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DescribeSessionsCommandOutput>;
+/**
+ * deserializeAws_json1_1DisassociateOpsItemRelatedItemCommand
+ */
+export declare const de_DisassociateOpsItemRelatedItemCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<DisassociateOpsItemRelatedItemCommandOutput>;
+/**
+ * deserializeAws_json1_1GetAutomationExecutionCommand
+ */
+export declare const de_GetAutomationExecutionCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetAutomationExecutionCommandOutput>;
+/**
+ * deserializeAws_json1_1GetCalendarStateCommand
+ */
+export declare const de_GetCalendarStateCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetCalendarStateCommandOutput>;
+/**
+ * deserializeAws_json1_1GetCommandInvocationCommand
+ */
+export declare const de_GetCommandInvocationCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetCommandInvocationCommandOutput>;
+/**
+ * deserializeAws_json1_1GetConnectionStatusCommand
+ */
+export declare const de_GetConnectionStatusCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetConnectionStatusCommandOutput>;
+/**
+ * deserializeAws_json1_1GetDefaultPatchBaselineCommand
+ */
+export declare const de_GetDefaultPatchBaselineCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetDefaultPatchBaselineCommandOutput>;
+/**
+ * deserializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand
+ */
+export declare const de_GetDeployablePatchSnapshotForInstanceCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetDeployablePatchSnapshotForInstanceCommandOutput>;
+/**
+ * deserializeAws_json1_1GetDocumentCommand
+ */
+export declare const de_GetDocumentCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetDocumentCommandOutput>;
+/**
+ * deserializeAws_json1_1GetInventoryCommand
+ */
+export declare const de_GetInventoryCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetInventoryCommandOutput>;
+/**
+ * deserializeAws_json1_1GetInventorySchemaCommand
+ */
+export declare const de_GetInventorySchemaCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetInventorySchemaCommandOutput>;
+/**
+ * deserializeAws_json1_1GetMaintenanceWindowCommand
+ */
+export declare const de_GetMaintenanceWindowCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetMaintenanceWindowCommandOutput>;
+/**
+ * deserializeAws_json1_1GetMaintenanceWindowExecutionCommand
+ */
+export declare const de_GetMaintenanceWindowExecutionCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetMaintenanceWindowExecutionCommandOutput>;
+/**
+ * deserializeAws_json1_1GetMaintenanceWindowExecutionTaskCommand
+ */
+export declare const de_GetMaintenanceWindowExecutionTaskCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetMaintenanceWindowExecutionTaskCommandOutput>;
+/**
+ * deserializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationCommand
+ */
+export declare const de_GetMaintenanceWindowExecutionTaskInvocationCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetMaintenanceWindowExecutionTaskInvocationCommandOutput>;
+/**
+ * deserializeAws_json1_1GetMaintenanceWindowTaskCommand
+ */
+export declare const de_GetMaintenanceWindowTaskCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetMaintenanceWindowTaskCommandOutput>;
+/**
+ * deserializeAws_json1_1GetOpsItemCommand
+ */
+export declare const de_GetOpsItemCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetOpsItemCommandOutput>;
+/**
+ * deserializeAws_json1_1GetOpsMetadataCommand
+ */
+export declare const de_GetOpsMetadataCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetOpsMetadataCommandOutput>;
+/**
+ * deserializeAws_json1_1GetOpsSummaryCommand
+ */
+export declare const de_GetOpsSummaryCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetOpsSummaryCommandOutput>;
+/**
+ * deserializeAws_json1_1GetParameterCommand
+ */
+export declare const de_GetParameterCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetParameterCommandOutput>;
+/**
+ * deserializeAws_json1_1GetParameterHistoryCommand
+ */
+export declare const de_GetParameterHistoryCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetParameterHistoryCommandOutput>;
+/**
+ * deserializeAws_json1_1GetParametersCommand
+ */
+export declare const de_GetParametersCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetParametersCommandOutput>;
+/**
+ * deserializeAws_json1_1GetParametersByPathCommand
+ */
+export declare const de_GetParametersByPathCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetParametersByPathCommandOutput>;
+/**
+ * deserializeAws_json1_1GetPatchBaselineCommand
+ */
+export declare const de_GetPatchBaselineCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetPatchBaselineCommandOutput>;
+/**
+ * deserializeAws_json1_1GetPatchBaselineForPatchGroupCommand
+ */
+export declare const de_GetPatchBaselineForPatchGroupCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetPatchBaselineForPatchGroupCommandOutput>;
+/**
+ * deserializeAws_json1_1GetResourcePoliciesCommand
+ */
+export declare const de_GetResourcePoliciesCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetResourcePoliciesCommandOutput>;
+/**
+ * deserializeAws_json1_1GetServiceSettingCommand
+ */
+export declare const de_GetServiceSettingCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<GetServiceSettingCommandOutput>;
+/**
+ * deserializeAws_json1_1LabelParameterVersionCommand
+ */
+export declare const de_LabelParameterVersionCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<LabelParameterVersionCommandOutput>;
+/**
+ * deserializeAws_json1_1ListAssociationsCommand
+ */
+export declare const de_ListAssociationsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<ListAssociationsCommandOutput>;
+/**
+ * deserializeAws_json1_1ListAssociationVersionsCommand
+ */
+export declare const de_ListAssociationVersionsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<ListAssociationVersionsCommandOutput>;
+/**
+ * deserializeAws_json1_1ListCommandInvocationsCommand
+ */
+export declare const de_ListCommandInvocationsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<ListCommandInvocationsCommandOutput>;
+/**
+ * deserializeAws_json1_1ListCommandsCommand
+ */
+export declare const de_ListCommandsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<ListCommandsCommandOutput>;
+/**
+ * deserializeAws_json1_1ListComplianceItemsCommand
+ */
+export declare const de_ListComplianceItemsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<ListComplianceItemsCommandOutput>;
+/**
+ * deserializeAws_json1_1ListComplianceSummariesCommand
+ */
+export declare const de_ListComplianceSummariesCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<ListComplianceSummariesCommandOutput>;
+/**
+ * deserializeAws_json1_1ListDocumentMetadataHistoryCommand
+ */
+export declare const de_ListDocumentMetadataHistoryCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<ListDocumentMetadataHistoryCommandOutput>;
+/**
+ * deserializeAws_json1_1ListDocumentsCommand
+ */
+export declare const de_ListDocumentsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<ListDocumentsCommandOutput>;
+/**
+ * deserializeAws_json1_1ListDocumentVersionsCommand
+ */
+export declare const de_ListDocumentVersionsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<ListDocumentVersionsCommandOutput>;
+/**
+ * deserializeAws_json1_1ListInventoryEntriesCommand
+ */
+export declare const de_ListInventoryEntriesCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<ListInventoryEntriesCommandOutput>;
+/**
+ * deserializeAws_json1_1ListOpsItemEventsCommand
+ */
+export declare const de_ListOpsItemEventsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<ListOpsItemEventsCommandOutput>;
+/**
+ * deserializeAws_json1_1ListOpsItemRelatedItemsCommand
+ */
+export declare const de_ListOpsItemRelatedItemsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<ListOpsItemRelatedItemsCommandOutput>;
+/**
+ * deserializeAws_json1_1ListOpsMetadataCommand
+ */
+export declare const de_ListOpsMetadataCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<ListOpsMetadataCommandOutput>;
+/**
+ * deserializeAws_json1_1ListResourceComplianceSummariesCommand
+ */
+export declare const de_ListResourceComplianceSummariesCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<ListResourceComplianceSummariesCommandOutput>;
+/**
+ * deserializeAws_json1_1ListResourceDataSyncCommand
+ */
+export declare const de_ListResourceDataSyncCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<ListResourceDataSyncCommandOutput>;
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export declare const de_ListTagsForResourceCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<ListTagsForResourceCommandOutput>;
+/**
+ * deserializeAws_json1_1ModifyDocumentPermissionCommand
+ */
+export declare const de_ModifyDocumentPermissionCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<ModifyDocumentPermissionCommandOutput>;
+/**
+ * deserializeAws_json1_1PutComplianceItemsCommand
+ */
+export declare const de_PutComplianceItemsCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<PutComplianceItemsCommandOutput>;
+/**
+ * deserializeAws_json1_1PutInventoryCommand
+ */
+export declare const de_PutInventoryCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<PutInventoryCommandOutput>;
+/**
+ * deserializeAws_json1_1PutParameterCommand
+ */
+export declare const de_PutParameterCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<PutParameterCommandOutput>;
+/**
+ * deserializeAws_json1_1PutResourcePolicyCommand
+ */
+export declare const de_PutResourcePolicyCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<PutResourcePolicyCommandOutput>;
+/**
+ * deserializeAws_json1_1RegisterDefaultPatchBaselineCommand
+ */
+export declare const de_RegisterDefaultPatchBaselineCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<RegisterDefaultPatchBaselineCommandOutput>;
+/**
+ * deserializeAws_json1_1RegisterPatchBaselineForPatchGroupCommand
+ */
+export declare const de_RegisterPatchBaselineForPatchGroupCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<RegisterPatchBaselineForPatchGroupCommandOutput>;
+/**
+ * deserializeAws_json1_1RegisterTargetWithMaintenanceWindowCommand
+ */
+export declare const de_RegisterTargetWithMaintenanceWindowCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<RegisterTargetWithMaintenanceWindowCommandOutput>;
+/**
+ * deserializeAws_json1_1RegisterTaskWithMaintenanceWindowCommand
+ */
+export declare const de_RegisterTaskWithMaintenanceWindowCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<RegisterTaskWithMaintenanceWindowCommandOutput>;
+/**
+ * deserializeAws_json1_1RemoveTagsFromResourceCommand
+ */
+export declare const de_RemoveTagsFromResourceCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<RemoveTagsFromResourceCommandOutput>;
+/**
+ * deserializeAws_json1_1ResetServiceSettingCommand
+ */
+export declare const de_ResetServiceSettingCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<ResetServiceSettingCommandOutput>;
+/**
+ * deserializeAws_json1_1ResumeSessionCommand
+ */
+export declare const de_ResumeSessionCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<ResumeSessionCommandOutput>;
+/**
+ * deserializeAws_json1_1SendAutomationSignalCommand
+ */
+export declare const de_SendAutomationSignalCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<SendAutomationSignalCommandOutput>;
+/**
+ * deserializeAws_json1_1SendCommandCommand
+ */
+export declare const de_SendCommandCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<SendCommandCommandOutput>;
+/**
+ * deserializeAws_json1_1StartAssociationsOnceCommand
+ */
+export declare const de_StartAssociationsOnceCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<StartAssociationsOnceCommandOutput>;
+/**
+ * deserializeAws_json1_1StartAutomationExecutionCommand
+ */
+export declare const de_StartAutomationExecutionCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<StartAutomationExecutionCommandOutput>;
+/**
+ * deserializeAws_json1_1StartChangeRequestExecutionCommand
+ */
+export declare const de_StartChangeRequestExecutionCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<StartChangeRequestExecutionCommandOutput>;
+/**
+ * deserializeAws_json1_1StartSessionCommand
+ */
+export declare const de_StartSessionCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<StartSessionCommandOutput>;
+/**
+ * deserializeAws_json1_1StopAutomationExecutionCommand
+ */
+export declare const de_StopAutomationExecutionCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<StopAutomationExecutionCommandOutput>;
+/**
+ * deserializeAws_json1_1TerminateSessionCommand
+ */
+export declare const de_TerminateSessionCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<TerminateSessionCommandOutput>;
+/**
+ * deserializeAws_json1_1UnlabelParameterVersionCommand
+ */
+export declare const de_UnlabelParameterVersionCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<UnlabelParameterVersionCommandOutput>;
+/**
+ * deserializeAws_json1_1UpdateAssociationCommand
+ */
+export declare const de_UpdateAssociationCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<UpdateAssociationCommandOutput>;
+/**
+ * deserializeAws_json1_1UpdateAssociationStatusCommand
+ */
+export declare const de_UpdateAssociationStatusCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<UpdateAssociationStatusCommandOutput>;
+/**
+ * deserializeAws_json1_1UpdateDocumentCommand
+ */
+export declare const de_UpdateDocumentCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<UpdateDocumentCommandOutput>;
+/**
+ * deserializeAws_json1_1UpdateDocumentDefaultVersionCommand
+ */
+export declare const de_UpdateDocumentDefaultVersionCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<UpdateDocumentDefaultVersionCommandOutput>;
+/**
+ * deserializeAws_json1_1UpdateDocumentMetadataCommand
+ */
+export declare const de_UpdateDocumentMetadataCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<UpdateDocumentMetadataCommandOutput>;
+/**
+ * deserializeAws_json1_1UpdateMaintenanceWindowCommand
+ */
+export declare const de_UpdateMaintenanceWindowCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<UpdateMaintenanceWindowCommandOutput>;
+/**
+ * deserializeAws_json1_1UpdateMaintenanceWindowTargetCommand
+ */
+export declare const de_UpdateMaintenanceWindowTargetCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<UpdateMaintenanceWindowTargetCommandOutput>;
+/**
+ * deserializeAws_json1_1UpdateMaintenanceWindowTaskCommand
+ */
+export declare const de_UpdateMaintenanceWindowTaskCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<UpdateMaintenanceWindowTaskCommandOutput>;
+/**
+ * deserializeAws_json1_1UpdateManagedInstanceRoleCommand
+ */
+export declare const de_UpdateManagedInstanceRoleCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<UpdateManagedInstanceRoleCommandOutput>;
+/**
+ * deserializeAws_json1_1UpdateOpsItemCommand
+ */
+export declare const de_UpdateOpsItemCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<UpdateOpsItemCommandOutput>;
+/**
+ * deserializeAws_json1_1UpdateOpsMetadataCommand
+ */
+export declare const de_UpdateOpsMetadataCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<UpdateOpsMetadataCommandOutput>;
+/**
+ * deserializeAws_json1_1UpdatePatchBaselineCommand
+ */
+export declare const de_UpdatePatchBaselineCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<UpdatePatchBaselineCommandOutput>;
+/**
+ * deserializeAws_json1_1UpdateResourceDataSyncCommand
+ */
+export declare const de_UpdateResourceDataSyncCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<UpdateResourceDataSyncCommandOutput>;
+/**
+ * deserializeAws_json1_1UpdateServiceSettingCommand
+ */
+export declare const de_UpdateServiceSettingCommand: (output: __HttpResponse, context: __SerdeContext) => Promise<UpdateServiceSettingCommandOutput>;

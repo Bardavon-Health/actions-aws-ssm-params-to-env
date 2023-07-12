@@ -1,0 +1,90 @@
+import { EndpointParameterInstructions } from "@smithy/middleware-endpoint";
+import { Command as $Command } from "@smithy/smithy-client";
+import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MetadataBearer as __MetadataBearer, MiddlewareStack } from "@smithy/types";
+import { GetOpsMetadataRequest, GetOpsMetadataResult } from "../models/models_1";
+import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetOpsMetadataCommand}.
+ */
+export interface GetOpsMetadataCommandInput extends GetOpsMetadataRequest {
+}
+/**
+ * @public
+ *
+ * The output of {@link GetOpsMetadataCommand}.
+ */
+export interface GetOpsMetadataCommandOutput extends GetOpsMetadataResult, __MetadataBearer {
+}
+/**
+ * @public
+ * <p>View operational metadata related to an application in Application Manager.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, GetOpsMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, GetOpsMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const input = { // GetOpsMetadataRequest
+ *   OpsMetadataArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
+ * const command = new GetOpsMetadataCommand(input);
+ * const response = await client.send(command);
+ * // { // GetOpsMetadataResult
+ * //   ResourceId: "STRING_VALUE",
+ * //   Metadata: { // MetadataMap
+ * //     "<keys>": { // MetadataValue
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
+ * ```
+ *
+ * @param GetOpsMetadataCommandInput - {@link GetOpsMetadataCommandInput}
+ * @returns {@link GetOpsMetadataCommandOutput}
+ * @see {@link GetOpsMetadataCommandInput} for command's `input` shape.
+ * @see {@link GetOpsMetadataCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link OpsMetadataInvalidArgumentException} (client fault)
+ *  <p>One of the arguments passed is invalid. </p>
+ *
+ * @throws {@link OpsMetadataNotFoundException} (client fault)
+ *  <p>The OpsMetadata object doesn't exist. </p>
+ *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
+ *
+ */
+export declare class GetOpsMetadataCommand extends $Command<GetOpsMetadataCommandInput, GetOpsMetadataCommandOutput, SSMClientResolvedConfig> {
+    readonly input: GetOpsMetadataCommandInput;
+    static getEndpointParameterInstructions(): EndpointParameterInstructions;
+    /**
+     * @public
+     */
+    constructor(input: GetOpsMetadataCommandInput);
+    /**
+     * @internal
+     */
+    resolveMiddleware(clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>, configuration: SSMClientResolvedConfig, options?: __HttpHandlerOptions): Handler<GetOpsMetadataCommandInput, GetOpsMetadataCommandOutput>;
+    /**
+     * @internal
+     */
+    private serialize;
+    /**
+     * @internal
+     */
+    private deserialize;
+}
