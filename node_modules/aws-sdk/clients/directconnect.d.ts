@@ -132,11 +132,11 @@ declare class DirectConnect extends Service {
    */
   confirmTransitVirtualInterface(callback?: (err: AWSError, data: DirectConnect.Types.ConfirmTransitVirtualInterfaceResponse) => void): Request<DirectConnect.Types.ConfirmTransitVirtualInterfaceResponse, AWSError>;
   /**
-   * Creates a BGP peer on the specified virtual interface. You must create a BGP peer for the corresponding address family (IPv4/IPv6) in order to access Amazon Web Services resources that also use that address family. If logical redundancy is not supported by the connection, interconnect, or LAG, the BGP peer cannot be in the same address family as an existing BGP peer on the virtual interface. When creating a IPv6 BGP peer, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses. For a public virtual interface, the Autonomous System Number (ASN) must be private or already on the allow list for the virtual interface.
+   * Creates a BGP peer on the specified virtual interface. You must create a BGP peer for the corresponding address family (IPv4/IPv6) in order to access Amazon Web Services resources that also use that address family. If logical redundancy is not supported by the connection, interconnect, or LAG, the BGP peer cannot be in the same address family as an existing BGP peer on the virtual interface. When creating a IPv6 BGP peer, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.  If you let Amazon Web Services auto-assign IPv4 addresses, a /30 CIDR will be allocated from 169.254.0.0/16. Amazon Web Services does not recommend this option if you intend to use the customer router peer IP address as the source and destination for traffic. Instead you should use RFC 1918 or other addressing, and specify the address yourself. For more information about RFC 1918 see  Address Allocation for Private Internets.  For a public virtual interface, the Autonomous System Number (ASN) must be private or already on the allow list for the virtual interface.
    */
   createBGPPeer(params: DirectConnect.Types.CreateBGPPeerRequest, callback?: (err: AWSError, data: DirectConnect.Types.CreateBGPPeerResponse) => void): Request<DirectConnect.Types.CreateBGPPeerResponse, AWSError>;
   /**
-   * Creates a BGP peer on the specified virtual interface. You must create a BGP peer for the corresponding address family (IPv4/IPv6) in order to access Amazon Web Services resources that also use that address family. If logical redundancy is not supported by the connection, interconnect, or LAG, the BGP peer cannot be in the same address family as an existing BGP peer on the virtual interface. When creating a IPv6 BGP peer, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses. For a public virtual interface, the Autonomous System Number (ASN) must be private or already on the allow list for the virtual interface.
+   * Creates a BGP peer on the specified virtual interface. You must create a BGP peer for the corresponding address family (IPv4/IPv6) in order to access Amazon Web Services resources that also use that address family. If logical redundancy is not supported by the connection, interconnect, or LAG, the BGP peer cannot be in the same address family as an existing BGP peer on the virtual interface. When creating a IPv6 BGP peer, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.  If you let Amazon Web Services auto-assign IPv4 addresses, a /30 CIDR will be allocated from 169.254.0.0/16. Amazon Web Services does not recommend this option if you intend to use the customer router peer IP address as the source and destination for traffic. Instead you should use RFC 1918 or other addressing, and specify the address yourself. For more information about RFC 1918 see  Address Allocation for Private Internets.  For a public virtual interface, the Autonomous System Number (ASN) must be private or already on the allow list for the virtual interface.
    */
   createBGPPeer(callback?: (err: AWSError, data: DirectConnect.Types.CreateBGPPeerResponse) => void): Request<DirectConnect.Types.CreateBGPPeerResponse, AWSError>;
   /**
@@ -204,11 +204,11 @@ declare class DirectConnect extends Service {
    */
   createPublicVirtualInterface(callback?: (err: AWSError, data: DirectConnect.Types.VirtualInterface) => void): Request<DirectConnect.Types.VirtualInterface, AWSError>;
   /**
-   * Creates a transit virtual interface. A transit virtual interface should be used to access one or more transit gateways associated with Direct Connect gateways. A transit virtual interface enables the connection of multiple VPCs attached to a transit gateway to a Direct Connect gateway.  If you associate your transit gateway with one or more Direct Connect gateways, the Autonomous System Number (ASN) used by the transit gateway and the Direct Connect gateway must be different. For example, if you use the default ASN 64512 for both your the transit gateway and Direct Connect gateway, the association request fails.  Setting the MTU of a virtual interface to 8500 (jumbo frames) can cause an update to the underlying physical connection if it wasn't updated to support jumbo frames. Updating the connection disrupts network connectivity for all virtual interfaces associated with the connection for up to 30 seconds. To check whether your connection supports jumbo frames, call DescribeConnections. To check whether your virtual interface supports jumbo frames, call DescribeVirtualInterfaces.
+   * Creates a transit virtual interface. A transit virtual interface should be used to access one or more transit gateways associated with Direct Connect gateways. A transit virtual interface enables the connection of multiple VPCs attached to a transit gateway to a Direct Connect gateway.  If you associate your transit gateway with one or more Direct Connect gateways, the Autonomous System Number (ASN) used by the transit gateway and the Direct Connect gateway must be different. For example, if you use the default ASN 64512 for both your the transit gateway and Direct Connect gateway, the association request fails.  A jumbo MTU value must be either 1500 or 8500. No other values will be accepted. Setting the MTU of a virtual interface to 8500 (jumbo frames) can cause an update to the underlying physical connection if it wasn't updated to support jumbo frames. Updating the connection disrupts network connectivity for all virtual interfaces associated with the connection for up to 30 seconds. To check whether your connection supports jumbo frames, call DescribeConnections. To check whether your virtual interface supports jumbo frames, call DescribeVirtualInterfaces.
    */
   createTransitVirtualInterface(params: DirectConnect.Types.CreateTransitVirtualInterfaceRequest, callback?: (err: AWSError, data: DirectConnect.Types.CreateTransitVirtualInterfaceResult) => void): Request<DirectConnect.Types.CreateTransitVirtualInterfaceResult, AWSError>;
   /**
-   * Creates a transit virtual interface. A transit virtual interface should be used to access one or more transit gateways associated with Direct Connect gateways. A transit virtual interface enables the connection of multiple VPCs attached to a transit gateway to a Direct Connect gateway.  If you associate your transit gateway with one or more Direct Connect gateways, the Autonomous System Number (ASN) used by the transit gateway and the Direct Connect gateway must be different. For example, if you use the default ASN 64512 for both your the transit gateway and Direct Connect gateway, the association request fails.  Setting the MTU of a virtual interface to 8500 (jumbo frames) can cause an update to the underlying physical connection if it wasn't updated to support jumbo frames. Updating the connection disrupts network connectivity for all virtual interfaces associated with the connection for up to 30 seconds. To check whether your connection supports jumbo frames, call DescribeConnections. To check whether your virtual interface supports jumbo frames, call DescribeVirtualInterfaces.
+   * Creates a transit virtual interface. A transit virtual interface should be used to access one or more transit gateways associated with Direct Connect gateways. A transit virtual interface enables the connection of multiple VPCs attached to a transit gateway to a Direct Connect gateway.  If you associate your transit gateway with one or more Direct Connect gateways, the Autonomous System Number (ASN) used by the transit gateway and the Direct Connect gateway must be different. For example, if you use the default ASN 64512 for both your the transit gateway and Direct Connect gateway, the association request fails.  A jumbo MTU value must be either 1500 or 8500. No other values will be accepted. Setting the MTU of a virtual interface to 8500 (jumbo frames) can cause an update to the underlying physical connection if it wasn't updated to support jumbo frames. Updating the connection disrupts network connectivity for all virtual interfaces associated with the connection for up to 30 seconds. To check whether your connection supports jumbo frames, call DescribeConnections. To check whether your virtual interface supports jumbo frames, call DescribeVirtualInterfaces.
    */
   createTransitVirtualInterface(callback?: (err: AWSError, data: DirectConnect.Types.CreateTransitVirtualInterfaceResult) => void): Request<DirectConnect.Types.CreateTransitVirtualInterfaceResult, AWSError>;
   /**
@@ -496,11 +496,11 @@ declare class DirectConnect extends Service {
    */
   updateLag(callback?: (err: AWSError, data: DirectConnect.Types.Lag) => void): Request<DirectConnect.Types.Lag, AWSError>;
   /**
-   * Updates the specified attributes of the specified virtual private interface. Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an update to the underlying physical connection if it wasn't updated to support jumbo frames. Updating the connection disrupts network connectivity for all virtual interfaces associated with the connection for up to 30 seconds. To check whether your connection supports jumbo frames, call DescribeConnections. To check whether your virtual q interface supports jumbo frames, call DescribeVirtualInterfaces.
+   * Updates the specified attributes of the specified virtual private interface. Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an update to the underlying physical connection if it wasn't updated to support jumbo frames. Updating the connection disrupts network connectivity for all virtual interfaces associated with the connection for up to 30 seconds. To check whether your connection supports jumbo frames, call DescribeConnections. To check whether your virtual interface supports jumbo frames, call DescribeVirtualInterfaces.
    */
   updateVirtualInterfaceAttributes(params: DirectConnect.Types.UpdateVirtualInterfaceAttributesRequest, callback?: (err: AWSError, data: DirectConnect.Types.VirtualInterface) => void): Request<DirectConnect.Types.VirtualInterface, AWSError>;
   /**
-   * Updates the specified attributes of the specified virtual private interface. Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an update to the underlying physical connection if it wasn't updated to support jumbo frames. Updating the connection disrupts network connectivity for all virtual interfaces associated with the connection for up to 30 seconds. To check whether your connection supports jumbo frames, call DescribeConnections. To check whether your virtual q interface supports jumbo frames, call DescribeVirtualInterfaces.
+   * Updates the specified attributes of the specified virtual private interface. Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an update to the underlying physical connection if it wasn't updated to support jumbo frames. Updating the connection disrupts network connectivity for all virtual interfaces associated with the connection for up to 30 seconds. To check whether your connection supports jumbo frames, call DescribeConnections. To check whether your virtual interface supports jumbo frames, call DescribeVirtualInterfaces.
    */
   updateVirtualInterfaceAttributes(callback?: (err: AWSError, data: DirectConnect.Types.VirtualInterface) => void): Request<DirectConnect.Types.VirtualInterface, AWSError>;
 }
@@ -881,7 +881,7 @@ declare namespace DirectConnect {
      */
     awsDevice?: AwsDevice;
     /**
-     * Indicates whether jumbo frames (9001 MTU) are supported.
+     * Indicates whether jumbo frames are supported.
      */
     jumboFrameCapable?: JumboFrameCapable;
     /**
@@ -1074,7 +1074,7 @@ declare namespace DirectConnect {
   }
   export interface CreateLagRequest {
     /**
-     * The number of physical dedicated connections initially provisioned and bundled by the LAG.
+     * The number of physical dedicated connections initially provisioned and bundled by the LAG. You can have a maximum of four connections when the port speed is 1G or 10G, or two when the port speed is 100G. 
      */
     numberOfConnections: Count;
     /**
@@ -1558,7 +1558,7 @@ declare namespace DirectConnect {
      */
     directConnectGatewayOwnerAccount?: OwnerAccount;
     /**
-     * The state of the association. The following are the possible values:    associating: The initial state after calling CreateDirectConnectGatewayAssociation.    associated: The Direct Connect gateway and virtual private gateway or transit gateway are successfully associated and ready to pass traffic.    disassociating: The initial state after calling DeleteDirectConnectGatewayAssociation.    disassociated: The virtual private gateway or transit gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway or transit gateway is stopped.  
+     * The state of the association. The following are the possible values:    associating: The initial state after calling CreateDirectConnectGatewayAssociation.    associated: The Direct Connect gateway and virtual private gateway or transit gateway are successfully associated and ready to pass traffic.    disassociating: The initial state after calling DeleteDirectConnectGatewayAssociation.    disassociated: The virtual private gateway or transit gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway or transit gateway is stopped.    updating: The CIDR blocks for the virtual private gateway or transit gateway are currently being updated. This could be new CIDR blocks added or current CIDR blocks removed.  
      */
     associationState?: DirectConnectGatewayAssociationState;
     /**
@@ -1739,7 +1739,7 @@ declare namespace DirectConnect {
      */
     awsDevice?: AwsDevice;
     /**
-     * Indicates whether jumbo frames (9001 MTU) are supported.
+     * Indicates whether jumbo frames are supported.
      */
     jumboFrameCapable?: JumboFrameCapable;
     /**
@@ -1832,7 +1832,7 @@ declare namespace DirectConnect {
      */
     allowsHostedConnections?: BooleanFlag;
     /**
-     * Indicates whether jumbo frames (9001 MTU) are supported.
+     * Indicates whether jumbo frames are supported.
      */
     jumboFrameCapable?: JumboFrameCapable;
     /**
@@ -2177,7 +2177,7 @@ declare namespace DirectConnect {
      */
     asn?: ASN;
     /**
-     * The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
+     * The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500.
      */
     mtu?: MTU;
     /**
@@ -2223,7 +2223,7 @@ declare namespace DirectConnect {
      */
     asn?: ASN;
     /**
-     * The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500. 
+     * The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500 
      */
     mtu?: MTU;
     /**
@@ -2319,7 +2319,7 @@ declare namespace DirectConnect {
      */
     bgpPeers?: BGPPeerIdList;
     /**
-     * The time in minutes that the virtual interface failover test will last. Maximum value: 180 minutes (3 hours). Default: 180 minutes (3 hours).
+     * The time in minutes that the virtual interface failover test will last. Maximum value: 4,320 minutes (72 hours). Default: 180 minutes (3 hours).
      */
     testDurationInMinutes?: TestDuration;
   }
@@ -2550,11 +2550,11 @@ declare namespace DirectConnect {
      */
     customerRouterConfig?: RouterConfig;
     /**
-     * The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
+     * The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500
      */
     mtu?: MTU;
     /**
-     * Indicates whether jumbo frames (9001 MTU) are supported.
+     * Indicates whether jumbo frames are supported.
      */
     jumboFrameCapable?: JumboFrameCapable;
     /**

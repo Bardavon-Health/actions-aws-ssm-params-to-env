@@ -20,13 +20,21 @@ declare class ChimeSDKIdentity extends Service {
    */
   createAppInstance(callback?: (err: AWSError, data: ChimeSDKIdentity.Types.CreateAppInstanceResponse) => void): Request<ChimeSDKIdentity.Types.CreateAppInstanceResponse, AWSError>;
   /**
-   * Promotes an AppInstanceUser to an AppInstanceAdmin. The promoted user can perform the following actions.     ChannelModerator actions across all channels in the AppInstance.    DeleteChannelMessage actions.   Only an AppInstanceUser can be promoted to an AppInstanceAdmin role.
+   * Promotes an AppInstanceUser or AppInstanceBot to an AppInstanceAdmin. The promoted entity can perform the following actions.     ChannelModerator actions across all channels in the AppInstance.    DeleteChannelMessage actions.   Only an AppInstanceUser and AppInstanceBot can be promoted to an AppInstanceAdmin role.
    */
   createAppInstanceAdmin(params: ChimeSDKIdentity.Types.CreateAppInstanceAdminRequest, callback?: (err: AWSError, data: ChimeSDKIdentity.Types.CreateAppInstanceAdminResponse) => void): Request<ChimeSDKIdentity.Types.CreateAppInstanceAdminResponse, AWSError>;
   /**
-   * Promotes an AppInstanceUser to an AppInstanceAdmin. The promoted user can perform the following actions.     ChannelModerator actions across all channels in the AppInstance.    DeleteChannelMessage actions.   Only an AppInstanceUser can be promoted to an AppInstanceAdmin role.
+   * Promotes an AppInstanceUser or AppInstanceBot to an AppInstanceAdmin. The promoted entity can perform the following actions.     ChannelModerator actions across all channels in the AppInstance.    DeleteChannelMessage actions.   Only an AppInstanceUser and AppInstanceBot can be promoted to an AppInstanceAdmin role.
    */
   createAppInstanceAdmin(callback?: (err: AWSError, data: ChimeSDKIdentity.Types.CreateAppInstanceAdminResponse) => void): Request<ChimeSDKIdentity.Types.CreateAppInstanceAdminResponse, AWSError>;
+  /**
+   * Creates a bot under an Amazon Chime AppInstance. The request consists of a unique Configuration and Name for that bot.
+   */
+  createAppInstanceBot(params: ChimeSDKIdentity.Types.CreateAppInstanceBotRequest, callback?: (err: AWSError, data: ChimeSDKIdentity.Types.CreateAppInstanceBotResponse) => void): Request<ChimeSDKIdentity.Types.CreateAppInstanceBotResponse, AWSError>;
+  /**
+   * Creates a bot under an Amazon Chime AppInstance. The request consists of a unique Configuration and Name for that bot.
+   */
+  createAppInstanceBot(callback?: (err: AWSError, data: ChimeSDKIdentity.Types.CreateAppInstanceBotResponse) => void): Request<ChimeSDKIdentity.Types.CreateAppInstanceBotResponse, AWSError>;
   /**
    * Creates a user under an Amazon Chime AppInstance. The request consists of a unique appInstanceUserId and Name for that user.
    */
@@ -44,13 +52,21 @@ declare class ChimeSDKIdentity extends Service {
    */
   deleteAppInstance(callback?: (err: AWSError, data: {}) => void): Request<{}, AWSError>;
   /**
-   * Demotes an AppInstanceAdmin to an AppInstanceUser. This action does not delete the user.
+   * Demotes an AppInstanceAdmin to an AppInstanceUser or AppInstanceBot. This action does not delete the user.
    */
   deleteAppInstanceAdmin(params: ChimeSDKIdentity.Types.DeleteAppInstanceAdminRequest, callback?: (err: AWSError, data: {}) => void): Request<{}, AWSError>;
   /**
-   * Demotes an AppInstanceAdmin to an AppInstanceUser. This action does not delete the user.
+   * Demotes an AppInstanceAdmin to an AppInstanceUser or AppInstanceBot. This action does not delete the user.
    */
   deleteAppInstanceAdmin(callback?: (err: AWSError, data: {}) => void): Request<{}, AWSError>;
+  /**
+   * Deletes an AppInstanceBot.
+   */
+  deleteAppInstanceBot(params: ChimeSDKIdentity.Types.DeleteAppInstanceBotRequest, callback?: (err: AWSError, data: {}) => void): Request<{}, AWSError>;
+  /**
+   * Deletes an AppInstanceBot.
+   */
+  deleteAppInstanceBot(callback?: (err: AWSError, data: {}) => void): Request<{}, AWSError>;
   /**
    * Deletes an AppInstanceUser.
    */
@@ -84,6 +100,14 @@ declare class ChimeSDKIdentity extends Service {
    */
   describeAppInstanceAdmin(callback?: (err: AWSError, data: ChimeSDKIdentity.Types.DescribeAppInstanceAdminResponse) => void): Request<ChimeSDKIdentity.Types.DescribeAppInstanceAdminResponse, AWSError>;
   /**
+   * The AppInstanceBot's information.
+   */
+  describeAppInstanceBot(params: ChimeSDKIdentity.Types.DescribeAppInstanceBotRequest, callback?: (err: AWSError, data: ChimeSDKIdentity.Types.DescribeAppInstanceBotResponse) => void): Request<ChimeSDKIdentity.Types.DescribeAppInstanceBotResponse, AWSError>;
+  /**
+   * The AppInstanceBot's information.
+   */
+  describeAppInstanceBot(callback?: (err: AWSError, data: ChimeSDKIdentity.Types.DescribeAppInstanceBotResponse) => void): Request<ChimeSDKIdentity.Types.DescribeAppInstanceBotResponse, AWSError>;
+  /**
    * Returns the full details of an AppInstanceUser.
    */
   describeAppInstanceUser(params: ChimeSDKIdentity.Types.DescribeAppInstanceUserRequest, callback?: (err: AWSError, data: ChimeSDKIdentity.Types.DescribeAppInstanceUserResponse) => void): Request<ChimeSDKIdentity.Types.DescribeAppInstanceUserResponse, AWSError>;
@@ -115,6 +139,14 @@ declare class ChimeSDKIdentity extends Service {
    * Returns a list of the administrators in the AppInstance.
    */
   listAppInstanceAdmins(callback?: (err: AWSError, data: ChimeSDKIdentity.Types.ListAppInstanceAdminsResponse) => void): Request<ChimeSDKIdentity.Types.ListAppInstanceAdminsResponse, AWSError>;
+  /**
+   * Lists all AppInstanceBots created under a single AppInstance.
+   */
+  listAppInstanceBots(params: ChimeSDKIdentity.Types.ListAppInstanceBotsRequest, callback?: (err: AWSError, data: ChimeSDKIdentity.Types.ListAppInstanceBotsResponse) => void): Request<ChimeSDKIdentity.Types.ListAppInstanceBotsResponse, AWSError>;
+  /**
+   * Lists all AppInstanceBots created under a single AppInstance.
+   */
+  listAppInstanceBots(callback?: (err: AWSError, data: ChimeSDKIdentity.Types.ListAppInstanceBotsResponse) => void): Request<ChimeSDKIdentity.Types.ListAppInstanceBotsResponse, AWSError>;
   /**
    * Lists all the AppInstanceUserEndpoints created under a single AppInstanceUser.
    */
@@ -156,6 +188,14 @@ declare class ChimeSDKIdentity extends Service {
    */
   putAppInstanceRetentionSettings(callback?: (err: AWSError, data: ChimeSDKIdentity.Types.PutAppInstanceRetentionSettingsResponse) => void): Request<ChimeSDKIdentity.Types.PutAppInstanceRetentionSettingsResponse, AWSError>;
   /**
+   * Sets the number of days before the AppInstanceUser is automatically deleted.  A background process deletes expired AppInstanceUsers within 6 hours of expiration. Actual deletion times may vary. Expired AppInstanceUsers that have not yet been deleted appear as active, and you can update their expiration settings. The system honors the new settings. 
+   */
+  putAppInstanceUserExpirationSettings(params: ChimeSDKIdentity.Types.PutAppInstanceUserExpirationSettingsRequest, callback?: (err: AWSError, data: ChimeSDKIdentity.Types.PutAppInstanceUserExpirationSettingsResponse) => void): Request<ChimeSDKIdentity.Types.PutAppInstanceUserExpirationSettingsResponse, AWSError>;
+  /**
+   * Sets the number of days before the AppInstanceUser is automatically deleted.  A background process deletes expired AppInstanceUsers within 6 hours of expiration. Actual deletion times may vary. Expired AppInstanceUsers that have not yet been deleted appear as active, and you can update their expiration settings. The system honors the new settings. 
+   */
+  putAppInstanceUserExpirationSettings(callback?: (err: AWSError, data: ChimeSDKIdentity.Types.PutAppInstanceUserExpirationSettingsResponse) => void): Request<ChimeSDKIdentity.Types.PutAppInstanceUserExpirationSettingsResponse, AWSError>;
+  /**
    * Registers an endpoint under an Amazon Chime AppInstanceUser. The endpoint receives messages for a user. For push notifications, the endpoint is a mobile device used to receive mobile push notifications for a user.
    */
   registerAppInstanceUserEndpoint(params: ChimeSDKIdentity.Types.RegisterAppInstanceUserEndpointRequest, callback?: (err: AWSError, data: ChimeSDKIdentity.Types.RegisterAppInstanceUserEndpointResponse) => void): Request<ChimeSDKIdentity.Types.RegisterAppInstanceUserEndpointResponse, AWSError>;
@@ -187,6 +227,14 @@ declare class ChimeSDKIdentity extends Service {
    * Updates AppInstance metadata.
    */
   updateAppInstance(callback?: (err: AWSError, data: ChimeSDKIdentity.Types.UpdateAppInstanceResponse) => void): Request<ChimeSDKIdentity.Types.UpdateAppInstanceResponse, AWSError>;
+  /**
+   * Updates the name and metadata of an AppInstanceBot.
+   */
+  updateAppInstanceBot(params: ChimeSDKIdentity.Types.UpdateAppInstanceBotRequest, callback?: (err: AWSError, data: ChimeSDKIdentity.Types.UpdateAppInstanceBotResponse) => void): Request<ChimeSDKIdentity.Types.UpdateAppInstanceBotResponse, AWSError>;
+  /**
+   * Updates the name and metadata of an AppInstanceBot.
+   */
+  updateAppInstanceBot(callback?: (err: AWSError, data: ChimeSDKIdentity.Types.UpdateAppInstanceBotResponse) => void): Request<ChimeSDKIdentity.Types.UpdateAppInstanceBotResponse, AWSError>;
   /**
    * Updates the details of an AppInstanceUser. You can update names and metadata.
    */
@@ -249,6 +297,47 @@ declare namespace ChimeSDKIdentity {
      */
     Admin?: Identity;
   }
+  export interface AppInstanceBot {
+    /**
+     * The ARN of the AppInstanceBot.
+     */
+    AppInstanceBotArn?: ChimeArn;
+    /**
+     * The name of the AppInstanceBot.
+     */
+    Name?: ResourceName;
+    /**
+     * The data processing instructions for an AppInstanceBot.
+     */
+    Configuration?: Configuration;
+    /**
+     * The time at which the AppInstanceBot was created.
+     */
+    CreatedTimestamp?: Timestamp;
+    /**
+     * The time at which the AppInstanceBot was last updated.
+     */
+    LastUpdatedTimestamp?: Timestamp;
+    /**
+     * The metadata for an AppInstanceBot.
+     */
+    Metadata?: Metadata;
+  }
+  export type AppInstanceBotList = AppInstanceBotSummary[];
+  export interface AppInstanceBotSummary {
+    /**
+     * The ARN of the AppInstanceBot.
+     */
+    AppInstanceBotArn?: ChimeArn;
+    /**
+     * The name of the AppInstanceBox.
+     */
+    Name?: ResourceName;
+    /**
+     * The metadata of the AppInstanceBot.
+     */
+    Metadata?: Metadata;
+  }
   export type AppInstanceList = AppInstanceSummary[];
   export interface AppInstanceRetentionSettings {
     /**
@@ -291,16 +380,20 @@ declare namespace ChimeSDKIdentity {
      * The time at which the AppInstanceUser was last updated.
      */
     LastUpdatedTimestamp?: Timestamp;
+    /**
+     * The interval after which an AppInstanceUser is automatically deleted.
+     */
+    ExpirationSettings?: ExpirationSettings;
   }
   export interface AppInstanceUserEndpoint {
     /**
      * The ARN of the AppInstanceUser.
      */
-    AppInstanceUserArn?: SensitiveChimeArn;
+    AppInstanceUserArn?: ChimeArn;
     /**
      * The unique identifier of the AppInstanceUserEndpoint.
      */
-    EndpointId?: SensitiveString64;
+    EndpointId?: String64;
     /**
      * The name of the AppInstanceUserEndpoint.
      */
@@ -312,7 +405,7 @@ declare namespace ChimeSDKIdentity {
     /**
      * The ARN of the resource to which the endpoint belongs.
      */
-    ResourceArn?: SensitiveChimeArn;
+    ResourceArn?: ChimeArn;
     /**
      * The attributes of an Endpoint.
      */
@@ -338,11 +431,11 @@ declare namespace ChimeSDKIdentity {
     /**
      * The ARN of the AppInstanceUser.
      */
-    AppInstanceUserArn?: SensitiveChimeArn;
+    AppInstanceUserArn?: ChimeArn;
     /**
      * The unique identifier of the AppInstanceUserEndpoint.
      */
-    EndpointId?: SensitiveString64;
+    EndpointId?: String64;
     /**
      * The name of the AppInstanceUserEndpoint.
      */
@@ -385,6 +478,12 @@ declare namespace ChimeSDKIdentity {
   }
   export type ChimeArn = string;
   export type ClientRequestToken = string;
+  export interface Configuration {
+    /**
+     * The configuration for an Amazon Lex V2 bot.
+     */
+    Lex: LexConfiguration;
+  }
   export interface CreateAppInstanceAdminRequest {
     /**
      * The ARN of the administrator of the current AppInstance.
@@ -397,13 +496,45 @@ declare namespace ChimeSDKIdentity {
   }
   export interface CreateAppInstanceAdminResponse {
     /**
-     * The name and ARN of the admin for the AppInstance.
+     * The ARN and name of the administrator, the ARN of the AppInstance, and the created and last-updated timestamps. All timestamps use epoch milliseconds.
      */
     AppInstanceAdmin?: Identity;
     /**
      * The ARN of the of the admin for the AppInstance.
      */
     AppInstanceArn?: ChimeArn;
+  }
+  export interface CreateAppInstanceBotRequest {
+    /**
+     * The ARN of the AppInstance request.
+     */
+    AppInstanceArn: ChimeArn;
+    /**
+     * The user's name.
+     */
+    Name?: ResourceName;
+    /**
+     * The request metadata. Limited to a 1KB string in UTF-8.
+     */
+    Metadata?: Metadata;
+    /**
+     * The unique ID for the client making the request. Use different tokens for different AppInstanceBots.
+     */
+    ClientRequestToken: ClientRequestToken;
+    /**
+     * The tags assigned to the AppInstanceBot.
+     */
+    Tags?: TagList;
+    /**
+     * Configuration information about the Amazon Lex V2 V2 bot.
+     */
+    Configuration: Configuration;
+  }
+  export interface CreateAppInstanceBotResponse {
+    /**
+     * The ARN of the AppinstanceBot.
+     */
+    AppInstanceBotArn?: ChimeArn;
   }
   export interface CreateAppInstanceRequest {
     /**
@@ -415,11 +546,11 @@ declare namespace ChimeSDKIdentity {
      */
     Metadata?: Metadata;
     /**
-     * The ClientRequestToken of the AppInstance.
+     * The unique ID of the request. Use different tokens to create different AppInstances.
      */
     ClientRequestToken: ClientRequestToken;
     /**
-     * Tags assigned to the AppInstanceUser.
+     * Tags assigned to the AppInstance.
      */
     Tags?: TagList;
   }
@@ -447,13 +578,17 @@ declare namespace ChimeSDKIdentity {
      */
     Metadata?: Metadata;
     /**
-     * The token assigned to the user requesting an AppInstance.
+     * The unique ID of the request. Use different tokens to request additional AppInstances.
      */
     ClientRequestToken: ClientRequestToken;
     /**
      * Tags assigned to the AppInstanceUser.
      */
     Tags?: TagList;
+    /**
+     * Settings that control the interval after which the AppInstanceUser is automatically deleted.
+     */
+    ExpirationSettings?: ExpirationSettings;
   }
   export interface CreateAppInstanceUserResponse {
     /**
@@ -471,6 +606,12 @@ declare namespace ChimeSDKIdentity {
      */
     AppInstanceArn: ChimeArn;
   }
+  export interface DeleteAppInstanceBotRequest {
+    /**
+     * The ARN of the AppInstanceBot being deleted.
+     */
+    AppInstanceBotArn: ChimeArn;
+  }
   export interface DeleteAppInstanceRequest {
     /**
      * The ARN of the AppInstance.
@@ -487,11 +628,11 @@ declare namespace ChimeSDKIdentity {
     /**
      * The ARN of the AppInstanceUser.
      */
-    AppInstanceUserArn: SensitiveChimeArn;
+    AppInstanceUserArn: ChimeArn;
     /**
      * The unique identifier of the AppInstanceUserEndpoint.
      */
-    EndpointId: SensitiveString64;
+    EndpointId: String64;
   }
   export interface DescribeAppInstanceAdminRequest {
     /**
@@ -509,6 +650,18 @@ declare namespace ChimeSDKIdentity {
      */
     AppInstanceAdmin?: AppInstanceAdmin;
   }
+  export interface DescribeAppInstanceBotRequest {
+    /**
+     * The ARN of the AppInstanceBot.
+     */
+    AppInstanceBotArn: ChimeArn;
+  }
+  export interface DescribeAppInstanceBotResponse {
+    /**
+     * The detials of the AppInstanceBot.
+     */
+    AppInstanceBot?: AppInstanceBot;
+  }
   export interface DescribeAppInstanceRequest {
     /**
      * The ARN of the AppInstance.
@@ -525,11 +678,11 @@ declare namespace ChimeSDKIdentity {
     /**
      * The ARN of the AppInstanceUser.
      */
-    AppInstanceUserArn: SensitiveString1600;
+    AppInstanceUserArn: String1600;
     /**
      * The unique identifier of the AppInstanceUserEndpoint.
      */
-    EndpointId: SensitiveString64;
+    EndpointId: String64;
   }
   export interface DescribeAppInstanceUserEndpointResponse {
     /**
@@ -571,6 +724,18 @@ declare namespace ChimeSDKIdentity {
   }
   export type EndpointStatus = "ACTIVE"|"INACTIVE"|string;
   export type EndpointStatusReason = "INVALID_DEVICE_TOKEN"|"INVALID_PINPOINT_ARN"|string;
+  export type ExpirationCriterion = "CREATED_TIMESTAMP"|string;
+  export type ExpirationDays = number;
+  export interface ExpirationSettings {
+    /**
+     * The period in days after which an AppInstanceUser will be automatically deleted.
+     */
+    ExpirationDays: ExpirationDays;
+    /**
+     * Specifies the conditions under which an AppInstanceUser will expire.
+     */
+    ExpirationCriterion: ExpirationCriterion;
+  }
   export interface GetAppInstanceRetentionSettingsRequest {
     /**
      * The ARN of the AppInstance.
@@ -597,6 +762,40 @@ declare namespace ChimeSDKIdentity {
      */
     Name?: ResourceName;
   }
+  export interface InvokedBy {
+    /**
+     * Sets standard messages as the bot trigger. For standard messages:    ALL: The bot processes all standard messages.    AUTO: The bot responds to ALL messages when the channel has one other non-hidden member, and responds to MENTIONS when the channel has more than one other non-hidden member.    MENTIONS: The bot processes all standard messages that have a message attribute with CHIME.mentions and a value of the bot ARN.    NONE: The bot processes no standard messages.  
+     */
+    StandardMessages: StandardMessages;
+    /**
+     * Sets targeted messages as the bot trigger. For targeted messages:    ALL: The bot processes all TargetedMessages sent to it. The bot then responds with a targeted message back to the sender.     NONE: The bot processes no targeted messages.  
+     */
+    TargetedMessages: TargetedMessages;
+  }
+  export type LexBotAliasArn = string;
+  export interface LexConfiguration {
+    /**
+     *   Deprecated. Use InvokedBy instead.  Determines whether the Amazon Lex V2 bot responds to all standard messages. Control messages are not supported.
+     */
+    RespondsTo?: RespondsTo;
+    /**
+     * Specifies the type of message that triggers a bot.
+     */
+    InvokedBy?: InvokedBy;
+    /**
+     * The ARN of the Amazon Lex V2 bot's alias. The ARN uses this format: arn:aws:lex:REGION:ACCOUNT:bot-alias/MYBOTID/MYBOTALIAS 
+     */
+    LexBotAliasArn: LexBotAliasArn;
+    /**
+     * Identifies the Amazon Lex V2 bot's language and locale. The string must match one of the supported locales in Amazon Lex V2. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages in the Amazon Lex V2 Developer Guide.
+     */
+    LocaleId: String;
+    /**
+     * The name of the welcome intent configured in the Amazon Lex V2 bot.
+     */
+    WelcomeIntent?: LexIntentName;
+  }
+  export type LexIntentName = string;
   export interface ListAppInstanceAdminsRequest {
     /**
      * The ARN of the AppInstance.
@@ -622,6 +821,34 @@ declare namespace ChimeSDKIdentity {
     AppInstanceAdmins?: AppInstanceAdminList;
     /**
      * The token returned from previous API requests until the number of administrators is reached.
+     */
+    NextToken?: NextToken;
+  }
+  export interface ListAppInstanceBotsRequest {
+    /**
+     * The ARN of the AppInstance.
+     */
+    AppInstanceArn: ChimeArn;
+    /**
+     * The maximum number of requests to return.
+     */
+    MaxResults?: MaxResults;
+    /**
+     * The token passed by previous API calls until all requested bots are returned.
+     */
+    NextToken?: NextToken;
+  }
+  export interface ListAppInstanceBotsResponse {
+    /**
+     * The ARN of the AppInstance.
+     */
+    AppInstanceArn?: ChimeArn;
+    /**
+     * The information for each requested AppInstanceBot.
+     */
+    AppInstanceBots?: AppInstanceBotList;
+    /**
+     * The token passed by previous API calls until all requested bots are returned.
      */
     NextToken?: NextToken;
   }
@@ -734,6 +961,26 @@ declare namespace ChimeSDKIdentity {
      */
     InitiateDeletionTimestamp?: Timestamp;
   }
+  export interface PutAppInstanceUserExpirationSettingsRequest {
+    /**
+     * The ARN of the AppInstanceUser.
+     */
+    AppInstanceUserArn: ChimeArn;
+    /**
+     * Settings that control the interval after which an AppInstanceUser is automatically deleted.
+     */
+    ExpirationSettings?: ExpirationSettings;
+  }
+  export interface PutAppInstanceUserExpirationSettingsResponse {
+    /**
+     * The ARN of the AppInstanceUser.
+     */
+    AppInstanceUserArn?: ChimeArn;
+    /**
+     * Settings that control the interval after which an AppInstanceUser is automatically deleted.
+     */
+    ExpirationSettings?: ExpirationSettings;
+  }
   export interface RegisterAppInstanceUserEndpointRequest {
     /**
      * The ARN of the AppInstanceUser.
@@ -750,13 +997,13 @@ declare namespace ChimeSDKIdentity {
     /**
      * The ARN of the resource to which the endpoint belongs.
      */
-    ResourceArn: SensitiveChimeArn;
+    ResourceArn: ChimeArn;
     /**
      * The attributes of an Endpoint.
      */
     EndpointAttributes: EndpointAttributes;
     /**
-     * The idempotency token for each client request. 
+     * The unique ID assigned to the request. Use different tokens to register other endpoints.
      */
     ClientRequestToken: ClientRequestToken;
     /**
@@ -768,17 +1015,21 @@ declare namespace ChimeSDKIdentity {
     /**
      * The ARN of the AppInstanceUser.
      */
-    AppInstanceUserArn?: SensitiveChimeArn;
+    AppInstanceUserArn?: ChimeArn;
     /**
      * The unique identifier of the AppInstanceUserEndpoint.
      */
-    EndpointId?: SensitiveString64;
+    EndpointId?: String64;
   }
   export type ResourceName = string;
+  export type RespondsTo = "STANDARD_MESSAGES"|string;
   export type RetentionDays = number;
   export type SensitiveChimeArn = string;
   export type SensitiveString1600 = string;
-  export type SensitiveString64 = string;
+  export type StandardMessages = "AUTO"|"ALL"|"MENTIONS"|"NONE"|string;
+  export type String = string;
+  export type String1600 = string;
+  export type String64 = string;
   export interface Tag {
     /**
      * The key in a tag.
@@ -803,6 +1054,7 @@ declare namespace ChimeSDKIdentity {
     Tags: TagList;
   }
   export type TagValue = string;
+  export type TargetedMessages = "ALL"|"NONE"|string;
   export type Timestamp = Date;
   export interface UntagResourceRequest {
     /**
@@ -813,6 +1065,30 @@ declare namespace ChimeSDKIdentity {
      * The tag keys.
      */
     TagKeys: TagKeyList;
+  }
+  export interface UpdateAppInstanceBotRequest {
+    /**
+     * The ARN of the AppInstanceBot.
+     */
+    AppInstanceBotArn: ChimeArn;
+    /**
+     * The name of the AppInstanceBot.
+     */
+    Name: ResourceName;
+    /**
+     * The metadata of the AppInstanceBot.
+     */
+    Metadata: Metadata;
+    /**
+     * The configuration for the bot update.
+     */
+    Configuration?: Configuration;
+  }
+  export interface UpdateAppInstanceBotResponse {
+    /**
+     * The ARN of the AppInstanceBot.
+     */
+    AppInstanceBotArn?: ChimeArn;
   }
   export interface UpdateAppInstanceRequest {
     /**
@@ -838,11 +1114,11 @@ declare namespace ChimeSDKIdentity {
     /**
      * The ARN of the AppInstanceUser.
      */
-    AppInstanceUserArn: SensitiveChimeArn;
+    AppInstanceUserArn: ChimeArn;
     /**
      * The unique identifier of the AppInstanceUserEndpoint.
      */
-    EndpointId: SensitiveString64;
+    EndpointId: String64;
     /**
      * The name of the AppInstanceUserEndpoint.
      */
@@ -856,11 +1132,11 @@ declare namespace ChimeSDKIdentity {
     /**
      * The ARN of the AppInstanceUser.
      */
-    AppInstanceUserArn?: SensitiveChimeArn;
+    AppInstanceUserArn?: ChimeArn;
     /**
      * The unique identifier of the AppInstanceUserEndpoint.
      */
-    EndpointId?: SensitiveString64;
+    EndpointId?: String64;
   }
   export interface UpdateAppInstanceUserRequest {
     /**
