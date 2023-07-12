@@ -1,0 +1,98 @@
+import { EndpointParameterInstructions } from "@smithy/middleware-endpoint";
+import { Command as $Command } from "@smithy/smithy-client";
+import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MetadataBearer as __MetadataBearer, MiddlewareStack } from "@smithy/types";
+import { PutResourcePolicyRequest, PutResourcePolicyResponse } from "../models/models_1";
+import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link PutResourcePolicyCommand}.
+ */
+export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest {
+}
+/**
+ * @public
+ *
+ * The output of {@link PutResourcePolicyCommand}.
+ */
+export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {
+}
+/**
+ * @public
+ * <p>Creates or updates a Systems Manager resource policy. A resource policy helps you to define the
+ *     IAM entity (for example, an Amazon Web Services account) that can manage your Systems Manager resources.
+ *    Currently, <code>OpsItemGroup</code> is the only resource that supports Systems Manager resource policies.
+ *    The resource policy for <code>OpsItemGroup</code> enables Amazon Web Services accounts to view and interact
+ *    with OpsCenter operational work items (OpsItems).</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, PutResourcePolicyCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, PutResourcePolicyCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const input = { // PutResourcePolicyRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ *   PolicyId: "STRING_VALUE",
+ *   PolicyHash: "STRING_VALUE",
+ * };
+ * const command = new PutResourcePolicyCommand(input);
+ * const response = await client.send(command);
+ * // { // PutResourcePolicyResponse
+ * //   PolicyId: "STRING_VALUE",
+ * //   PolicyHash: "STRING_VALUE",
+ * // };
+ *
+ * ```
+ *
+ * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
+ * @returns {@link PutResourcePolicyCommandOutput}
+ * @see {@link PutResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ResourcePolicyConflictException} (client fault)
+ *  <p>The hash provided in the call doesn't match the stored hash. This exception is thrown when
+ *    trying to update an obsolete policy version or when multiple requests to update a policy are
+ *    sent.</p>
+ *
+ * @throws {@link ResourcePolicyInvalidParameterException} (client fault)
+ *  <p>One or more parameters specified for the call aren't valid. Verify the parameters and their
+ *    values and try again.</p>
+ *
+ * @throws {@link ResourcePolicyLimitExceededException} (client fault)
+ *  <p>The <a>PutResourcePolicy</a> API action enforces two limits. A policy can't be
+ *    greater than 1024 bytes in size. And only one policy can be attached to
+ *    <code>OpsItemGroup</code>. Verify these limits and try again.</p>
+ *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
+ *
+ */
+export declare class PutResourcePolicyCommand extends $Command<PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput, SSMClientResolvedConfig> {
+    readonly input: PutResourcePolicyCommandInput;
+    static getEndpointParameterInstructions(): EndpointParameterInstructions;
+    /**
+     * @public
+     */
+    constructor(input: PutResourcePolicyCommandInput);
+    /**
+     * @internal
+     */
+    resolveMiddleware(clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>, configuration: SSMClientResolvedConfig, options?: __HttpHandlerOptions): Handler<PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput>;
+    /**
+     * @internal
+     */
+    private serialize;
+    /**
+     * @internal
+     */
+    private deserialize;
+}

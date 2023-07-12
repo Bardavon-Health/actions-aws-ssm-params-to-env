@@ -1,0 +1,152 @@
+import { EndpointParameterInstructions } from "@smithy/middleware-endpoint";
+import { Command as $Command } from "@smithy/smithy-client";
+import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MetadataBearer as __MetadataBearer, MiddlewareStack } from "@smithy/types";
+import { ListAssociationVersionsRequest, ListAssociationVersionsResult } from "../models/models_1";
+import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListAssociationVersionsCommand}.
+ */
+export interface ListAssociationVersionsCommandInput extends ListAssociationVersionsRequest {
+}
+/**
+ * @public
+ *
+ * The output of {@link ListAssociationVersionsCommand}.
+ */
+export interface ListAssociationVersionsCommandOutput extends ListAssociationVersionsResult, __MetadataBearer {
+}
+/**
+ * @public
+ * <p>Retrieves all versions of an association for a specific association ID.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, ListAssociationVersionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, ListAssociationVersionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const input = { // ListAssociationVersionsRequest
+ *   AssociationId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
+ * const command = new ListAssociationVersionsCommand(input);
+ * const response = await client.send(command);
+ * // { // ListAssociationVersionsResult
+ * //   AssociationVersions: [ // AssociationVersionList
+ * //     { // AssociationVersionInfo
+ * //       AssociationId: "STRING_VALUE",
+ * //       AssociationVersion: "STRING_VALUE",
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //       Name: "STRING_VALUE",
+ * //       DocumentVersion: "STRING_VALUE",
+ * //       Parameters: { // Parameters
+ * //         "<keys>": [ // ParameterValueList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       Targets: [ // Targets
+ * //         { // Target
+ * //           Key: "STRING_VALUE",
+ * //           Values: [ // TargetValues
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //       ScheduleExpression: "STRING_VALUE",
+ * //       OutputLocation: { // InstanceAssociationOutputLocation
+ * //         S3Location: { // S3OutputLocation
+ * //           OutputS3Region: "STRING_VALUE",
+ * //           OutputS3BucketName: "STRING_VALUE",
+ * //           OutputS3KeyPrefix: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       AssociationName: "STRING_VALUE",
+ * //       MaxErrors: "STRING_VALUE",
+ * //       MaxConcurrency: "STRING_VALUE",
+ * //       ComplianceSeverity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "UNSPECIFIED",
+ * //       SyncCompliance: "AUTO" || "MANUAL",
+ * //       ApplyOnlyAtCronInterval: true || false,
+ * //       CalendarNames: [ // CalendarNameOrARNList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       TargetLocations: [ // TargetLocations
+ * //         { // TargetLocation
+ * //           Accounts: [ // Accounts
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           Regions: [ // Regions
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           TargetLocationMaxConcurrency: "STRING_VALUE",
+ * //           TargetLocationMaxErrors: "STRING_VALUE",
+ * //           ExecutionRoleName: "STRING_VALUE",
+ * //           TargetLocationAlarmConfiguration: { // AlarmConfiguration
+ * //             IgnorePollAlarmFailure: true || false,
+ * //             Alarms: [ // AlarmList // required
+ * //               { // Alarm
+ * //                 Name: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //       ],
+ * //       ScheduleOffset: Number("int"),
+ * //       TargetMaps: [ // TargetMaps
+ * //         { // TargetMap
+ * //           "<keys>": [ // TargetMapValueList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
+ * ```
+ *
+ * @param ListAssociationVersionsCommandInput - {@link ListAssociationVersionsCommandInput}
+ * @returns {@link ListAssociationVersionsCommandOutput}
+ * @see {@link ListAssociationVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListAssociationVersionsCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link AssociationDoesNotExist} (client fault)
+ *  <p>The specified association doesn't exist.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
+ *
+ */
+export declare class ListAssociationVersionsCommand extends $Command<ListAssociationVersionsCommandInput, ListAssociationVersionsCommandOutput, SSMClientResolvedConfig> {
+    readonly input: ListAssociationVersionsCommandInput;
+    static getEndpointParameterInstructions(): EndpointParameterInstructions;
+    /**
+     * @public
+     */
+    constructor(input: ListAssociationVersionsCommandInput);
+    /**
+     * @internal
+     */
+    resolveMiddleware(clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>, configuration: SSMClientResolvedConfig, options?: __HttpHandlerOptions): Handler<ListAssociationVersionsCommandInput, ListAssociationVersionsCommandOutput>;
+    /**
+     * @internal
+     */
+    private serialize;
+    /**
+     * @internal
+     */
+    private deserialize;
+}

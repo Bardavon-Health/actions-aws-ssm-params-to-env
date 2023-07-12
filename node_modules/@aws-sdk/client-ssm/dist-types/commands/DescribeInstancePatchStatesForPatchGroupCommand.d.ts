@@ -1,0 +1,120 @@
+import { EndpointParameterInstructions } from "@smithy/middleware-endpoint";
+import { Command as $Command } from "@smithy/smithy-client";
+import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MetadataBearer as __MetadataBearer, MiddlewareStack } from "@smithy/types";
+import { DescribeInstancePatchStatesForPatchGroupRequest, DescribeInstancePatchStatesForPatchGroupResult } from "../models/models_0";
+import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeInstancePatchStatesForPatchGroupCommand}.
+ */
+export interface DescribeInstancePatchStatesForPatchGroupCommandInput extends DescribeInstancePatchStatesForPatchGroupRequest {
+}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInstancePatchStatesForPatchGroupCommand}.
+ */
+export interface DescribeInstancePatchStatesForPatchGroupCommandOutput extends DescribeInstancePatchStatesForPatchGroupResult, __MetadataBearer {
+}
+/**
+ * @public
+ * <p>Retrieves the high-level patch state for the managed nodes in the specified patch
+ *    group.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, DescribeInstancePatchStatesForPatchGroupCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DescribeInstancePatchStatesForPatchGroupCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const input = { // DescribeInstancePatchStatesForPatchGroupRequest
+ *   PatchGroup: "STRING_VALUE", // required
+ *   Filters: [ // InstancePatchStateFilterList
+ *     { // InstancePatchStateFilter
+ *       Key: "STRING_VALUE", // required
+ *       Values: [ // InstancePatchStateFilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Type: "Equal" || "NotEqual" || "LessThan" || "GreaterThan", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
+ * const command = new DescribeInstancePatchStatesForPatchGroupCommand(input);
+ * const response = await client.send(command);
+ * // { // DescribeInstancePatchStatesForPatchGroupResult
+ * //   InstancePatchStates: [ // InstancePatchStatesList
+ * //     { // InstancePatchState
+ * //       InstanceId: "STRING_VALUE", // required
+ * //       PatchGroup: "STRING_VALUE", // required
+ * //       BaselineId: "STRING_VALUE", // required
+ * //       SnapshotId: "STRING_VALUE",
+ * //       InstallOverrideList: "STRING_VALUE",
+ * //       OwnerInformation: "STRING_VALUE",
+ * //       InstalledCount: Number("int"),
+ * //       InstalledOtherCount: Number("int"),
+ * //       InstalledPendingRebootCount: Number("int"),
+ * //       InstalledRejectedCount: Number("int"),
+ * //       MissingCount: Number("int"),
+ * //       FailedCount: Number("int"),
+ * //       UnreportedNotApplicableCount: Number("int"),
+ * //       NotApplicableCount: Number("int"),
+ * //       OperationStartTime: new Date("TIMESTAMP"), // required
+ * //       OperationEndTime: new Date("TIMESTAMP"), // required
+ * //       Operation: "Scan" || "Install", // required
+ * //       LastNoRebootInstallOperationTime: new Date("TIMESTAMP"),
+ * //       RebootOption: "RebootIfNeeded" || "NoReboot",
+ * //       CriticalNonCompliantCount: Number("int"),
+ * //       SecurityNonCompliantCount: Number("int"),
+ * //       OtherNonCompliantCount: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
+ * ```
+ *
+ * @param DescribeInstancePatchStatesForPatchGroupCommandInput - {@link DescribeInstancePatchStatesForPatchGroupCommandInput}
+ * @returns {@link DescribeInstancePatchStatesForPatchGroupCommandOutput}
+ * @see {@link DescribeInstancePatchStatesForPatchGroupCommandInput} for command's `input` shape.
+ * @see {@link DescribeInstancePatchStatesForPatchGroupCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidFilter} (client fault)
+ *  <p>The filter name isn't valid. Verify the you entered the correct name and try again.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
+ *
+ */
+export declare class DescribeInstancePatchStatesForPatchGroupCommand extends $Command<DescribeInstancePatchStatesForPatchGroupCommandInput, DescribeInstancePatchStatesForPatchGroupCommandOutput, SSMClientResolvedConfig> {
+    readonly input: DescribeInstancePatchStatesForPatchGroupCommandInput;
+    static getEndpointParameterInstructions(): EndpointParameterInstructions;
+    /**
+     * @public
+     */
+    constructor(input: DescribeInstancePatchStatesForPatchGroupCommandInput);
+    /**
+     * @internal
+     */
+    resolveMiddleware(clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>, configuration: SSMClientResolvedConfig, options?: __HttpHandlerOptions): Handler<DescribeInstancePatchStatesForPatchGroupCommandInput, DescribeInstancePatchStatesForPatchGroupCommandOutput>;
+    /**
+     * @internal
+     */
+    private serialize;
+    /**
+     * @internal
+     */
+    private deserialize;
+}

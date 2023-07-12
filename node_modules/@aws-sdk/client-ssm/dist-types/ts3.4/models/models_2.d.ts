@@ -1,0 +1,392 @@
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import {
+  AlarmConfiguration,
+  AssociationComplianceSeverity,
+  AssociationDescription,
+  AssociationStatus,
+  AssociationSyncCompliance,
+  AttachmentsSource,
+  DocumentDescription,
+  DocumentFormat,
+  InstanceAssociationOutputLocation,
+  LoggingInfo,
+  MaintenanceWindowTaskCutoffBehavior,
+  MaintenanceWindowTaskParameterValueExpression,
+  MetadataValue,
+  OperatingSystem,
+  OpsItemDataValue,
+  OpsItemNotification,
+  PatchAction,
+  PatchComplianceLevel,
+  PatchFilterGroup,
+  PatchRuleGroup,
+  PatchSource,
+  RelatedOpsItem,
+  ResourceDataSyncSource,
+  Target,
+  TargetLocation,
+} from "./models_0";
+import {
+  DocumentReviewCommentSource,
+  InventoryFilter,
+  InventoryGroup,
+  MaintenanceWindowTaskInvocationParameters,
+  OpsFilter,
+  OpsItemStatus,
+  OpsResultAttribute,
+  ResultAttribute,
+} from "./models_1";
+import { SSMServiceException as __BaseException } from "./SSMServiceException";
+export declare class InvalidUpdate extends __BaseException {
+  readonly name: "InvalidUpdate";
+  readonly $fault: "client";
+  Message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidUpdate, __BaseException>);
+}
+export interface UpdateAssociationRequest {
+  AssociationId: string | undefined;
+  Parameters?: Record<string, string[]>;
+  DocumentVersion?: string;
+  ScheduleExpression?: string;
+  OutputLocation?: InstanceAssociationOutputLocation;
+  Name?: string;
+  Targets?: Target[];
+  AssociationName?: string;
+  AssociationVersion?: string;
+  AutomationTargetParameterName?: string;
+  MaxErrors?: string;
+  MaxConcurrency?: string;
+  ComplianceSeverity?: AssociationComplianceSeverity | string;
+  SyncCompliance?: AssociationSyncCompliance | string;
+  ApplyOnlyAtCronInterval?: boolean;
+  CalendarNames?: string[];
+  TargetLocations?: TargetLocation[];
+  ScheduleOffset?: number;
+  TargetMaps?: Record<string, string[]>[];
+  AlarmConfiguration?: AlarmConfiguration;
+}
+export interface UpdateAssociationResult {
+  AssociationDescription?: AssociationDescription;
+}
+export declare class StatusUnchanged extends __BaseException {
+  readonly name: "StatusUnchanged";
+  readonly $fault: "client";
+  constructor(opts: __ExceptionOptionType<StatusUnchanged, __BaseException>);
+}
+export interface UpdateAssociationStatusRequest {
+  Name: string | undefined;
+  InstanceId: string | undefined;
+  AssociationStatus: AssociationStatus | undefined;
+}
+export interface UpdateAssociationStatusResult {
+  AssociationDescription?: AssociationDescription;
+}
+export declare class DocumentVersionLimitExceeded extends __BaseException {
+  readonly name: "DocumentVersionLimitExceeded";
+  readonly $fault: "client";
+  Message?: string;
+  constructor(
+    opts: __ExceptionOptionType<DocumentVersionLimitExceeded, __BaseException>
+  );
+}
+export declare class DuplicateDocumentContent extends __BaseException {
+  readonly name: "DuplicateDocumentContent";
+  readonly $fault: "client";
+  Message?: string;
+  constructor(
+    opts: __ExceptionOptionType<DuplicateDocumentContent, __BaseException>
+  );
+}
+export declare class DuplicateDocumentVersionName extends __BaseException {
+  readonly name: "DuplicateDocumentVersionName";
+  readonly $fault: "client";
+  Message?: string;
+  constructor(
+    opts: __ExceptionOptionType<DuplicateDocumentVersionName, __BaseException>
+  );
+}
+export interface UpdateDocumentRequest {
+  Content: string | undefined;
+  Attachments?: AttachmentsSource[];
+  Name: string | undefined;
+  DisplayName?: string;
+  VersionName?: string;
+  DocumentVersion?: string;
+  DocumentFormat?: DocumentFormat | string;
+  TargetType?: string;
+}
+export interface UpdateDocumentResult {
+  DocumentDescription?: DocumentDescription;
+}
+export interface UpdateDocumentDefaultVersionRequest {
+  Name: string | undefined;
+  DocumentVersion: string | undefined;
+}
+export interface DocumentDefaultVersionDescription {
+  Name?: string;
+  DefaultVersion?: string;
+  DefaultVersionName?: string;
+}
+export interface UpdateDocumentDefaultVersionResult {
+  Description?: DocumentDefaultVersionDescription;
+}
+export declare const DocumentReviewAction: {
+  readonly Approve: "Approve";
+  readonly Reject: "Reject";
+  readonly SendForReview: "SendForReview";
+  readonly UpdateReview: "UpdateReview";
+};
+export type DocumentReviewAction =
+  (typeof DocumentReviewAction)[keyof typeof DocumentReviewAction];
+export interface DocumentReviews {
+  Action: DocumentReviewAction | string | undefined;
+  Comment?: DocumentReviewCommentSource[];
+}
+export interface UpdateDocumentMetadataRequest {
+  Name: string | undefined;
+  DocumentVersion?: string;
+  DocumentReviews: DocumentReviews | undefined;
+}
+export interface UpdateDocumentMetadataResponse {}
+export interface UpdateMaintenanceWindowRequest {
+  WindowId: string | undefined;
+  Name?: string;
+  Description?: string;
+  StartDate?: string;
+  EndDate?: string;
+  Schedule?: string;
+  ScheduleTimezone?: string;
+  ScheduleOffset?: number;
+  Duration?: number;
+  Cutoff?: number;
+  AllowUnassociatedTargets?: boolean;
+  Enabled?: boolean;
+  Replace?: boolean;
+}
+export interface UpdateMaintenanceWindowResult {
+  WindowId?: string;
+  Name?: string;
+  Description?: string;
+  StartDate?: string;
+  EndDate?: string;
+  Schedule?: string;
+  ScheduleTimezone?: string;
+  ScheduleOffset?: number;
+  Duration?: number;
+  Cutoff?: number;
+  AllowUnassociatedTargets?: boolean;
+  Enabled?: boolean;
+}
+export interface UpdateMaintenanceWindowTargetRequest {
+  WindowId: string | undefined;
+  WindowTargetId: string | undefined;
+  Targets?: Target[];
+  OwnerInformation?: string;
+  Name?: string;
+  Description?: string;
+  Replace?: boolean;
+}
+export interface UpdateMaintenanceWindowTargetResult {
+  WindowId?: string;
+  WindowTargetId?: string;
+  Targets?: Target[];
+  OwnerInformation?: string;
+  Name?: string;
+  Description?: string;
+}
+export interface UpdateMaintenanceWindowTaskRequest {
+  WindowId: string | undefined;
+  WindowTaskId: string | undefined;
+  Targets?: Target[];
+  TaskArn?: string;
+  ServiceRoleArn?: string;
+  TaskParameters?: Record<
+    string,
+    MaintenanceWindowTaskParameterValueExpression
+  >;
+  TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters;
+  Priority?: number;
+  MaxConcurrency?: string;
+  MaxErrors?: string;
+  LoggingInfo?: LoggingInfo;
+  Name?: string;
+  Description?: string;
+  Replace?: boolean;
+  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+  AlarmConfiguration?: AlarmConfiguration;
+}
+export interface UpdateMaintenanceWindowTaskResult {
+  WindowId?: string;
+  WindowTaskId?: string;
+  Targets?: Target[];
+  TaskArn?: string;
+  ServiceRoleArn?: string;
+  TaskParameters?: Record<
+    string,
+    MaintenanceWindowTaskParameterValueExpression
+  >;
+  TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters;
+  Priority?: number;
+  MaxConcurrency?: string;
+  MaxErrors?: string;
+  LoggingInfo?: LoggingInfo;
+  Name?: string;
+  Description?: string;
+  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+  AlarmConfiguration?: AlarmConfiguration;
+}
+export interface UpdateManagedInstanceRoleRequest {
+  InstanceId: string | undefined;
+  IamRole: string | undefined;
+}
+export interface UpdateManagedInstanceRoleResult {}
+export interface UpdateOpsItemRequest {
+  Description?: string;
+  OperationalData?: Record<string, OpsItemDataValue>;
+  OperationalDataToDelete?: string[];
+  Notifications?: OpsItemNotification[];
+  Priority?: number;
+  RelatedOpsItems?: RelatedOpsItem[];
+  Status?: OpsItemStatus | string;
+  OpsItemId: string | undefined;
+  Title?: string;
+  Category?: string;
+  Severity?: string;
+  ActualStartTime?: Date;
+  ActualEndTime?: Date;
+  PlannedStartTime?: Date;
+  PlannedEndTime?: Date;
+  OpsItemArn?: string;
+}
+export interface UpdateOpsItemResponse {}
+export declare class OpsMetadataKeyLimitExceededException extends __BaseException {
+  readonly name: "OpsMetadataKeyLimitExceededException";
+  readonly $fault: "client";
+  constructor(
+    opts: __ExceptionOptionType<
+      OpsMetadataKeyLimitExceededException,
+      __BaseException
+    >
+  );
+}
+export interface UpdateOpsMetadataRequest {
+  OpsMetadataArn: string | undefined;
+  MetadataToUpdate?: Record<string, MetadataValue>;
+  KeysToDelete?: string[];
+}
+export interface UpdateOpsMetadataResult {
+  OpsMetadataArn?: string;
+}
+export interface UpdatePatchBaselineRequest {
+  BaselineId: string | undefined;
+  Name?: string;
+  GlobalFilters?: PatchFilterGroup;
+  ApprovalRules?: PatchRuleGroup;
+  ApprovedPatches?: string[];
+  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
+  ApprovedPatchesEnableNonSecurity?: boolean;
+  RejectedPatches?: string[];
+  RejectedPatchesAction?: PatchAction | string;
+  Description?: string;
+  Sources?: PatchSource[];
+  Replace?: boolean;
+}
+export interface UpdatePatchBaselineResult {
+  BaselineId?: string;
+  Name?: string;
+  OperatingSystem?: OperatingSystem | string;
+  GlobalFilters?: PatchFilterGroup;
+  ApprovalRules?: PatchRuleGroup;
+  ApprovedPatches?: string[];
+  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
+  ApprovedPatchesEnableNonSecurity?: boolean;
+  RejectedPatches?: string[];
+  RejectedPatchesAction?: PatchAction | string;
+  CreatedDate?: Date;
+  ModifiedDate?: Date;
+  Description?: string;
+  Sources?: PatchSource[];
+}
+export declare class ResourceDataSyncConflictException extends __BaseException {
+  readonly name: "ResourceDataSyncConflictException";
+  readonly $fault: "client";
+  Message?: string;
+  constructor(
+    opts: __ExceptionOptionType<
+      ResourceDataSyncConflictException,
+      __BaseException
+    >
+  );
+}
+export interface UpdateResourceDataSyncRequest {
+  SyncName: string | undefined;
+  SyncType: string | undefined;
+  SyncSource: ResourceDataSyncSource | undefined;
+}
+export interface UpdateResourceDataSyncResult {}
+export interface UpdateServiceSettingRequest {
+  SettingId: string | undefined;
+  SettingValue: string | undefined;
+}
+export interface UpdateServiceSettingResult {}
+export interface InventoryAggregator {
+  Expression?: string;
+  Aggregators?: InventoryAggregator[];
+  Groups?: InventoryGroup[];
+}
+export interface OpsAggregator {
+  AggregatorType?: string;
+  TypeName?: string;
+  AttributeName?: string;
+  Values?: Record<string, string>;
+  Filters?: OpsFilter[];
+  Aggregators?: OpsAggregator[];
+}
+export interface GetInventoryRequest {
+  Filters?: InventoryFilter[];
+  Aggregators?: InventoryAggregator[];
+  ResultAttributes?: ResultAttribute[];
+  NextToken?: string;
+  MaxResults?: number;
+}
+export interface GetOpsSummaryRequest {
+  SyncName?: string;
+  Filters?: OpsFilter[];
+  Aggregators?: OpsAggregator[];
+  ResultAttributes?: OpsResultAttribute[];
+  NextToken?: string;
+  MaxResults?: number;
+}
+export declare const UpdateAssociationRequestFilterSensitiveLog: (
+  obj: UpdateAssociationRequest
+) => any;
+export declare const UpdateAssociationResultFilterSensitiveLog: (
+  obj: UpdateAssociationResult
+) => any;
+export declare const UpdateAssociationStatusResultFilterSensitiveLog: (
+  obj: UpdateAssociationStatusResult
+) => any;
+export declare const UpdateMaintenanceWindowRequestFilterSensitiveLog: (
+  obj: UpdateMaintenanceWindowRequest
+) => any;
+export declare const UpdateMaintenanceWindowResultFilterSensitiveLog: (
+  obj: UpdateMaintenanceWindowResult
+) => any;
+export declare const UpdateMaintenanceWindowTargetRequestFilterSensitiveLog: (
+  obj: UpdateMaintenanceWindowTargetRequest
+) => any;
+export declare const UpdateMaintenanceWindowTargetResultFilterSensitiveLog: (
+  obj: UpdateMaintenanceWindowTargetResult
+) => any;
+export declare const UpdateMaintenanceWindowTaskRequestFilterSensitiveLog: (
+  obj: UpdateMaintenanceWindowTaskRequest
+) => any;
+export declare const UpdateMaintenanceWindowTaskResultFilterSensitiveLog: (
+  obj: UpdateMaintenanceWindowTaskResult
+) => any;
+export declare const UpdatePatchBaselineRequestFilterSensitiveLog: (
+  obj: UpdatePatchBaselineRequest
+) => any;
+export declare const UpdatePatchBaselineResultFilterSensitiveLog: (
+  obj: UpdatePatchBaselineResult
+) => any;

@@ -1,0 +1,105 @@
+import { EndpointParameterInstructions } from "@smithy/middleware-endpoint";
+import { Command as $Command } from "@smithy/smithy-client";
+import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MetadataBearer as __MetadataBearer, MiddlewareStack } from "@smithy/types";
+import { RegisterTargetWithMaintenanceWindowRequest, RegisterTargetWithMaintenanceWindowResult } from "../models/models_1";
+import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link RegisterTargetWithMaintenanceWindowCommand}.
+ */
+export interface RegisterTargetWithMaintenanceWindowCommandInput extends RegisterTargetWithMaintenanceWindowRequest {
+}
+/**
+ * @public
+ *
+ * The output of {@link RegisterTargetWithMaintenanceWindowCommand}.
+ */
+export interface RegisterTargetWithMaintenanceWindowCommandOutput extends RegisterTargetWithMaintenanceWindowResult, __MetadataBearer {
+}
+/**
+ * @public
+ * <p>Registers a target with a maintenance window.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, RegisterTargetWithMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, RegisterTargetWithMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const input = { // RegisterTargetWithMaintenanceWindowRequest
+ *   WindowId: "STRING_VALUE", // required
+ *   ResourceType: "INSTANCE" || "RESOURCE_GROUP", // required
+ *   Targets: [ // Targets // required
+ *     { // Target
+ *       Key: "STRING_VALUE",
+ *       Values: [ // TargetValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   OwnerInformation: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ * };
+ * const command = new RegisterTargetWithMaintenanceWindowCommand(input);
+ * const response = await client.send(command);
+ * // { // RegisterTargetWithMaintenanceWindowResult
+ * //   WindowTargetId: "STRING_VALUE",
+ * // };
+ *
+ * ```
+ *
+ * @param RegisterTargetWithMaintenanceWindowCommandInput - {@link RegisterTargetWithMaintenanceWindowCommandInput}
+ * @returns {@link RegisterTargetWithMaintenanceWindowCommandOutput}
+ * @see {@link RegisterTargetWithMaintenanceWindowCommandInput} for command's `input` shape.
+ * @see {@link RegisterTargetWithMaintenanceWindowCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link DoesNotExistException} (client fault)
+ *  <p>Error returned when the ID specified for a resource, such as a maintenance window or patch
+ *    baseline, doesn't exist.</p>
+ *          <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
+ *     <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * @throws {@link IdempotentParameterMismatch} (client fault)
+ *  <p>Error returned when an idempotent operation is retried and the parameters don't match the
+ *    original call to the API with the same idempotency token. </p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Error returned when the caller has exceeded the default resource quotas. For example, too
+ *    many maintenance windows or patch baselines have been created.</p>
+ *          <p>For information about resource quotas in Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
+ *     <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
+ *
+ */
+export declare class RegisterTargetWithMaintenanceWindowCommand extends $Command<RegisterTargetWithMaintenanceWindowCommandInput, RegisterTargetWithMaintenanceWindowCommandOutput, SSMClientResolvedConfig> {
+    readonly input: RegisterTargetWithMaintenanceWindowCommandInput;
+    static getEndpointParameterInstructions(): EndpointParameterInstructions;
+    /**
+     * @public
+     */
+    constructor(input: RegisterTargetWithMaintenanceWindowCommandInput);
+    /**
+     * @internal
+     */
+    resolveMiddleware(clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>, configuration: SSMClientResolvedConfig, options?: __HttpHandlerOptions): Handler<RegisterTargetWithMaintenanceWindowCommandInput, RegisterTargetWithMaintenanceWindowCommandOutput>;
+    /**
+     * @internal
+     */
+    private serialize;
+    /**
+     * @internal
+     */
+    private deserialize;
+}
