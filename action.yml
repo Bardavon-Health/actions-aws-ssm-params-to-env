@@ -21,5 +21,5 @@ inputs:
     description: 'Indicates if extracted values should be masked in GitHub action logs'
     required: false
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'index.js'
