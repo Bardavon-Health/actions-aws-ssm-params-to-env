@@ -16,7 +16,7 @@ This GitHub Action retrieves one or more AWS Systems Manager Parameters from a g
 ​ To use the action, add a step to your workflow using the following syntax:
 
 ```yaml
-- uses: Bardavon-Health/actions-aws-ssm-params-to-env@v1.3.2
+- uses: Bardavon-Health/actions-aws-ssm-params-to-env@v1.4.0
   with:
     ssm-path: /path/to/parameter # required
     get-children: true           # optional, default false
@@ -64,7 +64,7 @@ Assume an IAM role using OIDC, then set an SSM param to env vars using no option
     aws-region: us-east-2
 
 - name: Set SSM Params as Env Vars
-  uses: Bardavon-Health/actions-aws-ssm-params-to-env@v1.3.2
+  uses: Bardavon-Health/actions-aws-ssm-params-to-env@v1.4.0
   with:
     ssm-path: /path/to/parameter
 ```
@@ -79,7 +79,7 @@ Assume an IAM role using OIDC, then set an encrypted SSM param (and its children
     aws-region: us-east-2
 
 - name: Set SSM Params as Env Vars
-  uses: Bardavon-Health/actions-aws-ssm-params-to-env@v1.3.2
+  uses: Bardavon-Health/actions-aws-ssm-params-to-env@v1.4.0
   with:
     ssm-path: /path/to/parameter
     get-children: true
@@ -93,7 +93,7 @@ Assume an IAM role using OIDC, then set an encrypted SSM param (and its children
 Set SSM param to env vars using an AWS Access Key, rather than OIDC (not reccomended).
 ```yaml
 - name: Set SSM Params as Env Vars
-  uses: Bardavon-Health/actions-aws-ssm-params-to-env@v1.3.2
+  uses: Bardavon-Health/actions-aws-ssm-params-to-env@v1.4.0
   env:
     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
