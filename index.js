@@ -30,7 +30,7 @@ async function run_action()
                 core.debug(`parsedValue: ${parsedValue}`);
                 // Set environment variable with ssmPath name as the env variable
                 var split = param.Name.split('/');
-                var envVarName = prefix + split[split.length - 1];
+                var envVarName = prefix + split[split.length - 1].toUpperCase().replace(/-/g, '_');
                 core.debug(`Using prefix + end of ssmPath for env var name: ${envVarName}`);
                 setEnvironmentVar(envVarName, parsedValue, maskValues);
             }
